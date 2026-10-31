@@ -1,0 +1,3 @@
+Polices Inter et Inter Tight (Rasmus Andersson), sous licence SIL Open Font License 1.1.
+Texte complet : https://openfontlicense.org — Sources : https://github.com/rsms/inter
+Fichiers réduits au jeu de caractères latin pour le site.

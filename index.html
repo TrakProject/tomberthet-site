@@ -1,0 +1,803 @@
+<!doctype html>
+<!--
+  tomberthet.fr : site statique, sans build. Publier UNIQUEMENT le dossier site/.
+  Textes : source unique dans textes/message-central.md. Chiffres identiques aux PDF (build/build.py) :
+  12 000+ h, 3 entreprises, 8 métiers, 10+ projets livrés, ≈ 480 écrans, 1 000+ agents, Station F Fighters S26, 3 à 12 mois.
+  Polices : sous-ensemble latin dans assets/fonts (un caractère rare tombe en police de secours).
+  Animations (toutes coupées si « réduire les animations » est activé, et en pause hors écran) :
+    data-reveal (apparition) · data-count (compteur) · data-speed (parallaxe) · data-words (phrase)
+    #net (réseau du héros, réagit à la souris) · .flows (workflows par métier) · .orbit (métiers autour de l'IA)
+    .paper (halo souris) · #manifest (la carte sombre s'étend en plein écran)
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tom Berthet · L’IA dans le travail des équipes</title>
+<meta name="description" content="Cofondateur de trois entreprises, j’installe l’IA dans le travail de chaque salarié : audit des postes, outils, formation, résultat mesuré. Missions de 3 à 12 mois pour startups et PME.">
+<meta property="og:title" content="Tom Berthet · Je mets l’IA au travail dans votre entreprise">
+<meta property="og:description" content="Audit de chaque poste, outils, formation de chaque salarié, résultat mesuré. Missions de 3 à 12 mois.">
+<meta property="og:image" content="https://tomberthet.fr/assets/og.jpg">
+<meta property="og:url" content="https://tomberthet.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Tom Berthet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAFB">
+<link rel="canonical" href="https://tomberthet.fr/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Head of AI Operations (missions freelance)","url":"https://tomberthet.fr/","sameAs":["https://www.linkedin.com/in/tomberthet1/"],"knowsAbout":["Intégration de l’IA en entreprise","Formation des équipes à l’IA","Automatisation","Agents IA"]}</script>
+<script>
+  // JS actif : on prépare les apparitions. Filet de sécurité : si le script principal échoue, tout s'affiche après 3 s.
+  document.documentElement.classList.add('js');
+  setTimeout(() => document.documentElement.classList.add('rv-fallback'), 3000);
+</script>
+<style>
+/* Polices des documents, servies par le site (pas de service tiers) */
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(assets/fonts/Inter-400.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(assets/fonts/Inter-500.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(assets/fonts/Inter-600.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:700;font-display:swap;src:url(assets/fonts/Inter-700.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:500;font-display:swap;src:url(assets/fonts/InterTight-500.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:600;font-display:swap;src:url(assets/fonts/InterTight-600.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:700;font-display:swap;src:url(assets/fonts/InterTight-700.woff2) format("woff2")}
+
+/* ===== Jetons : identiques aux documents ===== */
+:root{
+  --ink:#1D1D1F; --body:#34383F; --quiet:#6E6E73; --line:#E5E5EA;
+  --bg:#FAFAFB; --soft:#EEEFF2; --card:#FFF;
+  --night:#131314; --n2:#1C1C1E; --nline:#2C2C2E; --nt:#F5F5F7; --ng:#A1A1A6;
+  --r-lg:25px; --r-xl:37px;
+  --shadow:0 0 0 1px #0000000A,0 1px 2px #0000000A,0 14px 28px #2026300D;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --dark-grad:linear-gradient(140deg,#34373C,#131416);
+  /* Grain monochrome, posé à faible opacité sur les fonds sombres */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-feature-settings:"calt" 0;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:#fff;padding:8px 12px;border-radius:10px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:8px}
+.manifest :focus-visible,.deep :focus-visible,.contact :focus-visible,footer :focus-visible{outline-color:#fff}
+section{position:relative}
+section[id]{scroll-margin-top:68px}
+.paused,.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+
+/* Titres : un poids léger + un poids gras, comme les documents */
+.h{font-weight:400;letter-spacing:-.045em;line-height:1.04}
+.h strong{font-weight:700;display:block}
+.h-xl{font-size:clamp(42px,6.6vw,96px)}
+.h-l{font-size:clamp(36px,5.2vw,70px)}
+.lead{font-size:clamp(17px,1.6vw,21px);line-height:1.5;color:var(--body);margin-top:22px;max-width:560px;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:99px;font-weight:600;font-size:16px;letter-spacing:-.01em;transition:transform .3s var(--ease),box-shadow .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn.dark{background:var(--dark-grad);color:#fff;box-shadow:0 8px 18px #15171B26}
+.btn.light{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+
+/* Cartes blanches + halo qui suit la souris */
+.paper{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);position:relative;overflow:hidden;isolation:isolate}
+.paper::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#E9ECF3,transparent 70%)}
+.paper:hover::after{opacity:1}
+
+/* ===== Barre du haut ===== */
+.topbar{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,box-shadow .3s}
+.topbar.scrolled{background:#FAFAFBD6;backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);box-shadow:0 1px 0 var(--line)}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.topbar b{font:600 18px/1 "Inter Tight";letter-spacing:-.03em}
+.topbar .btn{height:40px;padding:0 18px;font-size:14px}
+
+/* ===== Barre « Comprendre → Intégrer » (signature des documents) ===== */
+.rail{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140%);z-index:20;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:6px;border-radius:20px;background:#EDEEF1D9;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 0 0 1px #FFFFFF80,0 10px 30px #1A1D2414;transition:transform .6s var(--ease),visibility 0s .6s;visibility:hidden}
+.rail.show{transform:translate(-50%,0);visibility:visible;transition:transform .6s var(--ease)}
+.rail a{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:9px;height:46px;padding:0 18px;border-radius:15px;font-size:14.5px;font-weight:500;letter-spacing:-.012em;color:#5B6070;transition:color .35s}
+.rail a svg{width:19px;height:19px;flex:none}
+.rail a.on{color:#fff}
+.rail .ind{position:absolute;z-index:0;top:6px;left:0;height:46px;border-radius:15px;background:var(--dark-grad);box-shadow:0 5px 10px #15171B22;transition:transform .5s var(--ease),width .5s var(--ease),opacity .3s;opacity:0}
+
+/* ===== Héros ===== */
+.hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden}
+.hero .glow{position:absolute;inset:-20% -10% auto;height:120%;background:radial-gradient(40% 40% at 72% 38%,#E3E6EE 0%,transparent 70%),radial-gradient(35% 35% at 18% 72%,#EEF0F4 0%,transparent 70%);pointer-events:none}
+#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;-webkit-mask-image:radial-gradient(80% 75% at 62% 45%,#000 30%,transparent 82%);mask-image:radial-gradient(80% 75% at 62% 45%,#000 30%,transparent 82%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:64px;align-items:center;width:100%}
+.hero h1.h-xl{font-size:clamp(38px,4.3vw,66px)}
+.hero .who{font:500 15px/1 Inter;color:var(--quiet);letter-spacing:-.01em}
+.hero h1{margin-top:22px}
+.line{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.1em}
+.line>span{display:inline-block}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+/* Portrait : inclinaison et décalage pilotés par variables (souris + défilement), fondu à l'arrivée */
+.portrait{--rx:0deg;--ry:0deg;--ty:0px;padding:10px;border-radius:var(--r-xl);background:#fff;box-shadow:0 30px 60px #20293822,0 4px 12px #20293810;position:relative;transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) rotate(3deg) translateY(var(--ty));transition:transform .35s var(--ease),opacity 1s var(--ease) .2s}
+.portrait img{border-radius:29px;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;width:100%;height:auto}
+.js .portrait{opacity:0}
+.js .loaded .portrait,.rv-fallback .portrait{opacity:1}
+.badge{position:absolute;left:-28px;bottom:34px;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border-radius:99px;background:#fff;box-shadow:0 12px 30px #20293822;font-size:14px;font-weight:600;letter-spacing:-.015em;transform:rotate(-3deg)}
+.badge i{width:26px;height:26px;border-radius:50%;background:var(--dark-grad);display:grid;place-items:center}
+.badge i::after{content:"";width:8px;height:8px;border-radius:50%;background:#7CF29A}
+
+/* Preuves */
+.proofs{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.proof{padding:22px 26px}
+.proof b{display:block;font:600 34px/1.1 Inter;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.proof>span{display:block;font-size:14px;color:var(--body);margin-top:4px}
+
+/* ===== Phrase révélée au défilement : une carte sombre qui s'étend en plein écran ===== */
+.manifest{position:relative;background:var(--night);color:var(--nt);overflow:clip;margin:0 var(--mm,16px);border-radius:var(--mr,37px)}
+.manifest::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.06;pointer-events:none}
+.js .manifest{height:160svh}
+.manifest .sticky{padding:140px 0;position:relative}
+.js .manifest .sticky{position:sticky;top:0;height:100svh;display:flex;align-items:center;padding:0}
+.js .manifest .sticky>.wrap{width:100%}
+.manifest .spot{position:absolute;left:50%;top:50%;width:80vmin;height:80vmin;translate:-50% -50%;background:radial-gradient(closest-side,#2C2F37,transparent);pointer-events:none}
+.manifest p{font:600 clamp(34px,5.4vw,78px)/1.08 "Inter Tight";letter-spacing:-.04em;max-width:17ch;position:relative}
+.manifest .w{opacity:.28;transition:opacity .25s linear}
+.manifest .w.lit{opacity:1}
+
+/* ===== Sections ===== */
+.sec{padding:140px 0}
+.sec-head{max-width:880px}
+.sec-head p{font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:var(--body);margin-top:20px;max-width:600px}
+
+/* Comparatif : en surface / dans le travail */
+.vs{display:grid;grid-template-columns:.85fr 1.15fr;gap:17px;margin-top:64px}
+.vs .card{border-radius:var(--r-xl);padding:34px;min-height:400px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.vs small{font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;position:relative}
+.vs h3{font:600 28px/1.1 Inter;letter-spacing:-.035em;margin-top:8px;position:relative}
+.surface{background:#fff;box-shadow:var(--shadow);color:var(--ink)}
+.surface small{color:var(--quiet)}
+.chat{margin-top:auto;display:flex;flex-direction:column;gap:10px;opacity:.75}
+.bub{max-width:80%;padding:12px 16px;border-radius:18px;font-size:15px;line-height:1.35}
+.bub.me{align-self:flex-end;background:var(--soft);border-bottom-right-radius:6px}
+.bub.ai{background:#fff;box-shadow:0 0 0 1px var(--line);border-bottom-left-radius:6px;display:flex;flex-direction:column;gap:7px;width:70%}
+.bub.ai i{display:block;height:8px;border-radius:4px;background:var(--soft)}
+.bub.ai i:nth-child(2){width:80%}.bub.ai i:nth-child(3){width:55%}
+.deep{background:var(--night);color:var(--nt)}
+.deep::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 75% 100%,#2A2C33,transparent 70%);pointer-events:none}
+.deep::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.06;pointer-events:none}
+.deep small{color:var(--ng)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:22px;position:relative;z-index:1}
+.tabs button{font:inherit;font-size:14px;font-weight:500;color:var(--ng);background:var(--n2);border:0;border-radius:99px;padding:8px 14px;cursor:pointer;box-shadow:0 0 0 1px var(--nline);transition:all .3s}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:none}
+.flows{position:relative;z-index:1;margin-top:auto;padding-top:28px}
+/* La ligne se remplit au rythme des étapes (--p de 0 à 1) */
+.pipe-box{position:relative}
+.pipe-box::before,.pipe-box::after{content:"";position:absolute;left:12%;width:76%;top:23px;height:2px;border-radius:2px}
+.pipe-box::before{background:var(--nline)}
+.pipe-box::after{background:#fff;box-shadow:0 0 12px #FFFFFF66;transform-origin:left;transform:scaleX(var(--p,0));transition:transform .8s linear}
+.pipe{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative;z-index:1}
+.pipe li{position:relative;text-align:center;font-size:14px;line-height:1.3;color:var(--ng);transition:color .4s}
+.pipe li b{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 12px;border-radius:15px;background:var(--n2);box-shadow:0 0 0 1px var(--nline);font-size:15px;color:#fff;transition:background .4s,box-shadow .4s,color .4s}
+.pipe li.on{color:#fff}
+.pipe li.on b{background:#fff;color:var(--ink);box-shadow:0 0 24px #FFFFFF40}
+.pipe.swap li{animation:fadeup .5s var(--ease) both}
+.pipe.swap li:nth-child(2){animation-delay:.05s}.pipe.swap li:nth-child(3){animation-delay:.1s}.pipe.swap li:nth-child(4){animation-delay:.15s}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}}
+
+/* Parcours */
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:64px}
+.step-c{padding:26px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
+.step-c small{font-size:13px;color:var(--quiet);font-weight:500}
+.step-c h3{font:600 26px/1.1 Inter;letter-spacing:-.035em}
+.step-c p{font-size:14.5px;color:var(--body);margin-top:6px}
+.also{margin-top:20px;font-size:15px;color:var(--quiet)}
+.also b{color:var(--ink);font-weight:600}
+
+/* TRAK */
+.trak{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:72px}
+.phones{display:flex;justify-content:center;gap:16px;padding:46px 30px;border-radius:var(--r-xl);background:var(--night);position:relative;overflow:hidden}
+.phones::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 40%,#2A2C33,transparent 70%);pointer-events:none}
+.phones::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.06;pointer-events:none}
+.phone{position:relative;z-index:1;width:31%;max-width:170px;aspect-ratio:9/20;border-radius:26px;overflow:hidden;background:#17181B;box-shadow:0 18px 30px #00000055;will-change:transform}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.metric{padding:28px}
+.metric b{display:block;font:600 clamp(44px,5vw,64px)/1 Inter;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.metric>span{display:block;font-size:15px;color:var(--body);margin-top:10px}
+
+/* Orbite des métiers autour de l'IA : une seule rotation, étiquettes toujours droites */
+.orbit-wrap{display:grid;place-items:center;margin-top:48px}
+.orbit{--s:min(640px,92vw);position:relative;width:var(--s);height:var(--s)}
+.orbit .ring{position:absolute;inset:var(--i);border-radius:50%;border:1px dashed #C9CCD4}
+.orbit .core{position:absolute;inset:39%;border-radius:50%;background:var(--dark-grad);display:grid;place-items:center;color:#fff;font:700 clamp(22px,3vw,34px)/1 Inter;letter-spacing:-.04em;box-shadow:0 20px 50px #15171B40,0 0 0 14px #1D1D1F0A,0 0 0 30px #1D1D1F06}
+.orbit .spin{position:absolute;inset:0;animation:spin 80s linear infinite}
+.orbit ul{list-style:none}
+.orbit li{position:absolute;left:50%;top:50%;transform:rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a)))}
+.orbit li span{display:block;transform:translate(-50%,-50%);animation:unspin 80s linear infinite}
+.orbit:hover .spin,.orbit:hover li span{animation-play-state:paused}
+.orbit em{display:block;white-space:nowrap;font-style:normal;padding:10px 16px;border-radius:99px;background:#fff;box-shadow:var(--shadow);font-size:clamp(11.5px,1.4vw,15px);font-weight:600;letter-spacing:-.015em}
+.orbit em.k{background:var(--dark-grad);color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes unspin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+/* Sur téléphone : deux bandes qui défilent à la place de l'orbite */
+.chips{display:none}
+.chips .row{display:flex;gap:8px;width:max-content;animation:marq 40s linear infinite}
+.chips .row.rev{animation-direction:reverse}
+.chips em{display:block;white-space:nowrap;font-style:normal;padding:10px 16px;border-radius:99px;background:#fff;box-shadow:var(--shadow);font-size:15px;font-weight:600;letter-spacing:-.015em}
+.chips em.k{background:var(--dark-grad);color:#fff}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+.film{margin:100px auto 0;width:100%;border-radius:var(--r-xl);overflow:hidden;position:relative;will-change:transform}
+.film img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.film figcaption{position:absolute;left:32px;bottom:28px;color:#fff;text-shadow:0 2px 20px #0008}
+.film figcaption b{display:block;font:700 clamp(26px,3vw,40px)/1.05 Inter;letter-spacing:-.04em}
+.film figcaption span{font-size:16px;opacity:.85}
+
+/* LYNEWED */
+.ly{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch;margin-top:72px}
+.ly .shot{padding:12px}
+.ly .shot img{border-radius:18px;width:100%;height:100%;object-fit:cover}
+.quote{border-radius:var(--r-xl);background:var(--dark-grad);color:#fff;padding:44px;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;position:relative;overflow:hidden}
+.quote::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.06;pointer-events:none}
+.quote p{font:500 clamp(26px,2.8vw,38px)/1.18 Inter;letter-spacing:-.035em;position:relative}
+.quote small{font-size:15px;color:var(--ng);font-weight:500;position:relative}
+
+/* Méthode : les étapes s'allument quand la barre les atteint */
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-top:72px}
+.progress{position:absolute;left:0;right:0;top:-28px;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.mstep{padding:28px 26px 30px;min-height:240px}
+.mstep .n{position:absolute;right:22px;top:14px;font:700 68px/1 Inter;letter-spacing:-.05em;color:#F1F2F5;z-index:-1;transition:color .6s}
+.mstep.on .n{color:#E2E4EA}
+.mstep svg{width:30px;height:30px;color:#B8BBC4;transition:color .6s}
+.mstep.on svg{color:var(--ink)}
+.mstep h3{font:600 25px/1.1 Inter;letter-spacing:-.035em;margin-top:22px}
+.mstep p{font-size:15px;line-height:1.5;color:var(--body);margin-top:12px}
+.measures{margin-top:17px;padding:30px 32px;border-radius:var(--r-lg);background:var(--soft);display:grid;grid-template-columns:1.2fr repeat(4,1fr);gap:20px;align-items:center}
+.measures h3{font:500 23px/1.15 Inter;letter-spacing:-.03em}
+.measures span{font-size:16px;font-weight:600;letter-spacing:-.015em;display:flex;align-items:center;gap:10px}
+.measures span::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--ink)}
+/* Format : une bande de texte, sans cartes */
+.format{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px}
+.fmt{padding:4px 24px}
+.fmt+.fmt{border-left:1px solid var(--line)}
+.fmt:first-child{padding-left:0}
+.fmt b{display:block;font:600 28px/1.05 Inter;letter-spacing:-.04em}
+.fmt span{display:block;font-size:14.5px;color:var(--body);margin-top:6px}
+
+/* Contact : halo lumineux qui dérive lentement + grain */
+.contact{background:var(--night);color:var(--nt);padding:170px 0 150px;text-align:center;overflow:hidden}
+.contact::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.06;pointer-events:none}
+.contact .orb{position:absolute;inset:-30%;background:radial-gradient(30% 30% at 40% 45%,#4A4F5C59,transparent 70%),radial-gradient(25% 25% at 62% 55%,#3A3E4866,transparent 70%);animation:drift 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift{to{transform:translate(6%,-4%) rotate(8deg)}}
+.contact .h{color:var(--ng);position:relative}
+.contact .h strong{color:#fff}
+.contact .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:48px;position:relative}
+.contact .btn.ghost{background:var(--n2);color:#fff;box-shadow:0 0 0 1px var(--nline)}
+.contact .docs{margin-top:40px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;font-size:14.5px;color:var(--ng);position:relative}
+.contact .docs a:hover{color:#fff}
+footer{background:var(--night);color:#8E8E93;font-size:13px;padding:0 0 120px;text-align:center}
+
+/* ===== Apparitions : animation CSS (le titre ne dépend pas du script) ===== */
+.js .line>span{transform:translateY(105%);animation:rise 1.1s var(--ease) var(--d,0s) forwards}
+@keyframes rise{to{transform:none}}
+.js [data-reveal]{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.js [data-reveal].in,.rv-fallback [data-reveal]{opacity:1;transform:none}
+
+/* ===== Mobile ===== */
+@media (max-width:960px){
+  .wrap{padding:0 20px}
+  .hero .wrap,.trak,.ly,.vs{grid-template-columns:1fr}
+  .hero .wrap{gap:44px}
+  .portrait{max-width:250px;margin:0 auto}
+  .badge{left:-18px}
+  .steps{grid-template-columns:1fr 1fr}
+  .format{grid-template-columns:1fr 1fr;row-gap:24px}
+  .fmt:nth-child(3){border-left:0;padding-left:0}
+  .measures{grid-template-columns:1fr 1fr}
+  .measures h3{grid-column:1/-1}
+  .sec{padding:110px 0}
+  .manifest{margin:0;border-radius:0}
+  .rail{grid-template-columns:repeat(5,auto)}
+  .rail a span{display:none}
+  .rail a.on span{display:inline}
+  .rail a{padding:0 14px}
+}
+@media (max-width:620px){
+  .orbit-wrap{display:none}
+  .chips{display:flex;flex-direction:column;gap:10px;margin:40px -16px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .proofs{grid-template-columns:1fr;gap:10px}
+  .proof{display:flex;align-items:baseline;gap:12px;padding:18px 20px}
+  .proof>span{margin:0}
+  .path,.steps,.metrics{grid-template-columns:1fr}
+  .progress{display:none}
+  .mstep{min-height:0}
+  .phones{padding:28px 16px;gap:10px}
+  .vs .card{padding:26px;min-height:360px}
+  .pipe{grid-template-columns:1fr 1fr;row-gap:18px}
+  .pipe-box::before,.pipe-box::after{display:none}
+  .pipe li{font-size:12.5px}
+  .quote{padding:32px}
+  .film figcaption{left:20px;bottom:18px}
+  .rail{bottom:14px}
+  .rail a{height:42px;padding:0 13px}
+  .rail .ind{height:42px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js [data-reveal],.js .line>span,.js .portrait{opacity:1;transform:none}
+  .js .manifest{height:auto}.js .manifest .sticky{position:static;height:auto;padding:140px 0}.manifest .w{opacity:1}
+  .pipe-box{--p:1}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="topbar" id="topbar">
+  <div class="wrap">
+    <b>Tom Berthet</b>
+    <a class="btn dark" href="#contact">Me contacter</a>
+  </div>
+</header>
+
+<!-- Icônes reprises des documents -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-comprendre" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-4l-4 4v-4H5a2 2 0 0 1-2-2V5Zm4 2v2h10V7H7Zm0 4v2h7v-2H7Z"/></symbol>
+  <symbol id="i-construire" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 10 5-10 5L2 7l10-5ZM2 10l10 5 10-5v4l-10 5-10-5v-4Zm0 7 10 5 10-5v3l-10 5-10-5v-3Z" transform="translate(1 0) scale(.91)"/></symbol>
+  <symbol id="i-orchestrer" viewBox="0 0 24 24"><g fill="currentColor"><path d="M10 8h4v8h-4zM5 5h14v2H5zM5 17h14v2H5zM11 5h2v14h-2z"/><rect x="8" y="8" width="8" height="8" rx="2"/><rect x="1" y="2" width="6" height="6" rx="1.8"/><rect x="17" y="2" width="6" height="6" rx="1.8"/><rect x="1" y="16" width="6" height="6" rx="1.8"/><rect x="17" y="16" width="6" height="6" rx="1.8"/></g></symbol>
+  <symbol id="i-transmettre" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="8" cy="6" r="3.5"/><path d="M1 19a7 7 0 0 1 14 0v2H1v-2ZM16 3a3.5 3.5 0 0 1 0 7V3Zm0 10a7 7 0 0 1 7 7v1h-6v-2a9 9 0 0 0-1-6Z"/></g></symbol>
+  <symbol id="i-integrer" viewBox="0 0 24 24"><path fill="currentColor" d="M3 2h7v7H3zM14 2h7v7h-7zM3 13h7v7H3zM16 12h3v4h4v3h-4v4h-3v-4h-4v-3h4z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path fill="currentColor" d="M20 1v7h-7l2.5-2.5A7 7 0 0 0 5 10H1a11 11 0 0 1 17-7L20 1ZM4 23v-7h7l-2.5 2.5A7 7 0 0 0 19 14h4a11 11 0 0 1-17 7l-2 2Z"/></symbol>
+</svg>
+
+<nav class="rail" id="rail" aria-label="Sections">
+  <span class="ind" aria-hidden="true"></span>
+  <a href="#comprendre" data-for="comprendre" aria-label="Comprendre"><svg aria-hidden="true"><use href="#i-comprendre"/></svg><span>Comprendre</span></a>
+  <a href="#construire" data-for="construire" aria-label="Construire"><svg aria-hidden="true"><use href="#i-construire"/></svg><span>Construire</span></a>
+  <a href="#orchestrer" data-for="orchestrer" aria-label="Orchestrer"><svg aria-hidden="true"><use href="#i-orchestrer"/></svg><span>Orchestrer</span></a>
+  <a href="#transmettre" data-for="transmettre" aria-label="Transmettre"><svg aria-hidden="true"><use href="#i-transmettre"/></svg><span>Transmettre</span></a>
+  <a href="#integrer" data-for="integrer" aria-label="Intégrer"><svg aria-hidden="true"><use href="#i-integrer"/></svg><span>Intégrer</span></a>
+</nav>
+
+<main id="contenu">
+
+<!-- 1. Héros : qui, quoi, pour qui -->
+<section class="hero" id="hero" data-anim>
+  <div class="glow" aria-hidden="true"></div>
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="who">Head of AI Operations · Startups et PME · 3 à 12 mois</p>
+      <h1 class="h h-xl">
+        <span class="line"><span>J’ai monté trois entreprises.</span></span>
+        <strong><span class="line"><span style="--d:.12s">Je mets l’IA au travail</span></span><span class="line"><span style="--d:.22s">dans la vôtre.</span></span></strong>
+      </h1>
+      <p class="lead" data-reveal style="--d:.4s">Audit de chaque poste, outils installés dans vos process, chaque salarié formé sur ses tâches réelles, résultat mesuré.</p>
+      <div class="cta" data-reveal style="--d:.5s">
+        <a class="btn dark" href="#contact">Parlons de votre équipe</a>
+        <a class="btn light" href="assets/Tom-Berthet-Fiche-mission.pdf">La fiche mission</a>
+      </div>
+    </div>
+    <div class="portrait" id="portrait">
+      <img src="assets/portrait.jpg" alt="Portrait de Tom Berthet" width="1100" height="1375" fetchpriority="high">
+      <span class="badge"><i aria-hidden="true"></i>Disponible</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="proofs">
+    <div class="proof paper" data-reveal><b><span data-count="12000">12 000</span>+ h</b><span>de pratique de l’IA depuis 2022</span></div>
+    <div class="proof paper" data-reveal style="--d:.08s"><b>3 entreprises</b><span>cofondées</span></div>
+    <div class="proof paper" data-reveal style="--d:.16s"><b>8 métiers</b><span>exercés dans mes entreprises</span></div>
+  </div>
+</div>
+
+<!-- 2. Comprendre : le constat, la différence, le parcours -->
+<section id="comprendre" data-step="comprendre" style="margin-top:140px">
+  <div class="manifest" id="manifest" data-anim>
+    <div class="sticky">
+      <span class="spot" aria-hidden="true"></span>
+      <div class="wrap"><p data-words>Vos salariés ont l’IA. Je leur apprends à travailler avec, chaque jour.</p></div>
+    </div>
+  </div>
+
+  <div class="sec"><div class="wrap">
+    <div class="sec-head">
+      <h2 class="h h-l" data-reveal>En surface, <strong>ou dans le travail.</strong></h2>
+    </div>
+    <div class="vs">
+      <div class="card surface" data-reveal>
+        <small>Aujourd’hui</small>
+        <h3>Un chat ouvert de temps en temps.</h3>
+        <div class="chat" aria-hidden="true">
+          <div class="bub me">Tu peux reformuler ce mail ?</div>
+          <div class="bub ai"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="card deep" id="deep" data-reveal data-anim style="--d:.1s">
+        <small>Après la mission</small>
+        <h3>L’IA dans chaque process, chaque jour.</h3>
+        <div class="tabs" role="tablist" aria-label="Exemples de workflows par métier">
+          <button role="tab" id="tab-0" aria-selected="true" aria-controls="flow-panel">Support</button>
+          <button role="tab" id="tab-1" aria-selected="false" aria-controls="flow-panel" tabindex="-1">Ventes</button>
+          <button role="tab" id="tab-2" aria-selected="false" aria-controls="flow-panel" tabindex="-1">RH</button>
+          <button role="tab" id="tab-3" aria-selected="false" aria-controls="flow-panel" tabindex="-1">Marketing</button>
+        </div>
+        <div class="flows" role="tabpanel" id="flow-panel" aria-labelledby="tab-0">
+          <div class="pipe-box" id="pipe-box">
+            <ol class="pipe" id="pipe">
+              <li><b>1</b><span>Demande client</span></li><li><b>2</b><span>Agent lit votre base</span></li><li><b>3</b><span>Réponse préparée</span></li><li><b>4</b><span>Validée en un clic</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:140px">
+      <h2 class="h h-l" data-reveal>Trois entreprises cofondées. <strong>Huit métiers exercés.</strong></h2>
+    </div>
+    <div class="path">
+      <article class="step-c paper" data-reveal><small>BeeFit</small><div><h3>E-commerce</h3><p>Produit, stock, marketing, service client</p></div></article>
+      <article class="step-c paper" data-reveal style="--d:.08s"><small>Aurizon</small><div><h3>Studio produit</h3><p>Cinq produits conçus avec l’IA</p></div></article>
+      <article class="step-c paper" data-reveal style="--d:.16s"><small>TRAK</small><div><h3>Start-up IA</h3><p>Station F Fighters S26</p></div></article>
+    </div>
+    <p class="also" data-reveal>Et plus de 10 projets livrés en freelance, dont <b>Winstory, BullTrading, LYNEWED</b>.</p>
+  </div></div>
+</section>
+
+<!-- 3. Construire -->
+<section class="sec" id="construire" data-step="construire" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h h-l" data-reveal>Une start-up construite <strong>avec des agents IA.</strong></h2>
+      <p data-reveal style="--d:.1s">TRAK, sélectionnée au programme Station F Fighters S26 : des agents spécialisés que je pilote, chaque résultat relu. Ce système, je l’installe chez vous.</p>
+    </div>
+    <div class="trak">
+      <div class="phones" data-reveal>
+        <div class="phone" data-speed="-0.06"><img src="assets/trak-02.jpg" alt="Écran de l’application TRAK" loading="lazy" width="345" height="768"></div>
+        <div class="phone" data-speed="0.05"><img src="assets/trak-03.jpg" alt="Écran de l’application TRAK" loading="lazy" width="402" height="874"></div>
+        <div class="phone" data-speed="-0.03"><img src="assets/trak-04.jpg" alt="Écran de l’application TRAK" loading="lazy" width="292" height="720"></div>
+      </div>
+      <div class="metrics">
+        <div class="metric paper" data-reveal><b>≈ <span data-count="480">480</span></b><span>écrans conçus en trois semaines</span></div>
+        <div class="metric paper" data-reveal style="--d:.08s"><b><span data-count="1000">1 000</span>+</b><span>agents IA lancés en trois jours</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Orchestrer : chaque métier autour de l'IA -->
+<section class="sec" id="orchestrer" data-step="orchestrer" data-anim style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h h-l" data-reveal>Chaque métier a ses usages. <strong>Du juridique à la vidéo.</strong></h2>
+    </div>
+    <div class="orbit-wrap" data-reveal>
+      <div class="orbit">
+        <span class="ring" style="--i:18%" aria-hidden="true"></span>
+        <span class="ring" style="--i:4%" aria-hidden="true"></span>
+        <span class="core" aria-hidden="true">IA</span>
+        <div class="spin">
+          <ul aria-label="Métiers">
+            <li style="--a:0deg;--r:calc(var(--s)*.32)"><span><em class="k">Développement</em></span></li>
+            <li style="--a:60deg;--r:calc(var(--s)*.32)"><span><em>Design</em></span></li>
+            <li style="--a:120deg;--r:calc(var(--s)*.32)"><span><em>Marketing</em></span></li>
+            <li style="--a:180deg;--r:calc(var(--s)*.32)"><span><em class="k">Ventes</em></span></li>
+            <li style="--a:240deg;--r:calc(var(--s)*.32)"><span><em>Support client</em></span></li>
+            <li style="--a:300deg;--r:calc(var(--s)*.32)"><span><em>Stratégie</em></span></li>
+            <li style="--a:30deg;--r:calc(var(--s)*.45)"><span><em>Ressources humaines</em></span></li>
+            <li style="--a:90deg;--r:calc(var(--s)*.45)"><span><em class="k">Juridique</em></span></li>
+            <li style="--a:150deg;--r:calc(var(--s)*.45)"><span><em>Finance</em></span></li>
+            <li style="--a:210deg;--r:calc(var(--s)*.45)"><span><em>Réseaux sociaux</em></span></li>
+            <li style="--a:270deg;--r:calc(var(--s)*.45)"><span><em class="k">Image et vidéo</em></span></li>
+            <li style="--a:330deg;--r:calc(var(--s)*.45)"><span><em>Communication</em></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="chips" aria-hidden="true">
+      <div class="row"><em class="k">Développement</em><em>Design</em><em>Marketing</em><em class="k">Ventes</em><em>Support client</em><em>Stratégie</em><em class="k">Développement</em><em>Design</em><em>Marketing</em><em class="k">Ventes</em><em>Support client</em><em>Stratégie</em></div>
+      <div class="row rev"><em>Ressources humaines</em><em class="k">Juridique</em><em>Finance</em><em>Réseaux sociaux</em><em class="k">Image et vidéo</em><em>Communication</em><em>Ressources humaines</em><em class="k">Juridique</em><em>Finance</em><em>Réseaux sociaux</em><em class="k">Image et vidéo</em><em>Communication</em></div>
+    </div>
+    <figure class="film" id="film">
+      <img src="assets/breaking-face.jpg" alt="Image de la bande-annonce Breaking Face" loading="lazy" width="1600" height="899">
+      <figcaption><b>Breaking Face</b><span>Extrait de bande-annonce 100 % IA</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 5. Transmettre -->
+<section class="sec" id="transmettre" data-step="transmettre" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h h-l" data-reveal>Former, <strong>jusqu’à l’autonomie.</strong></h2>
+      <p data-reveal style="--d:.1s">LYNEWED : une plateforme livrée, puis son fondateur formé à développer avec l’IA.</p>
+    </div>
+    <div class="ly">
+      <figure class="shot paper" data-reveal><img src="assets/lynewed.jpg" alt="Application mobile et CRM de LYNEWED" loading="lazy" width="1600" height="1066"></figure>
+      <div class="quote" data-reveal style="--d:.1s">
+        <small>Résultat</small>
+        <p>Il développe seul avec l’IA, sans développeur externe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Intégrer : la méthode -->
+<section class="sec" id="integrer" data-step="integrer" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h h-l" data-reveal>Quatre temps. <strong>De l’audit à l’autonomie.</strong></h2>
+    </div>
+    <div class="steps" id="steps">
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+      <article class="mstep paper" data-reveal><span class="n" aria-hidden="true">01</span><svg aria-hidden="true"><use href="#i-comprendre"/></svg><h3>Auditer</h3><p>Visio et partage d’écran avec chaque salarié.</p></article>
+      <article class="mstep paper" data-reveal style="--d:.08s"><span class="n" aria-hidden="true">02</span><svg aria-hidden="true"><use href="#i-construire"/></svg><h3>Équiper</h3><p>Outils, agents et automatisations, selon vos règles de données.</p></article>
+      <article class="mstep paper" data-reveal style="--d:.16s"><span class="n" aria-hidden="true">03</span><svg aria-hidden="true"><use href="#i-transmettre"/></svg><h3>Former</h3><p>Chaque salarié, sur ses tâches réelles.</p></article>
+      <article class="mstep paper" data-reveal style="--d:.24s"><span class="n" aria-hidden="true">04</span><svg aria-hidden="true"><use href="#i-loop"/></svg><h3>Ancrer</h3><p>Guide interne, référents, veille continue.</p></article>
+    </div>
+    <div class="measures" data-reveal>
+      <h3>Mesuré au début, mesuré à la fin.</h3>
+      <span>Temps gagné</span><span>Qualité du résultat</span><span>Adoption</span><span>Autonomie</span>
+    </div>
+    <div class="format" data-reveal>
+      <div class="fmt"><b>3 à 12 mois</b><span>selon la taille de l’équipe</span></div>
+      <div class="fmt"><b>Temps plein</b><span>ou partiel</span></div>
+      <div class="fmt"><b>100 %</b><span>à distance</span></div>
+      <div class="fmt"><b>Arrêt possible</b><span>à la fin de chaque mois</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Contact -->
+<section class="contact" id="contact" data-anim>
+  <span class="orb" aria-hidden="true"></span>
+  <div class="wrap">
+    <h2 class="h h-xl" data-reveal>Parlons de <strong>votre équipe.</strong></h2>
+    <div class="cta" data-reveal style="--d:.1s">
+      <a class="btn light" href="mailto:tomberthet1@gmail.com?subject=Int%C3%A9gration%20de%20l%E2%80%99IA">tomberthet1@gmail.com</a>
+      <a class="btn ghost" href="tel:+33628500806">06 28 50 08 06</a>
+    </div>
+    <div class="docs" data-reveal style="--d:.2s">
+      <a href="assets/Tom-Berthet-Fiche-mission.pdf">Fiche mission</a>
+      <a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a>
+      <a href="assets/Tom-Berthet-CV.pdf">CV</a>
+      <a href="https://www.linkedin.com/in/tomberthet1/">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>© 2026 Tom Berthet · <a href="mentions-legales.html">Mentions légales</a></footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const vh = () => document.documentElement.clientHeight;
+
+  // Héros : fondu du portrait (le titre, lui, monte en CSS pur)
+  $('#hero').classList.add('loaded');
+
+  // Phrase découpée en mots (révélée au défilement)
+  const phrase = $('[data-words]');
+  const txt = phrase.textContent.trim().split(' ');
+  phrase.textContent = '';
+  txt.forEach((w, i) => {
+    const s = document.createElement('span'); s.className = 'w'; s.textContent = w;
+    phrase.append(s, i < txt.length - 1 ? ' ' : '');
+  });
+  const words = $$('.w', phrase);
+
+  // Apparitions + compteurs (seuls les grands nombres sont animés)
+  const fmt = n => n.toLocaleString('fr-FR').replace(/ /g, ' ');
+  const count = el => {
+    const end = +el.dataset.count, t0 = performance.now(), dur = 1600;
+    const tick = t => {
+      const p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(2, -10 * p);
+      el.textContent = fmt(Math.round(end * (p === 1 ? 1 : e)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    if (!reduce) $$('[data-count]', e.target).forEach(count);
+    io.unobserve(e.target);
+  }), { threshold: .18, rootMargin: '0px 0px -6% 0px' });
+  $$('[data-reveal]').forEach(el => io.observe(el));
+
+  // Animations en pause quand leur section n'est pas à l'écran
+  const pauser = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('paused', !e.isIntersecting)));
+  $$('[data-anim]').forEach(el => pauser.observe(el));
+
+  // Halo des cartes qui suit la souris (une écriture par image)
+  if (fine) {
+    let pend = null;
+    document.addEventListener('pointermove', e => {
+      if (pend) { pend.e = e; return; }
+      pend = { e };
+      requestAnimationFrame(() => {
+        const ev = pend.e; pend = null;
+        const c = ev.target.closest && ev.target.closest('.paper'); if (!c) return;
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', ev.clientX - r.left + 'px'); c.style.setProperty('--my', ev.clientY - r.top + 'px');
+      });
+    }, { passive: true });
+  }
+
+  // Workflows par métier (exemples d'usages) : onglets accessibles au clavier + défilement automatique
+  const FLOWS = [
+    ['Demande client', 'Agent lit votre base', 'Réponse préparée', 'Validée en un clic'],
+    ['Appel commercial', 'Compte rendu automatique', 'Relance rédigée', 'CRM à jour'],
+    ['Candidatures', 'Tri selon vos critères', 'Réponses préparées', 'Entretiens planifiés'],
+    ['Une idée', 'Article, posts, visuels', 'Relecture', 'Publication'],
+  ];
+  const deep = $('#deep'), panel = $('#flow-panel'), box = $('#pipe-box'), pipe = $('#pipe'), items = $$('li', pipe), tabs = $$('.tabs button');
+  let flowI = 0, stepI = -1, hold = false, deepOn = false;
+  const showFlow = (i, focus) => {
+    flowI = i; stepI = -1;
+    tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+    if (focus) tabs[i].focus();
+    panel.setAttribute('aria-labelledby', tabs[i].id);
+    items.forEach((li, k) => { $('span', li).textContent = FLOWS[i][k]; li.classList.remove('on'); });
+    box.style.setProperty('--p', 0);
+    pipe.classList.remove('swap'); void pipe.offsetWidth; pipe.classList.add('swap');
+  };
+  tabs.forEach((t, k) => {
+    t.addEventListener('click', () => showFlow(k));
+    t.addEventListener('keydown', e => {
+      const n = { ArrowRight: (k + 1) % 4, ArrowLeft: (k + 3) % 4, Home: 0, End: 3 }[e.key];
+      if (n !== undefined) { e.preventDefault(); showFlow(n, true); }
+    });
+  });
+  ['pointerenter', 'focusin'].forEach(ev => deep.addEventListener(ev, () => { hold = true; }));
+  ['pointerleave', 'focusout'].forEach(ev => deep.addEventListener(ev, () => { hold = false; }));
+  new IntersectionObserver(([e]) => { deepOn = e.isIntersecting; }).observe(deep);
+  if (reduce) items.forEach(li => li.classList.add('on'));
+  else setInterval(() => {
+    if (!deepOn) return;
+    stepI++;
+    if (stepI > 4) { if (hold) { stepI = 3; return; } showFlow((flowI + 1) % FLOWS.length); return; }
+    items.forEach((li, k) => li.classList.toggle('on', k <= stepI));
+    box.style.setProperty('--p', clamp(stepI / 3));
+  }, 800);
+
+  // Réseau animé du héros : nœuds reliés, impulsions, et liens vers la souris
+  const cv = $('#net'), ctx = cv.getContext('2d'), hero = $('#hero');
+  let W = 0, H = 0, nodes = [], pulses = [], heroOn = true, mx = -9999, my = -9999, last = performance.now();
+  const LINK = 150, LINK2 = LINK * LINK, MOUSE = 190;
+  const sizeNet = () => {
+    const dpr = Math.min(devicePixelRatio || 1, 1.5);
+    const w = cv.offsetWidth, h = cv.offsetHeight;
+    if (W && nodes.length) nodes.forEach(p => { p.x *= w / W; p.y *= h / H; });
+    W = w; H = h; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(clamp(W * H / 24000, 18, 60));
+    while (nodes.length < n) nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25, r: Math.random() * 1.6 + 1.2 });
+    nodes.length = n;
+  };
+  const drawNet = dt => {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of nodes) {
+      const dx = mx - p.x, dy = my - p.y, d2 = dx * dx + dy * dy;
+      if (d2 < MOUSE * MOUSE) { p.vx += dx * .00002 * dt; p.vy += dy * .00002 * dt; }
+      p.vx = clamp(p.vx, -.5, .5); p.vy = clamp(p.vy, -.5, .5);
+      p.x += p.vx * dt; p.y += p.vy * dt;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+    ctx.lineWidth = 1;
+    for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+      const a = nodes[i], b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy;
+      if (d2 >= LINK2) continue;
+      ctx.strokeStyle = `rgba(29,29,31,${(1 - Math.sqrt(d2) / LINK) * .2})`;
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      if (!reduce && pulses.length < 10 && Math.random() < .0009) pulses.push({ a, b, t: 0 });
+    }
+    for (const p of nodes) {
+      const dx = mx - p.x, dy = my - p.y, d = Math.sqrt(dx * dx + dy * dy);
+      if (d < MOUSE) {
+        ctx.strokeStyle = `rgba(29,29,31,${(1 - d / MOUSE) * .35})`;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mx, my); ctx.stroke();
+      }
+    }
+    ctx.fillStyle = 'rgba(29,29,31,.45)';
+    for (const p of nodes) { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill(); }
+    pulses = pulses.filter(q => (q.t += .012 * dt) < 1);
+    for (const q of pulses) {
+      const x = q.a.x + (q.b.x - q.a.x) * q.t, y = q.a.y + (q.b.y - q.a.y) * q.t;
+      const g = ctx.createRadialGradient(x, y, 0, x, y, 10);
+      g.addColorStop(0, 'rgba(29,29,31,.85)'); g.addColorStop(1, 'rgba(29,29,31,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 10, 0, 7); ctx.fill();
+    }
+  };
+  sizeNet(); drawNet(1);
+  new ResizeObserver(() => {
+    if (Math.abs(cv.offsetWidth - W) < 8 && Math.abs(cv.offsetHeight - H) < 8) return;
+    sizeNet(); drawNet(0);
+  }).observe(cv);
+  if (!reduce) {
+    new IntersectionObserver(([e]) => { heroOn = e.isIntersecting; }).observe(hero);
+    const loop = now => {
+      const dt = Math.min(2, (now - last) / 16.7); last = now;
+      if (heroOn) drawNet(dt);
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  }
+
+  // Portrait + réseau : la souris dans le héros (ordinateur seulement)
+  const portrait = $('#portrait');
+  if (!reduce && fine) {
+    hero.addEventListener('pointermove', e => {
+      const r = cv.getBoundingClientRect();
+      mx = e.clientX - r.left; my = e.clientY - r.top;
+      const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+      portrait.style.setProperty('--ry', x * 10 + 'deg'); portrait.style.setProperty('--rx', -y * 8 + 'deg');
+    }, { passive: true });
+    hero.addEventListener('pointerleave', () => {
+      mx = my = -9999;
+      portrait.style.setProperty('--ry', '0deg'); portrait.style.setProperty('--rx', '0deg');
+    });
+  }
+
+  // Barre « Comprendre → Intégrer » : section en cours
+  const rail = $('#rail'), ind = $('.ind', rail), links = $$('a', rail);
+  const moveInd = a => {
+    if (!a) { ind.style.opacity = 0; links.forEach(l => l.classList.remove('on')); return; }
+    links.forEach(l => l.classList.toggle('on', l === a));
+    requestAnimationFrame(() => { ind.style.opacity = 1; ind.style.width = a.offsetWidth + 'px'; ind.style.transform = `translateX(${a.offsetLeft}px)`; });
+  };
+  addEventListener('resize', () => { lastActive = undefined; onScroll(); });
+
+  // Effets liés au défilement : toutes les lectures, puis toutes les écritures
+  const topbar = $('#topbar'), manifest = $('#manifest'), film = $('#film'),
+        bar = $('#bar'), stepsEl = $('#steps'), msteps = $$('.mstep'), phones = $$('[data-speed]'), contact = $('#contact'), steps = $$('[data-step]');
+  let ticking = false, lastActive;
+  const frame = () => {
+    ticking = false;
+    const h = vh(), y = scrollY, mid = h * .45, wide = innerWidth > 960;
+    // Lectures
+    const cTop = contact.getBoundingClientRect().top;
+    const cur = steps.find(s => { const r = s.getBoundingClientRect(); return r.top < mid && r.bottom > mid; });
+    const m = manifest.getBoundingClientRect();
+    const f = film.getBoundingClientRect();
+    const s = stepsEl.getBoundingClientRect();
+    const ph = wide ? phones.map(p => p.getBoundingClientRect()) : [];
+    // Écritures
+    topbar.classList.toggle('scrolled', y > 10);
+    rail.classList.toggle('show', y > h * .6 && cTop > h * .5);
+    const a = cur ? links.find(l => l.dataset.for === cur.dataset.step) : null;
+    if (a !== lastActive) { moveInd(a); lastActive = a; }
+    if (reduce) return;
+    if (m.bottom > 0 && m.top < h) {
+      const pm = clamp(-m.top / (m.height - h));
+      const lit = Math.ceil(pm * 1.6 * words.length);
+      words.forEach((w, i) => w.classList.toggle('lit', i < lit));
+      // La carte sombre s'étend jusqu'aux bords en entrant dans l'écran
+      if (wide) {
+        const e = clamp(1 - m.top / (h * .8));
+        manifest.style.setProperty('--mm', (1 - e) * 16 + 'px');
+        manifest.style.setProperty('--mr', (1 - e) * 37 + 'px');
+      }
+    }
+    portrait.style.setProperty('--ty', Math.min(y, h) * .08 + 'px');
+    ph.forEach((r, i) => { if (r.bottom > -200 && r.top < h + 200) phones[i].style.transform = `translateY(${(r.top + r.height / 2 - h / 2) * +phones[i].dataset.speed}px)`; });
+    if (f.bottom > 0 && f.top < h) film.style.transform = `scale(${.88 + clamp(1 - (f.top - h * .15) / (h * .85)) * .12})`;
+    if (s.bottom > 0 && s.top < h) {
+      const p = clamp((h * .85 - s.top) / (s.height + h * .3));
+      bar.style.transform = `scaleX(${p})`;
+      msteps.forEach((el, i) => el.classList.toggle('on', p >= i / 4 + .05));
+    }
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', onScroll, { passive: true });
+  frame();
+})();
+</script>
+</body>
+</html>
