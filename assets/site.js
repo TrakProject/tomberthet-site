@@ -40,15 +40,16 @@
     setTimeout(() => { b.classList.remove('done'); b.setAttribute('aria-label', 'Copier l’adresse'); }, 1800);
   }));
 
-  // Premier écran : les cartes suivent légèrement la souris (ordinateur seulement)
+  // Premier écran : cartes et notifications suivent légèrement la souris (ordinateur seulement)
   const stage = $('#stage');
   if (stage && !reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
     const hero = stage.closest('section');
+    // Variables posées sur la section : le portrait, les cartes et les notifications du décor en profitent
     hero.addEventListener('pointermove', e => {
-      stage.style.setProperty('--px', (e.clientX / innerWidth - .5).toFixed(3));
-      stage.style.setProperty('--py', (e.clientY / innerHeight - .5).toFixed(3));
+      hero.style.setProperty('--px', (e.clientX / innerWidth - .5).toFixed(3));
+      hero.style.setProperty('--py', (e.clientY / innerHeight - .5).toFixed(3));
     }, { passive: true });
-    hero.addEventListener('pointerleave', () => { stage.style.setProperty('--px', 0); stage.style.setProperty('--py', 0); });
+    hero.addEventListener('pointerleave', () => { hero.style.setProperty('--px', 0); hero.style.setProperty('--py', 0); });
   }
 
   // Pastilles des métiers : on peut les attraper et les déplacer dans leur carte
@@ -75,25 +76,31 @@
   // Usages par métier : choisir un métier rejoue les quatre étapes
   const flow = $('#flow');
   if (flow) {
+    // Chaque étape : [texte, qui la fait] ; E = entrée, I = IA, V = vous, A = automatique
     const FLOWS = {
-      'Support client': ['Demande client', 'L’agent lit votre base', 'Réponse préparée', 'Validée en un clic'],
-      'Ventes': ['Appel commercial', 'Compte rendu automatique', 'Relance rédigée', 'CRM à jour'],
-      'Marketing': ['Une idée', 'Article, posts, visuels', 'Relecture', 'Publication'],
-      'Ressources humaines': ['Candidatures', 'Tri selon vos critères', 'Réponses préparées', 'Entretiens planifiés'],
-      'Juridique': ['Contrat reçu', 'Comparé à vos clauses', 'Points à risque signalés', 'Validé par le juriste'],
-      'Finance': ['Factures reçues', 'Lues et classées', 'Écarts signalés', 'Export comptable'],
-      'Développement': ['Ticket', 'Code proposé par l’agent', 'Tests et relecture', 'Mise en ligne'],
-      'Design': ['Brief', 'Pistes générées', 'Choix et retouches', 'Maquette prête'],
-      'Image et vidéo': ['Script', 'Images et voix', 'Montage', 'Vidéo livrée'],
-      'Direction': ['Données éparpillées', 'Synthèse automatique', 'Points clés', 'Décision'],
+      'Support client': [['Demande client', 'E'], ['L’IA lit votre base', 'I'], ['Réponse préparée', 'I'], ['Validée en un clic', 'V']],
+      'Ventes': [['Appel commercial', 'V'], ['Compte rendu automatique', 'I'], ['Relance rédigée', 'I'], ['CRM à jour', 'A']],
+      'Marketing': [['Une idée', 'V'], ['Articles, posts, visuels', 'I'], ['Relecture', 'V'], ['Publication planifiée', 'A']],
+      'Ressources humaines': [['Candidatures', 'E'], ['Tri selon vos critères', 'I'], ['Réponses préparées', 'I'], ['Entretiens planifiés', 'A']],
+      'Juridique': [['Contrat reçu', 'E'], ['Comparé à vos clauses', 'I'], ['Points à risque signalés', 'I'], ['Validé par le juriste', 'V']],
+      'Finance': [['Factures reçues', 'E'], ['Lues et classées', 'I'], ['Écarts signalés', 'I'], ['Export comptable', 'A']],
+      'Développement': [['Ticket', 'V'], ['Code proposé par l’agent', 'I'], ['Tests et relecture', 'V'], ['Mise en ligne', 'A']],
+      'Design': [['Brief', 'V'], ['Pistes générées', 'I'], ['Choix et retouches', 'V'], ['Maquette prête', 'A']],
+      'Image et vidéo': [['Script', 'V'], ['Images et voix', 'I'], ['Montage', 'I'], ['Vidéo validée', 'V']],
+      'Direction': [['Données éparpillées', 'E'], ['Synthèse automatique', 'I'], ['Points clés', 'I'], ['Décision', 'V']],
     };
+    const WHO = { E: ['Entrée', ''], I: ['IA', 'ia'], V: ['Vous', 'you'], A: ['Auto', ''] };
     const names = Object.keys(FLOWS), btns = $$('#jobs button'), items = $$('li', flow), card = flow.closest('.c');
     let cur = 0, step = -1, hold = false;
     const seen = () => { const r = card.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
     const show = i => {
       cur = i; step = -1;
       btns.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
-      items.forEach((li, k) => { $('span', li).textContent = FLOWS[names[i]][k]; li.classList.toggle('on', reduce); });
+      items.forEach((li, k) => {
+        const [txt, w] = FLOWS[names[i]][k], em = $('em', li);
+        $('span', li).textContent = txt; em.textContent = WHO[w][0]; em.className = WHO[w][1];
+        li.classList.toggle('on', reduce);
+      });
       flow.style.setProperty('--p', reduce ? 1 : 0);
       flow.classList.remove('swap'); void flow.offsetWidth; flow.classList.add('swap');
     };
@@ -117,7 +124,7 @@
       const r = steps.getBoundingClientRect(), h = innerHeight;
       const p = reduce ? 1 : clamp((h * .82 - r.top) / (r.height * .9));
       if (bar) bar.style.setProperty('--p', p);
-      cards.forEach((c, i) => c.classList.toggle('lit', p >= (i + .5) / 4));
+      cards.forEach((c, i) => c.classList.toggle('lit', p >= (i + .5) / cards.length));
     };
     addEventListener('scroll', () => requestAnimationFrame(run), { passive: true }); run();
   }

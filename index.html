@@ -2,18 +2,19 @@
 <!--
   tomberthet.fr : site statique, sans build. Publier UNIQUEMENT le dossier site/.
   Pages : index (accueil) · trak · lynewed · breaking-face · mentions-legales. Style et scripts communs : assets/site.css, assets/site.js, assets/icons.svg.
-  Ordre de l'accueil : qui je suis → réalisations → ce que l'IA change → méthode (Comprendre → Intégrer) → contact.
-  Méthode et formulations reprises des documents d'origine de Tom (build/origine). Chiffres identiques aux PDF :
-  12 000+ h, 3 entreprises, 8 métiers, 10+ projets livrés, ≈ 480 écrans, 1 000+ agents, Station F Fighters S26, 3 à 12 mois.
+  Ordre de l'accueil : qui je suis → pourquoi intégrer l'IA (chiffres sourcés) → mon rôle → réalisations → méthode → contact.
+  Méthode de Tom (note vocale du 01/11) : Auditer → Intégrer → Former → Accompagner → Mesurer.
+  Chiffres sourcés : Insee Première n° 2120 (2026, données 2025), Harvard & BCG (2023), Microsoft & LinkedIn Work Trend Index (2024).
+  Chiffres personnels identiques aux PDF : 12 000+ h, 3 entreprises, 8 métiers, 10+ projets, ≈ 480 écrans, 3 à 12 mois. Malt : 5,0 sur 3 avis.
 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tom Berthet · Intégration de l’IA dans les équipes</title>
-<meta name="description" content="Entrepreneur et product builder, j’intègre l’IA dans les équipes des startups et des PME : outils construits, travail organisé avec l’IA, équipes formées pour continuer seules. Missions de 3 à 12 mois.">
+<title>Tom Berthet · Intégration de l’IA en entreprise</title>
+<meta name="description" content="Entrepreneur et freelance, j’intègre l’IA dans chaque service des startups et des PME : audit, process et automatisations, formation de chaque employé, résultats mesurés. Missions de 3 à 12 mois.">
 <meta property="og:title" content="Tom Berthet · Intégrer l’IA, démultiplier les capacités de vos équipes">
-<meta property="og:description" content="Entrepreneur et product builder. Missions de 3 à 12 mois pour intégrer l’IA dans le travail de vos équipes.">
+<meta property="og:description" content="Audit, intégration, formation et suivi : l’IA dans chaque service, en mission de 3 à 12 mois.">
 <meta property="og:image" content="https://trakproject.github.io/tomberthet-site/assets/og.jpg">
 <meta property="og:url" content="https://trakproject.github.io/tomberthet-site/">
 <meta property="og:type" content="website">
@@ -26,7 +27,7 @@
 <link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Entrepreneur et product builder, intégration de l’IA","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/"],"knowsAbout":["Intégration de l’IA en entreprise","Formation des équipes à l’IA","Automatisation","Agents IA","Conception de produits numériques"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Entrepreneur et consultant en intégration de l’IA","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/","https://www.malt.fr/profile/tomberthet"],"knowsAbout":["Intégration de l’IA en entreprise","Audit IA","Formation des équipes à l’IA","Automatisation","Agents IA"]}</script>
 <script>document.documentElement.classList.add('js');setTimeout(()=>document.documentElement.classList.add('rv'),2500)</script>
 </head>
 <body>
@@ -35,7 +36,7 @@
 <header class="top">
   <div class="wrap">
     <a class="me" href="./"><img src="assets/avatar.jpg" alt="" width="30" height="30">Tom Berthet</a>
-    <nav aria-label="Sections"><a href="#realisations">Réalisations</a><a href="#offre">Offre</a><a href="#methode">Méthode</a></nav>
+    <nav aria-label="Sections"><a href="#pourquoi">Pourquoi</a><a href="#offre">Mon rôle</a><a href="#realisations">Réalisations</a><a href="#methode">Méthode</a></nav>
     <span class="status"><span class="dot" aria-hidden="true"></span>Disponible</span>
     <a class="btn dark sm" href="#contact">Me contacter</a>
   </div>
@@ -44,14 +45,27 @@
 <main id="contenu">
 
 <!-- 1. Qui je suis, ce que je fais -->
-<section class="hero wrap" aria-labelledby="titre">
+<section class="hero wrap" id="hero" aria-labelledby="titre">
+  <!-- Derrière le titre : trame fine et outils de l'IA en tuiles flottantes (décor) -->
+  <div class="aura" aria-hidden="true"></div>
+  <div class="float" aria-hidden="true">
+    <span class="tile t1" style="--k:-16"><svg><use href="assets/icons.svg#comprendre"/></svg></span>
+    <span class="tile t2 far" style="--k:-8"><svg><use href="assets/icons.svg#chart"/></svg></span>
+    <span class="tile t3 ink" style="--k:-22"><svg><use href="assets/icons.svg#bolt"/></svg></span>
+    <span class="tile t4 far" style="--k:-6"><svg><use href="assets/icons.svg#clock"/></svg></span>
+    <span class="tile t5 ink" style="--k:-20"><svg><use href="assets/icons.svg#spark"/></svg></span>
+    <span class="tile t6 far" style="--k:-7"><svg><use href="assets/icons.svg#code"/></svg></span>
+    <span class="tile t7" style="--k:-15"><svg><use href="assets/icons.svg#film"/></svg></span>
+    <span class="tile t8 far" style="--k:-9"><svg><use href="assets/icons.svg#users"/></svg></span>
+  </div>
+
   <div class="lede" data-r>
-    <p class="eyebrow">Entrepreneur · Freelance · Intégration de l’IA</p>
-    <h1 class="h1" id="titre">Intégrer l’IA. <strong>Démultiplier les capacités de vos équipes.</strong></h1>
-    <p class="lead">J’ai cofondé trois entreprises et je travaille avec l’IA chaque jour depuis 2022. En mission de 3 à 12 mois, je construis vos outils, j’organise le travail avec l’IA et je forme vos équipes à continuer sans moi.</p>
+    <a class="pill" href="https://www.malt.fr/profile/tomberthet"><span class="stars" aria-hidden="true">★★★★★</span><b>5,0 sur Malt</b><span class="sep" aria-hidden="true"></span>5+ ans d’expérience</a>
+    <h1 class="h1" id="titre"><span class="ai-t">Intégrer l’IA.</span> <strong>Démultiplier les capacités<br class="lg"> de vos équipes.</strong></h1>
+    <p class="lead">Entrepreneur et freelance, j’ai cofondé trois entreprises et je travaille avec l’IA chaque jour depuis 2022. En mission de 3 à 12 mois, j’audite chaque service, j’intègre l’IA dans vos process et je forme chaque employé.</p>
     <div class="cta">
-      <a class="btn dark" href="#contact">Parlons de votre projet</a>
-      <a class="btn ghost" href="#realisations">Voir mes réalisations</a>
+      <a class="btn dark" href="#contact">Parlons de votre entreprise</a>
+      <a class="btn ghost" href="#offre">Voir mon rôle</a>
     </div>
   </div>
 
@@ -75,19 +89,137 @@
         <div class="logos" aria-hidden="true"><span>B</span><span>A</span><span>T</span></div>
         <div><b>3<span class="u">entreprises</span></b><p class="p">cofondées : BeeFit, Aurizon, TRAK</p></div>
       </div>
-      <a class="c stat dark sf" href="trak.html" data-r style="--d:.22s;--k:10">
-        <p class="eyebrow">Ma start-up TRAK</p>
-        <div><b class="big">Station F</b><span class="s">Fighters S26</span></div>
+      <a class="c stat dark malt" href="https://www.malt.fr/profile/tomberthet" data-r style="--d:.22s;--k:10">
+        <p class="q">« Très bon travail, fluide et parfait. »<small>Max, Mercure SAS</small></p>
+        <div><b>5,0<span class="u">/ 5</span></b><p class="p"><span class="stars" aria-hidden="true">★★★★★</span> 3 avis clients sur Malt</p></div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- 2. Réalisations -->
+<!-- 2. Pourquoi intégrer l'IA : la différence avec un usage ponctuel, et les chiffres -->
+<section class="sec wrap" id="pourquoi" aria-labelledby="t-pourquoi">
+  <div class="head" data-r>
+    <div>
+      <h2 class="h2" id="t-pourquoi">Utiliser ChatGPT <strong>n’est pas intégrer l’IA.</strong></h2>
+      <p class="lead">Poser des questions à l’IA fait gagner quelques minutes. L’intégrer dans les process de chaque service change le quotidien de toute l’entreprise.</p>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="c vs" data-r>
+      <p class="eyebrow">Usage ponctuel</p>
+      <ul>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Quelques curieux s’en servent</li>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Des questions, au cas par cas</li>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Les tâches répétitives restent à faire</li>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Aucun gain mesuré</li>
+      </ul>
+    </div>
+    <div class="c vs dark on" data-r style="--d:.08s">
+      <p class="eyebrow">IA intégrée</p>
+      <ul>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Chaque employé formé et assisté</li>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des process et des outils reliés</li>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des agents qui tournent 24 h/24</li>
+        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des résultats suivis chaque mois</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid g4 facts-row">
+    <div class="c fact" data-r><b>18 %</b><p class="p">des entreprises françaises utilisent l’IA.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
+    <div class="c fact" data-r style="--d:.05s"><b>25 %</b><p class="p">plus rapides, pour un travail de meilleure qualité, chez des consultants équipés.</p><a class="src" href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700">Harvard &amp; BCG, 2023</a></div>
+    <div class="c fact" data-r style="--d:.1s"><b>39 %</b><p class="p">des utilisateurs d’IA ont été formés par leur entreprise.</p><a class="src" href="https://news.microsoft.com/source/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft &amp; LinkedIn, 2024</a></div>
+    <div class="c fact" data-r style="--d:.15s"><b>54 %</b><p class="p">des entreprises sans IA citent le manque de compétences.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
+  </div>
+</section>
+
+<!-- 3. Mon rôle : ce que l'entreprise obtient -->
+<section class="sec wrap" id="offre" aria-labelledby="t-offre">
+  <div class="head" data-r>
+    <div>
+      <h2 class="h2" id="t-offre"><strong>Votre responsable IA,</strong> le temps de la mission.</h2>
+      <p class="lead">J’audite, j’intègre, je forme et je mesure. Objectif : que chaque employé utilise l’IA à son plein potentiel.</p>
+    </div>
+  </div>
+  <div class="grid bento">
+    <article class="c b s2 b-audit" data-r>
+      <div class="vis lv" aria-hidden="true">
+        <div class="lv-k"><span><i class="now"></i>Aujourd’hui</span><span><i class="goal"></i>Objectif</span></div>
+        <div class="lv-r"><span>Ventes</span><span class="tr"><i style="--a:.3;--b:.8"></i></span></div>
+        <div class="lv-r"><span>Marketing</span><span class="tr"><i style="--a:.45;--b:.9"></i></span></div>
+        <div class="lv-r"><span>Support</span><span class="tr"><i style="--a:.15;--b:.75"></i></span></div>
+        <div class="lv-r"><span>Finance</span><span class="tr"><i style="--a:.1;--b:.6"></i></span></div>
+      </div>
+      <h3 class="t">Un audit de chaque service</h3>
+      <p class="p">Comment chacun travaille, où en est l’IA, ce qu’elle peut changer. Avec des objectifs par service.</p>
+    </article>
+    <article class="c b b-agents" data-r style="--d:.06s">
+      <ul class="vis sched" aria-hidden="true">
+        <li><time>07:00</time>Veille concurrents<svg class="i"><use href="assets/icons.svg#check"/></svg></li>
+        <li><time>09:00</time>Relances clients<svg class="i"><use href="assets/icons.svg#check"/></svg></li>
+        <li class="run"><time>18:00</time>Rapport du jour<span class="dot"></span></li>
+      </ul>
+      <h3 class="t">Des agents 24 h/24</h3>
+      <p class="p">Planifiés pour les tâches qui reviennent.</p>
+    </article>
+    <article class="c b b-flow" data-r>
+      <div class="vis nodes" aria-hidden="true">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="50" x2="18" y2="16"/><line x1="50" y1="50" x2="20" y2="84"/><line x1="50" y1="50" x2="82" y2="18"/><line x1="50" y1="50" x2="80" y2="84"/></svg>
+        <span>CRM</span><span>Emails</span><span class="hub">Claude</span><span>Slack</span><span>Notion</span>
+      </div>
+      <h3 class="t">Des process reliés</h3>
+      <p class="p">Documentés, automatisés, sans double saisie.</p>
+    </article>
+    <article class="c b b-team" data-r style="--d:.06s">
+      <div class="vis team" aria-hidden="true">
+        <span style="--l:16%">CL</span><span style="--l:30%">MA</span><span style="--l:44%">JU</span><span style="--l:56%">LÉ</span><span style="--l:24%">SA</span>
+      </div>
+      <div class="vis tbar" aria-hidden="true"><span>Équipe formée</span><i></i></div>
+      <h3 class="t">Chaque employé formé</h3>
+      <p class="p">Sur ses tâches, avec les nouvelles méthodes et les nouveaux outils.</p>
+    </article>
+    <article class="c b dark b-gen" data-r style="--d:.12s">
+      <div class="vis gen" aria-hidden="true">
+        <div class="pr"><span>Vidéo produit, 15 s, lumière studio</span><b>Générer</b></div>
+        <div class="tiles"><i><svg><use href="assets/icons.svg#film"/></svg></i><i><svg><use href="assets/icons.svg#film"/></svg></i><i class="ld"></i></div>
+      </div>
+      <h3 class="t">Images et vidéos</h3>
+      <p class="p">Higgsfield relié à Claude : produire plus vite, à moindre coût.</p>
+    </article>
+    <article class="c b b-tool" data-r>
+      <div class="vis win" aria-hidden="true">
+        <div class="wb"><i></i><i></i><i></i></div>
+        <div class="wc"><span class="side"></span><span class="rows"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <h3 class="t">Des outils internes</h3>
+      <p class="p">Si rien n’existe, je le construis. Jusqu’à ≈ 480 écrans en 3 semaines.</p>
+    </article>
+    <article class="c b s2 b-kpi" data-r style="--d:.06s">
+      <div class="vis kpi" aria-hidden="true">
+        <i style="--v:.18"></i><i style="--v:.32"></i><i style="--v:.5"></i><i style="--v:.66"></i><i style="--v:.8"></i><i style="--v:.94"></i>
+      </div>
+      <div class="kx" aria-hidden="true"><span>Usage de l’IA</span><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
+      <h3 class="t">Un bilan chaque mois</h3>
+      <p class="p">Usage, temps gagné, tâches automatisées. Et une veille quotidienne pour intégrer chaque nouveauté.</p>
+    </article>
+    <div class="c dark after s4" data-r>
+      <p class="eyebrow">Un exemple par service</p>
+      <h3 class="t">Concrètement, au quotidien.</h3>
+      <div class="chips" id="jobs" role="group" aria-label="Choisir un service">
+        <button aria-pressed="true">Support client</button><button aria-pressed="false">Ventes</button><button aria-pressed="false">Marketing</button><button aria-pressed="false">Ressources humaines</button><button aria-pressed="false">Juridique</button><button aria-pressed="false">Finance</button><button aria-pressed="false">Développement</button><button aria-pressed="false">Design</button><button aria-pressed="false">Image et vidéo</button><button aria-pressed="false">Direction</button>
+      </div>
+      <ol class="flow" id="flow">
+        <li><b>1</b><span>Demande client</span><em>Entrée</em></li><li><b>2</b><span>L’IA lit votre base</span><em class="ia">IA</em></li><li><b>3</b><span>Réponse préparée</span><em class="ia">IA</em></li><li><b>4</b><span>Validée en un clic</span><em class="you">Vous</em></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Réalisations -->
 <section class="sec wrap" id="realisations" aria-labelledby="t-real">
   <div class="head" data-r>
     <div>
-      <h2 class="h2" id="t-real">Mes réalisations. <strong>Construites avec l’IA.</strong></h2>
+      <h2 class="h2" id="t-real"><strong>Mes réalisations.</strong> Construites avec l’IA.</h2>
       <p class="lead">Une start-up, des produits, des missions clients : chaque fois, l’IA au cœur du travail.</p>
     </div>
   </div>
@@ -139,47 +271,33 @@
   </div>
 </section>
 
-<!-- 3. Ce que l'IA change dans vos équipes -->
-<section class="sec wrap" id="offre" aria-labelledby="t-offre">
-  <div class="head" data-r>
-    <div>
-      <h2 class="h2" id="t-offre">Ce que l’IA change <strong>dans vos équipes.</strong></h2>
-      <p class="lead">Un rôle transversal, aux côtés des fondateurs : chaque métier gagne en capacités.</p>
-    </div>
-  </div>
-  <div class="grid g4">
-    <article class="c cap" data-r><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#chart"/></svg></span><h3 class="t">Mieux décider</h3><p class="p">Vos données et vos connaissances réunies dans des assistants métier, pour analyser et préparer l’action.</p></article>
-    <article class="c cap" data-r style="--d:.06s"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#bolt"/></svg></span><h3 class="t">Déléguer et automatiser</h3><p class="p">Des agents et des outils internes qui prennent en charge la production et les tâches répétitives.</p></article>
-    <article class="c cap" data-r style="--d:.12s"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#users"/></svg></span><h3 class="t">Démultiplier les compétences</h3><p class="p">Chacun apprend à piloter l’IA sur ses missions et garde la maîtrise du résultat.</p></article>
-    <article class="c cap" data-r style="--d:.18s"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#spark"/></svg></span><h3 class="t">Innover en continu</h3><p class="p">Les nouveaux modèles testés et mesurés sur vos besoins réels, avant d’être déployés.</p></article>
-    <div class="c dark after s4" data-r>
-      <p class="eyebrow">Un exemple par métier</p>
-      <h3 class="t">Du support au juridique, l’IA dans les process.</h3>
-      <div class="chips" id="jobs" role="group" aria-label="Choisir un métier">
-        <button aria-pressed="true">Support client</button><button aria-pressed="false">Ventes</button><button aria-pressed="false">Marketing</button><button aria-pressed="false">Ressources humaines</button><button aria-pressed="false">Juridique</button><button aria-pressed="false">Finance</button><button aria-pressed="false">Développement</button><button aria-pressed="false">Design</button><button aria-pressed="false">Image et vidéo</button><button aria-pressed="false">Direction</button>
-      </div>
-      <ol class="flow" id="flow">
-        <li><b>1</b><span>Demande client</span></li><li><b>2</b><span>L’agent lit votre base</span></li><li><b>3</b><span>Réponse préparée</span></li><li><b>4</b><span>Validée en un clic</span></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- 4. Méthode : Comprendre → Construire → Orchestrer → Transmettre → Intégrer -->
+<!-- 5. Méthode : Auditer → Intégrer → Former → Accompagner → Mesurer -->
 <section class="sec wrap" id="methode" aria-labelledby="t-methode">
   <div class="head" data-r>
     <div>
-      <h2 class="h2" id="t-methode">Ma méthode. <strong>Du besoin métier à l’outil utile.</strong></h2>
-      <p class="lead">Un premier usage utile, puis une capacité durable.</p>
+      <h2 class="h2" id="t-methode"><strong>Ma méthode.</strong> Service par service.</h2>
+      <p class="lead">Des premiers usages dès le premier mois. Puis l’IA s’étend à toute l’entreprise, jusqu’à l’autonomie.</p>
     </div>
   </div>
   <ol class="c method" id="steps" data-r>
-    <li class="mrow step"><span class="n">1</span><div><h3>Comprendre</h3><p class="p">Les tâches de chaque métier, les outils en place, les priorités. On choisit ensemble un premier usage utile.</p></div><span class="chip">8 métiers exercés</span></li>
-    <li class="mrow step"><span class="n">2</span><div><h3>Construire</h3><p class="p">Assistants métier, agents, automatisations : du prototype à l’outil utilisé chaque jour, testé sur vos tâches réelles.</p></div><span class="chip">≈ 480 écrans en 3 semaines</span></li>
-    <li class="mrow step"><span class="n">3</span><div><h3>Orchestrer</h3><p class="p">Contexte partagé, documentation, revue humaine : le travail s’organise avec l’IA, et chaque résultat est contrôlé.</p></div><span class="chip">1 000+ agents en 3 jours</span></li>
-    <li class="mrow step"><span class="n">4</span><div><h3>Transmettre</h3><p class="p">Chaque collaborateur formé sur ses missions, avec les méthodes et la documentation pour continuer seul.</p></div><span class="chip">LYNEWED : fondateur autonome</span></li>
-    <li class="mrow step"><span class="n">5</span><div><h3>Intégrer</h3><p class="p">Les usages s’étendent selon les résultats : temps gagné, qualité, adoption et autonomie suivis dans la durée.</p></div><span class="chip">Bilan chiffré</span></li>
+    <li class="mrow step"><span class="n">1</span><div><h3>Auditer</h3><p class="p">Chaque service, chaque employé : comment il travaille, ce qu’il fait déjà avec l’IA, ce qu’elle peut changer.</p></div><span class="chip">Feuille de route et objectifs</span></li>
+    <li class="mrow step"><span class="n">2</span><div><h3>Intégrer</h3><p class="p">Process, documentation, outils reliés, automatisations et agents. Des outils internes si besoin.</p></div><span class="chip">Dans vos outils</span></li>
+    <li class="mrow step"><span class="n">3</span><div><h3>Former</h3><p class="p">Chaque employé, sur ses tâches réelles : nouvelles méthodes, nouveaux outils.</p></div><span class="chip">Chaque employé</span></li>
+    <li class="mrow step"><span class="n">4</span><div><h3>Accompagner</h3><p class="p">Les retours de chacun, les process ajustés, les usages améliorés.</p></div><span class="chip">Au quotidien</span></li>
+    <li class="mrow step"><span class="n">5</span><div><h3>Mesurer</h3><p class="p">Usage, temps gagné, tâches automatisées. Et une veille pour intégrer chaque nouveauté.</p></div><span class="chip">Bilan chaque mois</span></li>
   </ol>
+  <div class="c plan" data-r style="margin-top:var(--gap)">
+    <div class="plan-h"><h3 class="t">Exemple sur 6 mois</h3><span class="eyebrow">Une équipe de 20 à 50 personnes</span></div>
+    <div class="gantt" role="img" aria-label="Audit au premier mois, puis un service intégré environ chaque mois, avec un suivi continu">
+      <div class="gm" aria-hidden="true"><span></span><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
+      <div class="gr"><span>Audit</span><span class="gt"><i class="dk" style="--s:0;--e:1"></i></span></div>
+      <div class="gr"><span>Ventes</span><span class="gt"><i style="--s:.5;--e:2"></i></span></div>
+      <div class="gr"><span>Support</span><span class="gt"><i style="--s:1.5;--e:3"></i></span></div>
+      <div class="gr"><span>Marketing</span><span class="gt"><i style="--s:2.5;--e:4"></i></span></div>
+      <div class="gr"><span>Finance, RH</span><span class="gt"><i style="--s:3.5;--e:5.2"></i></span></div>
+      <div class="gr"><span>Suivi et veille</span><span class="gt"><i class="ln" style="--s:0;--e:6"></i></span></div>
+    </div>
+  </div>
   <div class="c fmt" data-r style="margin-top:var(--gap)">
     <div><b>3 à 12 mois</b><span>selon la taille de l’équipe</span></div>
     <div><b>Temps plein</b><span>ou partiel</span></div>
@@ -188,11 +306,11 @@
   </div>
 </section>
 
-<!-- 5. Contact -->
+<!-- 6. Contact -->
 <section class="sec wrap" id="contact" aria-labelledby="t-contact">
   <div class="c dark contact" data-r>
-    <h2 class="h2" id="t-contact">Parlons de <strong>votre projet.</strong></h2>
-    <p class="lead">Un premier échange pour repérer où l’IA sera la plus utile dans votre équipe.</p>
+    <h2 class="h2" id="t-contact">Parlons de <strong>votre entreprise.</strong></h2>
+    <p class="lead">Un premier échange pour repérer où l’IA aura le plus d’impact dans vos équipes.</p>
     <div class="cta">
       <span class="mail">
         <a class="btn dark" href="mailto:tomberthet1@gmail.com?subject=Int%C3%A9gration%20de%20l%E2%80%99IA">tomberthet1@gmail.com</a>
@@ -201,7 +319,7 @@
       <a class="btn ghost-n" href="tel:+33628500806"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#phone"/></svg>06 28 50 08 06</a>
     </div>
     <div class="links">
-      <a href="assets/Tom-Berthet-CV.pdf">CV</a><a href="assets/Tom-Berthet-Fiche-mission.pdf">Fiche mission</a><a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a><a href="https://www.linkedin.com/in/tomberthet1/">LinkedIn</a>
+      <a href="assets/Tom-Berthet-CV.pdf">CV</a><a href="assets/Tom-Berthet-Fiche-mission.pdf">Fiche mission</a><a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a><a href="https://www.linkedin.com/in/tomberthet1/">LinkedIn</a><a href="https://www.malt.fr/profile/tomberthet">Malt</a>
     </div>
   </div>
 </section>
