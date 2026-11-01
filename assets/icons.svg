@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-  <!-- Icônes du site. Usage : <svg class="i"><use href="assets/icons.svg#go"/></svg> -->
+  <!-- Icônes du site. Usage : svg.i > use href="assets/icons.svg#go" -->
   <symbol id="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
   <symbol id="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
   <symbol id="next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
@@ -18,4 +18,7 @@
   <symbol id="loop" viewBox="0 0 24 24" fill="currentColor"><path d="M20 1v7h-7l2.5-2.5A7 7 0 0 0 5 10H1a11 11 0 0 1 17-7L20 1ZM4 23v-7h7l-2.5 2.5A7 7 0 0 0 19 14h4a11 11 0 0 1-17 7l-2 2Z"/></symbol>
   <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/></symbol>
   <symbol id="film" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm1 3v2h2V6H5Zm0 5v2h2v-2H5Zm0 5v2h2v-2H5Zm12-10v2h2V6h-2Zm0 5v2h2v-2h-2Zm0 5v2h2v-2h-2ZM10 8.5v7l5.5-3.5L10 8.5Z"/></symbol>
+  <symbol id="chart" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="9" rx="1.5"/><rect x="10" y="7" width="4" height="14" rx="1.5"/><rect x="17" y="3" width="4" height="18" rx="1.5"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 2 4 13.5h6.5L9.5 22 20 9.5h-6.6L13.5 2Z"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2c.4 4.6 2.4 6.6 7 7-4.6.4-6.6 2.4-7 7-.4-4.6-2.4-6.6-7-7 4.6-.4 6.6-2.4 7-7Zm7.5 11c.2 2.3 1.2 3.3 3.5 3.5-2.3.2-3.3 1.2-3.5 3.5-.2-2.3-1.2-3.3-3.5-3.5 2.3-.2 3.3-1.2 3.5-3.5Z"/></symbol>
 </svg>

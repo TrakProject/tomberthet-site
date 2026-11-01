@@ -2,17 +2,18 @@
 <!--
   tomberthet.fr : site statique, sans build. Publier UNIQUEMENT le dossier site/.
   Pages : index (accueil) · trak · lynewed · breaking-face · mentions-legales. Style et scripts communs : assets/site.css, assets/site.js, assets/icons.svg.
-  Textes : source unique dans textes/message-central.md. Chiffres identiques aux PDF :
+  Ordre de l'accueil : qui je suis → réalisations → ce que l'IA change → méthode (Comprendre → Intégrer) → contact.
+  Méthode et formulations reprises des documents d'origine de Tom (build/origine). Chiffres identiques aux PDF :
   12 000+ h, 3 entreprises, 8 métiers, 10+ projets livrés, ≈ 480 écrans, 1 000+ agents, Station F Fighters S26, 3 à 12 mois.
 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tom Berthet · L’IA dans le travail des équipes</title>
-<meta name="description" content="Cofondateur de trois entreprises, j’installe l’IA dans le travail de chaque salarié : audit des postes, outils, formation, résultat mesuré. Missions de 3 à 12 mois pour startups et PME.">
-<meta property="og:title" content="Tom Berthet · Je mets l’IA au travail dans votre entreprise">
-<meta property="og:description" content="Audit de chaque poste, outils, formation de chaque salarié, résultat mesuré. Missions de 3 à 12 mois.">
+<title>Tom Berthet · Intégration de l’IA dans les équipes</title>
+<meta name="description" content="Entrepreneur et product builder, j’intègre l’IA dans les équipes des startups et des PME : outils construits, travail organisé avec l’IA, équipes formées pour continuer seules. Missions de 3 à 12 mois.">
+<meta property="og:title" content="Tom Berthet · Intégrer l’IA, démultiplier les capacités de vos équipes">
+<meta property="og:description" content="Entrepreneur et product builder. Missions de 3 à 12 mois pour intégrer l’IA dans le travail de vos équipes.">
 <meta property="og:image" content="https://trakproject.github.io/tomberthet-site/assets/og.jpg">
 <meta property="og:url" content="https://trakproject.github.io/tomberthet-site/">
 <meta property="og:type" content="website">
@@ -25,7 +26,7 @@
 <link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Head of AI Operations (missions freelance)","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/"],"knowsAbout":["Intégration de l’IA en entreprise","Formation des équipes à l’IA","Automatisation","Agents IA"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Entrepreneur et product builder, intégration de l’IA","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/"],"knowsAbout":["Intégration de l’IA en entreprise","Formation des équipes à l’IA","Automatisation","Agents IA","Conception de produits numériques"]}</script>
 <script>document.documentElement.classList.add('js');setTimeout(()=>document.documentElement.classList.add('rv'),2500)</script>
 </head>
 <body>
@@ -34,107 +35,61 @@
 <header class="top">
   <div class="wrap">
     <a class="me" href="./"><img src="assets/avatar.jpg" alt="" width="30" height="30">Tom Berthet</a>
-    <nav aria-label="Sections"><a href="#offre">Offre</a><a href="#projets">Projets</a><a href="#methode">Méthode</a></nav>
+    <nav aria-label="Sections"><a href="#realisations">Réalisations</a><a href="#offre">Offre</a><a href="#methode">Méthode</a></nav>
+    <span class="status"><span class="dot" aria-hidden="true"></span>Disponible</span>
     <a class="btn dark sm" href="#contact">Me contacter</a>
   </div>
 </header>
 
 <main id="contenu">
 
-<!-- 1. Qui, quoi, pour qui -->
-<section class="hero home wrap" aria-labelledby="titre">
-  <div class="grid">
-    <div class="c intro s3 r2" data-r>
-      <div>
-        <p class="eyebrow">Head of AI Operations en mission · Startups et PME</p>
-        <h1 class="h1" id="titre">J’ai monté trois entreprises. <strong>Je mets l’IA au travail dans la vôtre.</strong></h1>
-        <p class="lead">Audit de chaque poste, outils installés dans vos process, chaque salarié formé sur ses tâches réelles, résultat mesuré.</p>
+<!-- 1. Qui je suis, ce que je fais -->
+<section class="hero wrap" aria-labelledby="titre">
+  <div class="lede" data-r>
+    <p class="eyebrow">Entrepreneur · Freelance · Intégration de l’IA</p>
+    <h1 class="h1" id="titre">Intégrer l’IA. <strong>Démultiplier les capacités de vos équipes.</strong></h1>
+    <p class="lead">J’ai cofondé trois entreprises et je travaille avec l’IA chaque jour depuis 2022. En mission de 3 à 12 mois, je construis vos outils, j’organise le travail avec l’IA et je forme vos équipes à continuer sans moi.</p>
+    <div class="cta">
+      <a class="btn dark" href="#contact">Parlons de votre projet</a>
+      <a class="btn ghost" href="#realisations">Voir mes réalisations</a>
+    </div>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="col">
+      <div class="c stat s-hours" data-r style="--d:.1s;--k:7">
+        <p class="eyebrow">Depuis 2022</p>
+        <div><b><span data-count="12000">12 000</span>+<span class="u">h</span></b><p class="p">de pratique de l’IA</p></div>
       </div>
-      <div class="cta">
-        <a class="btn dark" href="#contact">Parlons de votre équipe</a>
-        <a class="btn ghost" href="#projets">Voir les projets</a>
+      <div class="c stat jobs" data-r style="--d:.18s;--k:10">
+        <div class="pile"><span class="chip">Vente</span><span class="chip">Marketing</span><span class="chip">Communication</span><span class="chip">Produit</span><span class="chip">Design</span><span class="chip">Développement</span><span class="chip">Service client</span><span class="chip">Gestion</span></div>
+        <div><b>8<span class="u">métiers</span></b><p class="p">exercés dans mes entreprises</p></div>
       </div>
     </div>
-
-    <figure class="c portrait r2" data-r style="--d:.06s">
+    <figure class="c portrait" data-r style="--d:.05s;--k:-3">
+      <figcaption class="pcap"><span><b>Tom Berthet</b><small>Toulouse · 100 % à distance</small></span></figcaption>
       <img src="assets/portrait-cut.webp" alt="Portrait de Tom Berthet" width="900" height="1011" fetchpriority="high">
-      <figcaption class="avail"><span class="dot" aria-hidden="true"></span><span>Disponible<small>Missions de 3 à 12 mois</small></span></figcaption>
     </figure>
-
-    <div class="c stat" data-r style="--d:.1s">
-      <p class="eyebrow">Depuis 2022</p>
-      <div><b><span data-count="12000">12 000</span>+</b><p class="p">heures de pratique de l’IA</p></div>
-    </div>
-    <div class="c stat" data-r style="--d:.14s">
-      <div class="logos" aria-hidden="true"><span>B</span><span>A</span><span>T</span></div>
-      <div><b>3</b><p class="p">entreprises cofondées : BeeFit, Aurizon, TRAK</p></div>
-    </div>
-    <div class="c stat jobs" data-r style="--d:.18s">
-      <div class="pile"><span class="chip">Vente</span><span class="chip">Marketing</span><span class="chip">Communication</span><span class="chip">Produit</span><span class="chip">Design</span><span class="chip">Développement</span><span class="chip">Service client</span><span class="chip">Gestion</span></div>
-      <div><b>8</b><p class="p">métiers exercés dans mes entreprises</p></div>
-    </div>
-
-    <div class="c w clock" data-r>
-      <div class="row"><p class="eyebrow">Toulouse</p><span class="chip">100 % à distance</span></div>
-      <b id="clock" aria-label="Heure à Toulouse">--:--</b>
-    </div>
-    <div class="c w dark sf" data-r style="--d:.05s">
-      <p class="eyebrow">Ma start-up TRAK est sélectionnée</p>
-      <div><b>Station F</b><span class="s">Fighters S26</span></div>
-    </div>
-    <a class="c w li-w" href="https://www.linkedin.com/in/tomberthet1/" data-r style="--d:.1s">
-      <span class="li-logo" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#linkedin"/></svg></span>
-      <div class="li-head"><img src="assets/avatar.jpg" alt="" width="46" height="46"><div><b>Tom Berthet</b><small>Entrepreneur · IA</small></div></div>
-      <span class="btn dark sm">Voir mon LinkedIn</span>
-    </a>
-    <div class="c w docs docs-w s2" data-r style="--d:.15s">
-      <p class="eyebrow">Documents</p>
-      <div>
-        <a href="assets/Tom-Berthet-CV.pdf">CV <svg class="i"><use href="assets/icons.svg#down"/></svg></a>
-        <a href="assets/Tom-Berthet-Fiche-mission.pdf">Fiche mission <svg class="i"><use href="assets/icons.svg#down"/></svg></a>
-        <a href="assets/Tom-Berthet-Dossier.pdf">Dossier complet <svg class="i"><use href="assets/icons.svg#down"/></svg></a>
+    <div class="col">
+      <div class="c stat s-co" data-r style="--d:.14s;--k:7">
+        <div class="logos" aria-hidden="true"><span>B</span><span>A</span><span>T</span></div>
+        <div><b>3<span class="u">entreprises</span></b><p class="p">cofondées : BeeFit, Aurizon, TRAK</p></div>
       </div>
+      <a class="c stat dark sf" href="trak.html" data-r style="--d:.22s;--k:10">
+        <p class="eyebrow">Ma start-up TRAK</p>
+        <div><b class="big">Station F</b><span class="s">Fighters S26</span></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- 2. L'offre -->
-<section class="sec wrap" id="offre" aria-labelledby="t-offre">
+<!-- 2. Réalisations -->
+<section class="sec wrap" id="realisations" aria-labelledby="t-real">
   <div class="head" data-r>
     <div>
-      <h2 class="h2" id="t-offre">L’IA dans le travail <strong>de chaque salarié.</strong></h2>
-      <p class="lead">Pas une formation d’une journée : 3 à 12 mois avec vos équipes.</p>
+      <h2 class="h2" id="t-real">Mes réalisations. <strong>Construites avec l’IA.</strong></h2>
+      <p class="lead">Une start-up, des produits, des missions clients : chaque fois, l’IA au cœur du travail.</p>
     </div>
-  </div>
-  <div class="grid">
-    <div class="c today s2" data-r>
-      <p class="eyebrow">Aujourd’hui</p>
-      <h3 class="t">Un chat ouvert de temps en temps.</h3>
-      <div class="win" aria-hidden="true">
-        <div class="win-bar"><i></i><i></i><i></i><span>Assistant IA</span></div>
-        <div class="chat">
-          <div class="bub me">Tu peux reformuler ce mail ?</div>
-          <div class="bub ai"><i></i><i></i><i></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="c dark after s2" data-r style="--d:.08s">
-      <p class="eyebrow">Après la mission</p>
-      <h3 class="t">L’IA dans chaque process.</h3>
-      <div class="chips" id="jobs" role="group" aria-label="Choisir un métier">
-        <button aria-pressed="true">Support client</button><button aria-pressed="false">Ventes</button><button aria-pressed="false">Marketing</button><button aria-pressed="false">Ressources humaines</button><button aria-pressed="false">Juridique</button><button aria-pressed="false">Finance</button><button aria-pressed="false">Développement</button><button aria-pressed="false">Design</button><button aria-pressed="false">Image et vidéo</button><button aria-pressed="false">Direction</button>
-      </div>
-      <ol class="flow" id="flow">
-        <li><b>1</b><span>Demande client</span></li><li><b>2</b><span>L’agent lit votre base</span></li><li><b>3</b><span>Réponse préparée</span></li><li><b>4</b><span>Validée en un clic</span></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- 3. Les projets -->
-<section class="sec wrap" id="projets" aria-labelledby="t-projets">
-  <div class="head" data-r>
-    <h2 class="h2" id="t-projets">Ce que j’ai construit <strong>avec l’IA.</strong></h2>
   </div>
   <div class="grid">
     <a class="c dark proj trak-c s2 r2" href="trak.html" data-r>
@@ -147,80 +102,97 @@
       <div class="txt">
         <p class="eyebrow">Start-up · Cofondateur et CEO</p>
         <h3 class="t">TRAK</h3>
-        <p class="p">Une application sportive construite avec des agents IA que je pilote.</p>
+        <p class="p">Une application sportive que je construis avec mon frère. Je conçois le produit et j’organise sa production avec l’IA.</p>
         <div class="chips"><span class="chip">≈ 480 écrans en 3 semaines</span><span class="chip">Station F Fighters S26</span></div>
       </div>
     </a>
-    <a class="c media proj ly-c s2" href="lynewed.html" data-r style="--d:.06s">
+    <a class="c media proj ly-c" href="lynewed.html" data-r style="--d:.06s">
       <img src="assets/lynewed-app.jpg" alt="" loading="lazy" width="1600" height="816">
       <span class="go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
       <div class="txt">
         <p class="eyebrow">Mission freelance</p>
         <h3 class="t">LYNEWED</h3>
-        <p class="p">Une plateforme livrée, puis son fondateur formé à développer seul avec l’IA.</p>
+        <p class="p">Plateforme livrée, puis son fondateur formé à la faire évoluer seul.</p>
       </div>
     </a>
-    <a class="c media proj dark s2" href="breaking-face.html" data-r style="--d:.1s">
+    <a class="c media proj dark" href="breaking-face.html" data-r style="--d:.1s">
       <img src="assets/breaking-face.jpg" alt="" loading="lazy" width="1600" height="899">
       <span class="go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
       <div class="txt">
         <p class="eyebrow">1BRIK Studio · 2026</p>
         <h3 class="t">Breaking Face</h3>
-        <p class="p">Une bande-annonce 100 % IA, de l’image au son.</p>
+        <p class="p">Une bande-annonce 100 % IA, dirigée de bout en bout.</p>
       </div>
     </a>
     <div class="c mini" data-r>
-      <p class="eyebrow">Aurizon · 2023–2025</p>
-      <div><b class="big">5</b><p class="p">produits conçus avec l’IA dans mon studio</p></div>
-      <div class="chips"><span class="chip">GoMuscu</span><span class="chip">MindUp</span><span class="chip">LumiAI</span><span class="chip">+2</span></div>
+      <p class="eyebrow">Freelance · 2025–2026</p>
+      <div><b class="big">10+</b><p class="p">projets livrés pour des entrepreneurs et des PME, dont <b>Winstory, BullTrading, LYNEWED</b></p></div>
     </div>
     <div class="c mini" data-r style="--d:.05s">
-      <p class="eyebrow">BeeFit · 2023</p>
-      <div><b class="big">200+</b><p class="p">clients pour ma marque de compléments, de la boutique au service client</p></div>
+      <p class="eyebrow">Aurizon · Studio produit</p>
+      <div><b class="big">5</b><p class="p">produits conçus avec l’IA, dont <b>GoMuscu, MindUp, LumiAI</b></p></div>
     </div>
-    <div class="c mini s2" data-r style="--d:.1s">
-      <p class="eyebrow">Freelance · 2025–2026</p>
-      <div><b class="big">10+</b><p class="p">projets livrés pour des entrepreneurs et des PME</p></div>
-      <div class="chips"><span class="chip">Winstory</span><span class="chip">BullTrading</span><span class="chip">LYNEWED</span></div>
+    <div class="c mini" data-r style="--d:.1s">
+      <p class="eyebrow">BeeFit · Marque</p>
+      <div><b class="big">200+</b><p class="p">clients pour ma marque de compléments alimentaires</p></div>
     </div>
   </div>
 </section>
 
-<!-- 4. La méthode -->
+<!-- 3. Ce que l'IA change dans vos équipes -->
+<section class="sec wrap" id="offre" aria-labelledby="t-offre">
+  <div class="head" data-r>
+    <div>
+      <h2 class="h2" id="t-offre">Ce que l’IA change <strong>dans vos équipes.</strong></h2>
+      <p class="lead">Un rôle transversal, aux côtés des fondateurs : chaque métier gagne en capacités.</p>
+    </div>
+  </div>
+  <div class="grid g4">
+    <article class="c cap" data-r><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#chart"/></svg></span><h3 class="t">Mieux décider</h3><p class="p">Vos données et vos connaissances réunies dans des assistants métier, pour analyser et préparer l’action.</p></article>
+    <article class="c cap" data-r style="--d:.06s"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#bolt"/></svg></span><h3 class="t">Déléguer et automatiser</h3><p class="p">Des agents et des outils internes qui prennent en charge la production et les tâches répétitives.</p></article>
+    <article class="c cap" data-r style="--d:.12s"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#users"/></svg></span><h3 class="t">Démultiplier les compétences</h3><p class="p">Chacun apprend à piloter l’IA sur ses missions et garde la maîtrise du résultat.</p></article>
+    <article class="c cap" data-r style="--d:.18s"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#spark"/></svg></span><h3 class="t">Innover en continu</h3><p class="p">Les nouveaux modèles testés et mesurés sur vos besoins réels, avant d’être déployés.</p></article>
+    <div class="c dark after s4" data-r>
+      <p class="eyebrow">Un exemple par métier</p>
+      <h3 class="t">Du support au juridique, l’IA dans les process.</h3>
+      <div class="chips" id="jobs" role="group" aria-label="Choisir un métier">
+        <button aria-pressed="true">Support client</button><button aria-pressed="false">Ventes</button><button aria-pressed="false">Marketing</button><button aria-pressed="false">Ressources humaines</button><button aria-pressed="false">Juridique</button><button aria-pressed="false">Finance</button><button aria-pressed="false">Développement</button><button aria-pressed="false">Design</button><button aria-pressed="false">Image et vidéo</button><button aria-pressed="false">Direction</button>
+      </div>
+      <ol class="flow" id="flow">
+        <li><b>1</b><span>Demande client</span></li><li><b>2</b><span>L’agent lit votre base</span></li><li><b>3</b><span>Réponse préparée</span></li><li><b>4</b><span>Validée en un clic</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Méthode : Comprendre → Construire → Orchestrer → Transmettre → Intégrer -->
 <section class="sec wrap" id="methode" aria-labelledby="t-methode">
   <div class="head" data-r>
-    <h2 class="h2" id="t-methode">Quatre temps, <strong>de l’audit à l’autonomie.</strong></h2>
-  </div>
-  <div class="grid" id="steps">
-    <div class="bar" aria-hidden="true"><i></i></div>
-    <article class="c step" data-r><span class="n" aria-hidden="true">01</span><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#comprendre"/></svg></span><h3 class="t">Auditer</h3><p class="p">Visio et partage d’écran avec chaque salarié.</p></article>
-    <article class="c step" data-r style="--d:.06s"><span class="n" aria-hidden="true">02</span><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#construire"/></svg></span><h3 class="t">Équiper</h3><p class="p">Outils, agents et automatisations, selon vos règles de données.</p></article>
-    <article class="c step" data-r style="--d:.12s"><span class="n" aria-hidden="true">03</span><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#transmettre"/></svg></span><h3 class="t">Former</h3><p class="p">Chaque salarié, sur ses tâches réelles.</p></article>
-    <article class="c step" data-r style="--d:.18s"><span class="n" aria-hidden="true">04</span><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#loop"/></svg></span><h3 class="t">Ancrer</h3><p class="p">Guide interne, référents, veille continue.</p></article>
-  </div>
-  <div class="grid" style="margin-top:var(--gap)">
-    <div class="c measure s2" data-r>
-      <div><p class="eyebrow">Au début et à la fin</p><h3 class="t">Un résultat mesuré.</h3></div>
-      <div class="kpis">
-        <span><svg aria-hidden="true"><use href="assets/icons.svg#clock"/></svg>Temps gagné</span>
-        <span><svg aria-hidden="true"><use href="assets/icons.svg#star"/></svg>Qualité</span>
-        <span><svg aria-hidden="true"><use href="assets/icons.svg#users"/></svg>Adoption</span>
-        <span><svg aria-hidden="true"><use href="assets/icons.svg#loop"/></svg>Autonomie</span>
-      </div>
+    <div>
+      <h2 class="h2" id="t-methode">Ma méthode. <strong>Du besoin métier à l’outil utile.</strong></h2>
+      <p class="lead">Un premier usage utile, puis une capacité durable.</p>
     </div>
-    <div class="c fmt s2" data-r style="--d:.06s">
-      <div><b>3 à 12 mois</b><span>selon la taille de l’équipe</span></div>
-      <div><b>Temps plein</b><span>ou partiel</span></div>
-      <div><b>100 %</b><span>à distance</span></div>
-      <div><b>Arrêt possible</b><span>à la fin de chaque mois</span></div>
-    </div>
+  </div>
+  <ol class="c method" id="steps" data-r>
+    <li class="mrow step"><span class="n">1</span><div><h3>Comprendre</h3><p class="p">Les tâches de chaque métier, les outils en place, les priorités. On choisit ensemble un premier usage utile.</p></div><span class="chip">8 métiers exercés</span></li>
+    <li class="mrow step"><span class="n">2</span><div><h3>Construire</h3><p class="p">Assistants métier, agents, automatisations : du prototype à l’outil utilisé chaque jour, testé sur vos tâches réelles.</p></div><span class="chip">≈ 480 écrans en 3 semaines</span></li>
+    <li class="mrow step"><span class="n">3</span><div><h3>Orchestrer</h3><p class="p">Contexte partagé, documentation, revue humaine : le travail s’organise avec l’IA, et chaque résultat est contrôlé.</p></div><span class="chip">1 000+ agents en 3 jours</span></li>
+    <li class="mrow step"><span class="n">4</span><div><h3>Transmettre</h3><p class="p">Chaque collaborateur formé sur ses missions, avec les méthodes et la documentation pour continuer seul.</p></div><span class="chip">LYNEWED : fondateur autonome</span></li>
+    <li class="mrow step"><span class="n">5</span><div><h3>Intégrer</h3><p class="p">Les usages s’étendent selon les résultats : temps gagné, qualité, adoption et autonomie suivis dans la durée.</p></div><span class="chip">Bilan chiffré</span></li>
+  </ol>
+  <div class="c fmt" data-r style="margin-top:var(--gap)">
+    <div><b>3 à 12 mois</b><span>selon la taille de l’équipe</span></div>
+    <div><b>Temps plein</b><span>ou partiel</span></div>
+    <div><b>100 %</b><span>à distance</span></div>
+    <div><b>Arrêt possible</b><span>à la fin de chaque mois</span></div>
   </div>
 </section>
 
 <!-- 5. Contact -->
 <section class="sec wrap" id="contact" aria-labelledby="t-contact">
   <div class="c dark contact" data-r>
-    <h2 class="h2" id="t-contact">Parlons de <strong>votre équipe.</strong></h2>
+    <h2 class="h2" id="t-contact">Parlons de <strong>votre projet.</strong></h2>
+    <p class="lead">Un premier échange pour repérer où l’IA sera la plus utile dans votre équipe.</p>
     <div class="cta">
       <span class="mail">
         <a class="btn dark" href="mailto:tomberthet1@gmail.com?subject=Int%C3%A9gration%20de%20l%E2%80%99IA">tomberthet1@gmail.com</a>

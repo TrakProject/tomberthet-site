@@ -1,6 +1,6 @@
 // tomberthet.fr : comportements communs. Chaque bloc ne s'active que si son élément est présent.
-// data-r : apparition · data-count : compteur · #clock : heure de Toulouse · #flow : usages par métier
-// .pile : pastilles déplaçables · .copy : copier l'email · #steps : méthode qui s'allume au défilement
+// data-r : apparition · data-count : compteur · #flow : usages par métier
+// #stage : cartes du premier écran · .pile : pastilles déplaçables · .copy : copier l'email · #steps : méthode qui s'allume au défilement
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, c = document) => c.querySelector(s);
@@ -33,20 +33,23 @@
   }), { threshold: .15, rootMargin: '0px 0px -5% 0px' });
   $$('[data-r]').forEach(el => io.observe(el));
 
-  // Heure de Toulouse, mise à jour chaque seconde
-  const clock = $('#clock');
-  if (clock) {
-    const f = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' });
-    const set = () => { const [h, m] = f.format(new Date()).split(':'); clock.innerHTML = `${h}<span class="sep">:</span>${m}`; };
-    set(); setInterval(set, 1000);
-  }
-
   // Copier l'adresse email
   $$('.copy').forEach(b => b.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(b.dataset.copy); } catch { return; }
     b.classList.add('done'); b.setAttribute('aria-label', 'Adresse copiée');
     setTimeout(() => { b.classList.remove('done'); b.setAttribute('aria-label', 'Copier l’adresse'); }, 1800);
   }));
+
+  // Premier écran : les cartes suivent légèrement la souris (ordinateur seulement)
+  const stage = $('#stage');
+  if (stage && !reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    const hero = stage.closest('section');
+    hero.addEventListener('pointermove', e => {
+      stage.style.setProperty('--px', (e.clientX / innerWidth - .5).toFixed(3));
+      stage.style.setProperty('--py', (e.clientY / innerHeight - .5).toFixed(3));
+    }, { passive: true });
+    hero.addEventListener('pointerleave', () => { stage.style.setProperty('--px', 0); stage.style.setProperty('--py', 0); });
+  }
 
   // Pastilles des métiers : on peut les attraper et les déplacer dans leur carte
   $$('.pile').forEach(pile => {
