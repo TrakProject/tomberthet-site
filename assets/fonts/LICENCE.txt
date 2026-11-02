@@ -1,3 +1,5 @@
 Polices Inter et Inter Tight (Rasmus Andersson), sous licence SIL Open Font License 1.1.
 Texte complet : https://openfontlicense.org — Sources : https://github.com/rsms/inter
 Fichiers réduits au jeu de caractères latin pour le site.
+
+Instrument Serif (Instrument, Rodrigo Fuenzalida & Jordan Egstad) : SIL Open Font License 1.1, https://fonts.google.com/specimen/Instrument+Serif

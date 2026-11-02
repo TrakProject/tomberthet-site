@@ -1,331 +1,363 @@
 <!doctype html>
 <!--
-  tomberthet.fr : site statique, sans build. Publier UNIQUEMENT le dossier site/.
-  Pages : index (accueil) · trak · lynewed · breaking-face · mentions-legales. Style et scripts communs : assets/site.css, assets/site.js, assets/icons.svg.
-  Ordre de l'accueil : qui je suis → pourquoi intégrer l'IA (chiffres sourcés) → mon rôle → réalisations → méthode → contact.
-  Méthode de Tom (note vocale du 01/11) : Auditer → Intégrer → Former → Accompagner → Mesurer.
-  Chiffres sourcés : Insee Première n° 2120 (2026, données 2025), Harvard & BCG (2023), Microsoft & LinkedIn Work Trend Index (2024).
-  Chiffres personnels identiques aux PDF : 12 000+ h, 3 entreprises, 8 métiers, 10+ projets, ≈ 480 écrans, 3 à 12 mois. Malt : 5,0 sur 3 avis.
+  Site personnel de Tom Berthet, entrepreneur. Statique, sans build. Publier UNIQUEMENT le dossier site/.
+  Accueil en 9 chapitres : ciel (îles de mes mondes, MAX) → qui je suis (pierres gravées) → manifeste → mes mondes (galerie horizontale)
+  → parcours (MAX court le long de la frise) → l'IA, mon équipe → vision → offre (panneau en bois) → contact (nuit).
+  Styles : assets/site.css (base commune) + assets/monde.css (univers). Scripts : assets/site.js (base) + assets/monde.js (univers).
+  Images : assets/img/<monde>/ ; images générées par Tom (MAX, îles, objets, pierres, nuages) dans assets/img/monde/.
+  Faits : 12 000+ h d'IA depuis 2022 · 3 entreprises cofondées (BeeFit, Aurizon, TRAK) · 10+ projets clients · Station F Fighters S26.
 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tom Berthet · Intégration de l’IA en entreprise</title>
-<meta name="description" content="Entrepreneur et freelance, j’intègre l’IA dans chaque service des startups et des PME : audit, process et automatisations, formation de chaque employé, résultats mesurés. Missions de 3 à 12 mois.">
-<meta property="og:title" content="Tom Berthet · Intégrer l’IA, démultiplier les capacités de vos équipes">
-<meta property="og:description" content="Audit, intégration, formation et suivi : l’IA dans chaque service, en mission de 3 à 12 mois.">
+<title>Tom Berthet · Entrepreneur, je construis avec l’IA</title>
+<meta name="description" content="Tom Berthet, entrepreneur. Une start-up à Station F, un jeu vidéo, un film 100 % IA, des apps et des SaaS pour mes clients. Et une offre pour intégrer l’IA dans votre entreprise.">
+<meta property="og:title" content="Tom Berthet · Je crée des entreprises avec l’IA">
+<meta property="og:description" content="TRAK, Resto Mania, Breaking Face, Booply, LYNEWED… Bienvenue dans mon monde.">
 <meta property="og:image" content="https://trakproject.github.io/tomberthet-site/assets/og.jpg">
 <meta property="og:url" content="https://trakproject.github.io/tomberthet-site/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Tom Berthet">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F5F5F7">
+<meta name="theme-color" content="#C9DCEB">
 <link rel="canonical" href="https://trakproject.github.io/tomberthet-site/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/InterTight-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/InstrumentSerif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Entrepreneur et consultant en intégration de l’IA","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/","https://www.malt.fr/profile/tomberthet"],"knowsAbout":["Intégration de l’IA en entreprise","Audit IA","Formation des équipes à l’IA","Automatisation","Agents IA"]}</script>
+<link rel="stylesheet" href="assets/monde.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Entrepreneur","description":"Cofondateur et CEO de TRAK (Station F Fighters S26). Je construis des entreprises, des apps, des jeux et des films avec l’IA, et j’intègre l’IA dans les entreprises.","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/","https://www.malt.fr/profile/tomberthet"],"knowsAbout":["Entrepreneuriat","Intelligence artificielle","Intégration de l’IA en entreprise","Applications mobiles","SaaS","Jeu vidéo","Film génératif"]}</script>
 <script>document.documentElement.classList.add('js');setTimeout(()=>document.documentElement.classList.add('rv'),2500)</script>
 </head>
-<body>
+<body class="monde">
 <a class="skip" href="#contenu">Aller au contenu</a>
 
 <header class="top">
-  <div class="wrap">
+  <div class="mw">
     <a class="me" href="./"><img src="assets/avatar.jpg" alt="" width="30" height="30">Tom Berthet</a>
-    <nav aria-label="Sections"><a href="#pourquoi">Pourquoi</a><a href="#offre">Mon rôle</a><a href="#realisations">Réalisations</a><a href="#methode">Méthode</a></nav>
-    <span class="status"><span class="dot" aria-hidden="true"></span>Disponible</span>
-    <a class="btn dark sm" href="#contact">Me contacter</a>
+    <nav aria-label="Sections"><a href="#mondes">Mondes</a><a href="#parcours">Parcours</a><a href="#vision">Vision</a></nav>
+    <a class="btn dark sm" href="integration-ia.html">Intégrer l’IA</a>
   </div>
 </header>
 
 <main id="contenu">
 
-<!-- 1. Qui je suis, ce que je fais -->
-<section class="hero wrap" id="hero" aria-labelledby="titre">
-  <!-- Derrière le titre : trame fine et outils de l'IA en tuiles flottantes (décor) -->
-  <div class="aura" aria-hidden="true"></div>
-  <div class="float" aria-hidden="true">
-    <span class="tile t1" style="--k:-16"><svg><use href="assets/icons.svg#comprendre"/></svg></span>
-    <span class="tile t2 far" style="--k:-8"><svg><use href="assets/icons.svg#chart"/></svg></span>
-    <span class="tile t3 ink" style="--k:-22"><svg><use href="assets/icons.svg#bolt"/></svg></span>
-    <span class="tile t4 far" style="--k:-6"><svg><use href="assets/icons.svg#clock"/></svg></span>
-    <span class="tile t5 ink" style="--k:-20"><svg><use href="assets/icons.svg#spark"/></svg></span>
-    <span class="tile t6 far" style="--k:-7"><svg><use href="assets/icons.svg#code"/></svg></span>
-    <span class="tile t7" style="--k:-15"><svg><use href="assets/icons.svg#film"/></svg></span>
-    <span class="tile t8 far" style="--k:-9"><svg><use href="assets/icons.svg#users"/></svg></span>
+<!-- 1. Le ciel : mes mondes flottent autour de moi, MAX accueille -->
+<section class="ciel" id="ciel" aria-labelledby="titre">
+  <div class="sky" aria-hidden="true">
+    <img class="cloud c1" src="assets/img/monde/nuage-1.webp" alt="" data-depth=".25">
+    <img class="cloud c2" src="assets/img/monde/nuage-3.webp" alt="" data-depth=".45">
+    <img class="cloud c3" src="assets/img/monde/nuage-4.webp" alt="" data-depth=".6">
+    <img class="cloud c4" src="assets/img/monde/nuage-2.webp" alt="" data-depth=".3">
+    <img class="cloud c5" src="assets/img/monde/nuage-5.webp" alt="" data-depth=".7">
+  </div>
+  <div class="isles">
+    <a class="isle i1" href="#monde-trak" style="--k:-18" data-depth=".5"><img src="assets/img/monde/ile-stade.webp" alt="" fetchpriority="high"><span class="tag">TRAK</span><span class="sr">Voir TRAK</span></a>
+    <a class="isle i2" href="#parcours" style="--k:-24" data-depth=".35"><img src="assets/img/monde/ile-atelier.webp" alt=""><span class="tag">Entreprendre</span><span class="sr">Voir mon parcours</span></a>
+    <a class="isle i3" href="#monde-film" style="--k:-14" data-depth=".7"><img src="assets/img/monde/ile-cinema.webp" alt=""><span class="tag">Cinéma</span><span class="sr">Voir Breaking Face</span></a>
+    <a class="isle i4" href="#monde-lynewed" style="--k:-10" data-depth=".8"><img src="assets/img/monde/ile-apps.webp" alt=""><span class="tag">Apps et SaaS</span><span class="sr">Voir mes apps et SaaS</span></a>
   </div>
 
-  <div class="lede" data-r>
-    <a class="pill" href="https://www.malt.fr/profile/tomberthet"><span class="stars" aria-hidden="true">★★★★★</span><b>5,0 sur Malt</b><span class="sep" aria-hidden="true"></span>5+ ans d’expérience</a>
-    <h1 class="h1" id="titre"><span class="ai-t">Intégrer l’IA.</span> <strong>Démultiplier les capacités<br class="lg"> de vos équipes.</strong></h1>
-    <p class="lead">Entrepreneur et freelance, j’ai cofondé trois entreprises et je travaille avec l’IA chaque jour depuis 2022. En mission de 3 à 12 mois, j’audite chaque service, j’intègre l’IA dans vos process et je forme chaque employé.</p>
+  <div class="ciel-txt">
+    <p class="kicker"><span class="dot" aria-hidden="true"></span>Tom Berthet · Entrepreneur · Toulouse</p>
+    <h1 class="mega" id="titre">Je crée des entreprises <em>avec l’IA.</em></h1>
+    <p class="sub">Une start-up à Station F, un jeu vidéo, un film, des apps pour mes clients. Bienvenue dans mon monde.</p>
     <div class="cta">
-      <a class="btn dark" href="#contact">Parlons de votre entreprise</a>
-      <a class="btn ghost" href="#offre">Voir mon rôle</a>
+      <a class="btn dark" href="#moi">Entrer<svg class="i" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></a>
+      <a class="btn glass" href="integration-ia.html">Intégrer l’IA chez vous</a>
     </div>
   </div>
 
-  <div class="stage" id="stage">
-    <div class="col">
-      <div class="c stat s-hours" data-r style="--d:.1s;--k:7">
-        <p class="eyebrow">Depuis 2022</p>
-        <div><b><span data-count="12000">12 000</span>+<span class="u">h</span></b><p class="p">de pratique de l’IA</p></div>
-      </div>
-      <div class="c stat jobs" data-r style="--d:.18s;--k:10">
-        <div class="pile"><span class="chip">Vente</span><span class="chip">Marketing</span><span class="chip">Communication</span><span class="chip">Produit</span><span class="chip">Design</span><span class="chip">Développement</span><span class="chip">Service client</span><span class="chip">Gestion</span></div>
-        <div><b>8<span class="u">métiers</span></b><p class="p">exercés dans mes entreprises</p></div>
-      </div>
-    </div>
-    <figure class="c portrait" data-r style="--d:.05s;--k:-3">
-      <figcaption class="pcap"><span><b>Tom Berthet</b><small>Toulouse · 100 % à distance</small></span></figcaption>
-      <img src="assets/portrait-cut.webp" alt="Portrait de Tom Berthet" width="900" height="1011" fetchpriority="high">
+  <div class="guide" id="guide">
+    <p class="bubble" aria-live="polite">Salut, moi c’est MAX. Je te fais visiter ?</p>
+    <button class="max-btn" type="button" aria-label="MAX, le guide du site : cliquer pour qu’il parle"><img src="assets/img/monde/max-salut.webp" alt=""></button>
+  </div>
+</section>
+
+<!-- 2. Qui je suis -->
+<section class="moi" id="moi" aria-labelledby="t-moi">
+  <div class="mw moi-grid">
+    <figure class="moi-photo" data-r>
+      <img src="assets/portrait-cut.webp" alt="Portrait de Tom Berthet" loading="lazy" width="900" height="1011">
+      <img class="moi-obj o1" src="assets/img/monde/obj-carnet.webp" alt="" loading="lazy" data-depth=".6">
+      <img class="moi-obj o2" src="assets/img/monde/obj-cafe.webp" alt="" loading="lazy" data-depth=".9">
     </figure>
-    <div class="col">
-      <div class="c stat s-co" data-r style="--d:.14s;--k:7">
-        <div class="logos" aria-hidden="true"><span>B</span><span>A</span><span>T</span></div>
-        <div><b>3<span class="u">entreprises</span></b><p class="p">cofondées : BeeFit, Aurizon, TRAK</p></div>
+    <div class="moi-txt" data-r style="--d:.1s">
+      <p class="kicker">Qui je suis</p>
+      <h2 class="big" id="t-moi">Je m’appelle Tom. <em>J’entreprends avec l’IA, chaque jour.</em></h2>
+      <p class="lead">Trois entreprises cofondées, des apps et des SaaS livrés pour mes clients, un jeu vidéo et un film. J’ai été vendeur, designer, développeur, formateur. Aujourd’hui, je dirige TRAK, ma start-up à Station F.</p>
+      <ul class="hats" aria-label="Mes métiers">
+        <li>Entrepreneur</li><li>Product designer</li><li>Développeur</li><li>Réalisateur IA</li><li>Game designer</li><li>Formateur et consultant IA</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mw stones" aria-label="Quelques chiffres">
+    <figure class="stone g1" data-r><img src="assets/img/monde/pierre-basalte.webp" alt="" loading="lazy"><figcaption><b>12 000 h</b><span>d’IA depuis 2022</span></figcaption></figure>
+    <figure class="stone g2" data-r style="--d:.08s"><img src="assets/img/monde/pierre-granit.webp" alt="" loading="lazy"><figcaption><b>3</b><span>entreprises cofondées</span></figcaption></figure>
+    <figure class="stone g3" data-r style="--d:.16s"><img src="assets/img/monde/pierre-gres.webp" alt="" loading="lazy"><figcaption><b>10+</b><span>projets livrés pour des clients</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- 3. Manifeste : le texte s'allume mot à mot -->
+<section class="manif say-zone" id="manifeste" aria-label="Ce qui me guide">
+  <img class="perch" src="assets/img/monde/max-assis.webp" alt="" loading="lazy">
+  <div class="manif-objs" aria-hidden="true">
+    <img src="assets/img/monde/obj-bobine.webp" alt="" class="mo m1" loading="lazy" data-depth=".9">
+    <img src="assets/img/monde/obj-lanterne.webp" alt="" class="mo m2" loading="lazy" data-depth="1.2">
+    <img src="assets/img/monde/obj-touche.webp" alt="" class="mo m3" loading="lazy" data-depth=".7">
+    <img src="assets/img/monde/obj-chrono.webp" alt="" class="mo m4" loading="lazy" data-depth="1">
+  </div>
+  <div class="manif-stick">
+    <p class="say">Depuis 2022, je travaille avec l’IA tous les jours. Pas pour lui poser des questions. <em>Pour construire.</em> Elle code avec moi, dessine avec moi, filme avec moi. Douze mille heures plus tard, j’en suis sûr : l’IA ne remplace pas l’entrepreneur. <em>Elle lui donne une équipe.</em></p>
+  </div>
+</section>
+
+<!-- 4. Mes mondes : galerie horizontale épinglée (verticale sur téléphone) -->
+<section class="worlds" aria-labelledby="t-mondes">
+ <div id="worlds">
+  <div class="pin" id="mondes">
+    <div class="track">
+
+      <div class="w-intro">
+        <p class="kicker">Mes réalisations</p>
+        <h2 class="big" id="t-mondes">Chaque projet est <em>un monde.</em></h2>
+        <p class="lead">Une app de sport, deux jeux, un film, des plateformes pour mes clients. Tout construit avec l’IA. Et je raconte comment.</p>
+        <img class="w-runner" src="assets/img/monde/max-course.webp" alt="" loading="lazy">
+        <p class="hint" aria-hidden="true">Faites défiler<svg class="i"><use href="assets/icons.svg#next"/></svg></p>
       </div>
-      <a class="c stat dark malt" href="https://www.malt.fr/profile/tomberthet" data-r style="--d:.22s;--k:10">
-        <p class="q">« Très bon travail, fluide et parfait. »<small>Max, Mercure SAS</small></p>
-        <div><b>5,0<span class="u">/ 5</span></b><p class="p"><span class="stars" aria-hidden="true">★★★★★</span> 3 avis clients sur Malt</p></div>
+
+      <a class="world w-trak" id="monde-trak" href="trak.html">
+        <img class="w-bg" src="assets/img/affiches/max-lac-sans-logo.webp" alt="" loading="lazy">
+        <div class="w-txt">
+          <img class="w-logo" src="assets/img/trak/logo-trak-blanc.svg" alt="TRAK" loading="lazy" width="150" height="34">
+          <h3>L’app qui transforme chaque séance en progression visible.</h3>
+          <p>Ma start-up, avec mon frère. Je conçois le produit et j’organise toute sa production avec des agents IA.</p>
+          <ul class="w-facts"><li>Station F · Fighters S26</li><li>≈ 480 écrans en 3 semaines</li><li>72 badges, une mascotte</li></ul>
+          <span class="w-go">Entrer dans TRAK<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span>
+        </div>
+        <div class="w-art" aria-hidden="true">
+          <img class="ph p1" src="assets/img/trak/ecran-running.webp" alt="" loading="lazy">
+          <img class="ph p2" src="assets/img/trak/ecran-hub.webp" alt="" loading="lazy">
+          <img class="ph p3" src="assets/img/trak/ecran-nutrition.webp" alt="" loading="lazy">
+          <img class="bdg b1" src="assets/img/trak/badge-r3-3-21-1-km.webp" alt="" loading="lazy">
+          <img class="bdg b2" src="assets/img/trak/badge-d1-5-50-000-m-dplus.webp" alt="" loading="lazy">
+          <img class="bdg b3" src="assets/img/trak/badge-g2-5-1-000-h.webp" alt="" loading="lazy">
+        </div>
       </a>
+
+      <a class="world w-resto" id="monde-resto" href="resto-mania.html">
+        <img class="w-bg" src="assets/img/resto/panorama-coucher-soleil.webp" alt="" loading="lazy">
+        <div class="w-txt">
+          <img class="w-logo" src="assets/img/resto/logo-resto-mania.webp" alt="Resto Mania" loading="lazy">
+          <h3>Mon jeu vidéo : un salon de thé japonais qui devient un domaine.</h3>
+          <p>Je décide de tout, du gameplay à la direction artistique. Des agents IA transforment mes images en jeu.</p>
+          <ul class="w-facts"><li>Godot 4 · mobile</li><li>101 modèles 3D</li><li>Aucun artiste externe</li></ul>
+          <span class="w-go">Entrer dans Resto Mania<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span>
+        </div>
+        <div class="w-art" aria-hidden="true">
+          <img class="shot" src="assets/img/resto/jeu-auberge-iphone.webp" alt="" loading="lazy">
+          <img class="deco d-tree" src="assets/img/resto/decor-cerisier.webp" alt="" loading="lazy">
+          <img class="deco d-chef" src="assets/img/monde/max-chef.webp" alt="" loading="lazy">
+          <img class="deco d-ramen" src="assets/img/resto/plat-ramen-shoyu.webp" alt="" loading="lazy">
+          <img class="deco d-dango" src="assets/img/resto/plat-dango.webp" alt="" loading="lazy">
+        </div>
+      </a>
+
+      <div class="world w-film" id="monde-film">
+        <video class="w-bg" data-auto muted loop playsinline preload="none" poster="assets/media/bf-29.webp" aria-hidden="true"><source src="assets/media/breaking-face-loop.mp4" type="video/mp4"></video>
+        <div class="w-txt">
+          <p class="w-eyebrow">Film · 2026</p>
+          <h3 class="w-title">Breaking Face</h3>
+          <p>Une bande-annonce entièrement faite avec l’IA : personnages, images, voix, montage. Je l’ai écrite et dirigée.</p>
+          <ul class="w-facts"><li>52 secondes, 100 % IA</li><li>Participation au Higgsfield Global Film Festival</li></ul>
+          <div class="w-btns">
+            <button class="btn white" type="button" data-open="trailer"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#play"/></svg>Voir la bande-annonce</button>
+            <a class="w-go" href="breaking-face.html">L’histoire du film<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+          </div>
+        </div>
+        <img class="w-clap" src="assets/img/monde/max-clap.webp" alt="" loading="lazy">
+      </div>
+
+      <a class="world w-booply" id="monde-booply" href="booply.html">
+        <div class="w-txt">
+          <img class="w-icon" src="assets/img/booply/icone.webp" alt="" loading="lazy">
+          <h3><span class="w-name">Booply.</span> Un jeu mobile, de l’idée au prototype en quatre jours.</h3>
+          <p>On glisse un petit monstre, on forme un groupe, tout explose en cascade. Gameplay, règles, direction artistique : je l’ai conçu de A à Z.</p>
+          <ul class="w-facts"><li>271 commits en 4 jours</li><li>Prototype · iOS et Android à venir</li></ul>
+          <span class="w-go">Entrer dans Booply<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span>
+        </div>
+        <div class="w-art" aria-hidden="true">
+          <img class="st k1" src="assets/img/booply/store-cascade.webp" alt="" loading="lazy">
+          <img class="st k2" src="assets/img/booply/store-modes.webp" alt="" loading="lazy">
+          <img class="st k3" src="assets/img/booply/store-tresor.webp" alt="" loading="lazy">
+        </div>
+      </a>
+
+      <a class="world w-lynewed" id="monde-lynewed" href="lynewed.html">
+        <div class="w-txt">
+          <img class="w-icon round" src="assets/img/lynewed/logo.webp" alt="" loading="lazy">
+          <h3><span class="w-name">LYNEWED.</span> Une plateforme livrée. Un fondateur formé à continuer seul.</h3>
+          <p>App mobile, site, CRM pour les professionnels du mariage. Puis j’ai formé son fondateur à développer avec Claude Code.</p>
+          <ul class="w-facts"><li>Mission freelance</li><li>App, site et CRM SaaS</li><li>Formation à l’IA</li></ul>
+          <span class="w-go">Voir la mission<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span>
+        </div>
+        <div class="w-art" aria-hidden="true">
+          <img class="ph p1" src="assets/img/lynewed/app-connexion.webp" alt="" loading="lazy">
+          <img class="ph p2" src="assets/img/lynewed/app-feed.webp" alt="" loading="lazy">
+          <img class="ph p3" src="assets/img/lynewed/app-replay.webp" alt="" loading="lazy">
+        </div>
+      </a>
+
+      <a class="world w-aurizon" id="monde-aurizon" href="aurizon.html">
+        <div class="w-txt">
+          <img class="w-logo" src="assets/img/aurizon/logo.webp" alt="Aurizon" loading="lazy">
+          <h3>Un studio produit. Cinq produits conçus avec l’IA.</h3>
+          <p>MindUp, LumiAI, GoMuscu… Le laboratoire où j’ai appris à passer d’une idée à un produit, vite.</p>
+          <ul class="w-facts"><li>Cofondateur · 2023–2025</li><li>Apps mobiles et assistant IA</li></ul>
+          <span class="w-go">Entrer dans le studio<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span>
+        </div>
+        <div class="w-art" aria-hidden="true">
+          <img class="ph p1" src="assets/img/aurizon/mindup-habitudes.webp" alt="" loading="lazy">
+          <img class="ph p2" src="assets/img/aurizon/mindup-running.webp" alt="" loading="lazy">
+          <img class="ph p3" src="assets/img/aurizon/mindup-moment.webp" alt="" loading="lazy">
+        </div>
+      </a>
+
+      <a class="world w-beefit" id="monde-beefit" href="beefit.html">
+        <div class="w-txt">
+          <img class="w-logo" src="assets/img/beefit/logo.webp" alt="BeeFit" loading="lazy">
+          <h3>Ma première entreprise. 200+ clients, et une leçon.</h3>
+          <p>Une marque de compléments naturels pour sportifs : sourcing, marque, boutique en ligne. Un bon produit ne suffit pas : le modèle économique décide.</p>
+          <ul class="w-facts"><li>Cofondateur · 2023</li><li>E-commerce</li></ul>
+          <span class="w-go">Voir BeeFit<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span>
+        </div>
+        <div class="w-art" aria-hidden="true">
+          <img class="pack" src="assets/img/beefit/pack.webp" alt="" loading="lazy">
+        </div>
+      </a>
+
     </div>
+  </div>
+ </div>
+</section>
+
+<!-- 5. Parcours : MAX court le long de la frise -->
+<section class="parcours" id="parcours" aria-labelledby="t-parcours">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Mon parcours</p>
+      <h2 class="big" id="t-parcours">Cinq ans, <em>en accéléré.</em></h2>
+    </div>
+    <ol class="road" id="road">
+      <li class="rail" aria-hidden="true"><span class="fill"></span><img class="runner" src="assets/img/monde/max-course.webp" alt=""></li>
+      <li class="stop" data-r><span class="yr">2022</span><div class="card"><img class="pic contain" src="assets/img/monde/ile-atelier.webp" alt="" loading="lazy"><h3>Je découvre l’IA générative.</h3><p>Et je ne m’arrête plus. Chaque jour, je teste, je construis, j’apprends.</p></div></li>
+      <li class="stop" data-r><span class="yr">2023</span><div class="card"><img class="pic" src="assets/img/beefit/site-accueil.webp" alt="" loading="lazy"><h3>BeeFit, ma première entreprise.</h3><p>Une marque de compléments pour sportifs. 200+ clients. J’apprends tout : la vente, la marque, le service client.</p></div></li>
+      <li class="stop" data-r><span class="yr">2023 – 25</span><div class="card"><img class="pic" src="assets/img/aurizon/mindup.webp" alt="" loading="lazy"><h3>Aurizon, un studio produit.</h3><p>Cinq produits conçus avec l’IA. J’y construis ma méthode : un problème, une expérience, un prototype, vite.</p></div></li>
+      <li class="stop" data-r><span class="yr">2025 – 26</span><div class="card"><img class="pic" src="assets/img/lynewed/presentation.webp" alt="" loading="lazy"><h3>Freelance, avec mon frère Léo.</h3><p>Plus de dix projets livrés : SaaS, apps mobiles, sites. Et ma première mission de formation à l’IA.</p></div></li>
+      <li class="stop" data-r><span class="yr">2026</span><div class="card"><img class="pic" src="assets/img/affiches/equipe-max-coucher-soleil.webp" alt="" loading="lazy"><h3>TRAK, sélectionnée à Station F.</h3><p>Cofondateur et CEO. Programme Fighters S26. La production pilotée avec des agents IA.</p></div></li>
+      <li class="stop" data-r><span class="yr">2026</span><div class="card"><img class="pic" src="assets/media/bf-44.webp" alt="" loading="lazy"><h3>Un film, deux jeux.</h3><p>Breaking Face, Booply, Resto Mania : je pousse l’IA là où on ne l’attend pas.</p></div></li>
+      <li class="stop now" data-r><span class="yr">Aujourd’hui</span><div class="card"><h3>Je construis TRAK. Et j’aide des entreprises à intégrer l’IA.</h3><p><a href="integration-ia.html">Voir comment<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a></p></div></li>
+    </ol>
   </div>
 </section>
 
-<!-- 2. Pourquoi intégrer l'IA : la différence avec un usage ponctuel, et les chiffres -->
-<section class="sec wrap" id="pourquoi" aria-labelledby="t-pourquoi">
-  <div class="head" data-r>
-    <div>
-      <h2 class="h2" id="t-pourquoi">Utiliser ChatGPT <strong>n’est pas intégrer l’IA.</strong></h2>
-      <p class="lead">Poser des questions à l’IA fait gagner quelques minutes. L’intégrer dans les process de chaque service change le quotidien de toute l’entreprise.</p>
+<!-- 6. L'IA, mon équipe : preuves concrètes et outils -->
+<section class="equipe" id="ia" aria-labelledby="t-ia">
+  <div class="mw">
+    <div class="sec-head center" data-r>
+      <p class="kicker">Ma façon de travailler</p>
+      <h2 class="big" id="t-ia">L’IA, <em>c’est mon équipe.</em></h2>
+      <p class="lead">Je lui confie des missions, je fixe les règles, je vérifie chaque résultat.</p>
     </div>
-  </div>
-  <div class="grid g2">
-    <div class="c vs" data-r>
-      <p class="eyebrow">Usage ponctuel</p>
-      <ul>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Quelques curieux s’en servent</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Des questions, au cas par cas</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Les tâches répétitives restent à faire</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Aucun gain mesuré</li>
+    <div class="orbit">
+      <img class="orbit-max" src="assets/img/monde/max-ordinateur.webp" alt="MAX travaille sur son ordinateur" loading="lazy" data-r>
+      <ul class="proofs">
+        <li data-r><b>≈ 480</b><span>écrans conçus en 3 semaines</span><small>TRAK</small></li>
+        <li data-r style="--d:.05s"><b>1 000+</b><span>agents IA lancés en 3 jours</span><small>TRAK</small></li>
+        <li data-r style="--d:.1s"><b>52 s</b><span>de film, 100 % générées</span><small>Breaking Face</small></li>
+        <li data-r style="--d:.15s"><b>101</b><span>modèles 3D, sans artiste externe</span><small>Resto Mania</small></li>
+        <li data-r style="--d:.2s"><b>271</b><span>commits en 4 jours</span><small>Booply</small></li>
+        <li data-r style="--d:.25s"><b>1</b><span>fondateur formé à développer avec l’IA</span><small>LYNEWED</small></li>
       </ul>
     </div>
-    <div class="c vs dark on" data-r style="--d:.08s">
-      <p class="eyebrow">IA intégrée</p>
-      <ul>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Chaque employé formé et assisté</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des process et des outils reliés</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des agents qui tournent 24 h/24</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des résultats suivis chaque mois</li>
-      </ul>
+    <div class="tools" aria-label="Les outils que j’utilise">
+      <div class="tools-row">
+        <span><img src="assets/img/outils/claude.svg" alt="" loading="lazy">Claude</span><span><img src="assets/img/outils/claude-code.svg" alt="" loading="lazy">Claude Code</span><span><img src="assets/img/outils/openai.svg" alt="" loading="lazy">ChatGPT</span><span><b class="glyph" aria-hidden="true">H</b>Higgsfield</span><span><img src="assets/img/outils/cursor.svg" alt="" loading="lazy">Cursor</span><span><img src="assets/img/outils/figma.svg" alt="" loading="lazy">Figma</span><span><img src="assets/img/outils/framer.svg" alt="" loading="lazy">Framer</span><span><img src="assets/img/outils/notion.svg" alt="" loading="lazy">Notion</span><span><img src="assets/img/outils/n8n.svg" alt="" loading="lazy">n8n</span><span><img src="assets/img/outils/supabase.svg" alt="" loading="lazy">Supabase</span><span><img src="assets/img/outils/react.svg" alt="" loading="lazy">React</span><span><img src="assets/img/outils/expo.svg" alt="" loading="lazy">Expo</span><span><img src="assets/img/outils/godot.svg" alt="" loading="lazy">Godot</span><span><img src="assets/img/outils/github.svg" alt="" loading="lazy">GitHub</span><span><img src="assets/img/outils/vercel.svg" alt="" loading="lazy">Vercel</span>
+      </div>
     </div>
-  </div>
-  <div class="grid g4 facts-row">
-    <div class="c fact" data-r><b>18 %</b><p class="p">des entreprises françaises utilisent l’IA.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
-    <div class="c fact" data-r style="--d:.05s"><b>25 %</b><p class="p">plus rapides, pour un travail de meilleure qualité, chez des consultants équipés.</p><a class="src" href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700">Harvard &amp; BCG, 2023</a></div>
-    <div class="c fact" data-r style="--d:.1s"><b>39 %</b><p class="p">des utilisateurs d’IA ont été formés par leur entreprise.</p><a class="src" href="https://news.microsoft.com/source/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft &amp; LinkedIn, 2024</a></div>
-    <div class="c fact" data-r style="--d:.15s"><b>54 %</b><p class="p">des entreprises sans IA citent le manque de compétences.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
+    <p class="watch" data-r><img src="assets/img/monde/obj-boussole.webp" alt="" loading="lazy">Chaque jour, je teste les nouveaux outils. Ce qui marche finit dans mes projets, ou chez mes clients.</p>
   </div>
 </section>
 
-<!-- 3. Mon rôle : ce que l'entreprise obtient -->
-<section class="sec wrap" id="offre" aria-labelledby="t-offre">
-  <div class="head" data-r>
-    <div>
-      <h2 class="h2" id="t-offre"><strong>Votre responsable IA,</strong> le temps de la mission.</h2>
-      <p class="lead">J’audite, j’intègre, je forme et je mesure. Objectif : que chaque employé utilise l’IA à son plein potentiel.</p>
+<!-- 7. Vision -->
+<section class="vision" id="vision" aria-labelledby="t-vision">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Ma vision</p>
+      <h2 class="big" id="t-vision">Ce que je crois, <em>en trois idées.</em></h2>
     </div>
-  </div>
-  <div class="grid bento">
-    <article class="c b s2 b-audit" data-r>
-      <div class="vis lv" aria-hidden="true">
-        <div class="lv-k"><span><i class="now"></i>Aujourd’hui</span><span><i class="goal"></i>Objectif</span></div>
-        <div class="lv-r"><span>Ventes</span><span class="tr"><i style="--a:.3;--b:.8"></i></span></div>
-        <div class="lv-r"><span>Marketing</span><span class="tr"><i style="--a:.45;--b:.9"></i></span></div>
-        <div class="lv-r"><span>Support</span><span class="tr"><i style="--a:.15;--b:.75"></i></span></div>
-        <div class="lv-r"><span>Finance</span><span class="tr"><i style="--a:.1;--b:.6"></i></span></div>
-      </div>
-      <h3 class="t">Un audit de chaque service</h3>
-      <p class="p">Comment chacun travaille, où en est l’IA, ce qu’elle peut changer. Avec des objectifs par service.</p>
-    </article>
-    <article class="c b b-agents" data-r style="--d:.06s">
-      <ul class="vis sched" aria-hidden="true">
-        <li><time>07:00</time>Veille concurrents<svg class="i"><use href="assets/icons.svg#check"/></svg></li>
-        <li><time>09:00</time>Relances clients<svg class="i"><use href="assets/icons.svg#check"/></svg></li>
-        <li class="run"><time>18:00</time>Rapport du jour<span class="dot"></span></li>
-      </ul>
-      <h3 class="t">Des agents 24 h/24</h3>
-      <p class="p">Planifiés pour les tâches qui reviennent.</p>
-    </article>
-    <article class="c b b-flow" data-r>
-      <div class="vis nodes" aria-hidden="true">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="50" x2="18" y2="16"/><line x1="50" y1="50" x2="20" y2="84"/><line x1="50" y1="50" x2="82" y2="18"/><line x1="50" y1="50" x2="80" y2="84"/></svg>
-        <span>CRM</span><span>Emails</span><span class="hub">Claude</span><span>Slack</span><span>Notion</span>
-      </div>
-      <h3 class="t">Des process reliés</h3>
-      <p class="p">Documentés, automatisés, sans double saisie.</p>
-    </article>
-    <article class="c b b-team" data-r style="--d:.06s">
-      <div class="vis team" aria-hidden="true">
-        <span style="--l:16%">CL</span><span style="--l:30%">MA</span><span style="--l:44%">JU</span><span style="--l:56%">LÉ</span><span style="--l:24%">SA</span>
-      </div>
-      <div class="vis tbar" aria-hidden="true"><span>Équipe formée</span><i></i></div>
-      <h3 class="t">Chaque employé formé</h3>
-      <p class="p">Sur ses tâches, avec les nouvelles méthodes et les nouveaux outils.</p>
-    </article>
-    <article class="c b dark b-gen" data-r style="--d:.12s">
-      <div class="vis gen" aria-hidden="true">
-        <div class="pr"><span>Vidéo produit, 15 s, lumière studio</span><b>Générer</b></div>
-        <div class="tiles"><i><svg><use href="assets/icons.svg#film"/></svg></i><i><svg><use href="assets/icons.svg#film"/></svg></i><i class="ld"></i></div>
-      </div>
-      <h3 class="t">Images et vidéos</h3>
-      <p class="p">Higgsfield relié à Claude : produire plus vite, à moindre coût.</p>
-    </article>
-    <article class="c b b-tool" data-r>
-      <div class="vis win" aria-hidden="true">
-        <div class="wb"><i></i><i></i><i></i></div>
-        <div class="wc"><span class="side"></span><span class="rows"><i></i><i></i><i></i><i></i></span></div>
-      </div>
-      <h3 class="t">Des outils internes</h3>
-      <p class="p">Si rien n’existe, je le construis. Jusqu’à ≈ 480 écrans en 3 semaines.</p>
-    </article>
-    <article class="c b s2 b-kpi" data-r style="--d:.06s">
-      <div class="vis kpi" aria-hidden="true">
-        <i style="--v:.18"></i><i style="--v:.32"></i><i style="--v:.5"></i><i style="--v:.66"></i><i style="--v:.8"></i><i style="--v:.94"></i>
-      </div>
-      <div class="kx" aria-hidden="true"><span>Usage de l’IA</span><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
-      <h3 class="t">Un bilan chaque mois</h3>
-      <p class="p">Usage, temps gagné, tâches automatisées. Et une veille quotidienne pour intégrer chaque nouveauté.</p>
-    </article>
-    <div class="c dark after s4" data-r>
-      <p class="eyebrow">Un exemple par service</p>
-      <h3 class="t">Concrètement, au quotidien.</h3>
-      <div class="chips" id="jobs" role="group" aria-label="Choisir un service">
-        <button aria-pressed="true">Support client</button><button aria-pressed="false">Ventes</button><button aria-pressed="false">Marketing</button><button aria-pressed="false">Ressources humaines</button><button aria-pressed="false">Juridique</button><button aria-pressed="false">Finance</button><button aria-pressed="false">Développement</button><button aria-pressed="false">Design</button><button aria-pressed="false">Image et vidéo</button><button aria-pressed="false">Direction</button>
-      </div>
-      <ol class="flow" id="flow">
-        <li><b>1</b><span>Demande client</span><em>Entrée</em></li><li><b>2</b><span>L’IA lit votre base</span><em class="ia">IA</em></li><li><b>3</b><span>Réponse préparée</span><em class="ia">IA</em></li><li><b>4</b><span>Validée en un clic</span><em class="you">Vous</em></li>
-      </ol>
+    <div class="ideas">
+      <a class="idea" href="vision.html#equipe" data-r><img src="assets/img/monde/pierre-basalte.webp" alt="" loading="lazy"><span class="n">01</span><h3>L’IA est une équipe, pas un outil.</h3><p>Celui qui sait lui confier du travail va beaucoup plus vite.</p><span class="more">Lire<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span></a>
+      <a class="idea" href="vision.html#france" data-r style="--d:.08s"><img src="assets/img/monde/pierre-gres.webp" alt="" loading="lazy"><span class="n">02</span><h3>Les petites équipes ont une carte à jouer.</h3><p>18 % des entreprises françaises de 10 salariés et plus utilisent l’IA. Le terrain est libre.</p><span class="more">Lire<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span></a>
+      <a class="idea" href="vision.html#integrer" data-r style="--d:.16s"><img src="assets/img/monde/pierre-granit.webp" alt="" loading="lazy"><span class="n">03</span><h3>Utiliser ChatGPT n’est pas intégrer l’IA.</h3><p>Le vrai gain vient des process, pas des questions.</p><span class="more">Lire<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span></a>
     </div>
   </div>
 </section>
 
-<!-- 4. Réalisations -->
-<section class="sec wrap" id="realisations" aria-labelledby="t-real">
-  <div class="head" data-r>
-    <div>
-      <h2 class="h2" id="t-real"><strong>Mes réalisations.</strong> Construites avec l’IA.</h2>
-      <p class="lead">Une start-up, des produits, des missions clients : chaque fois, l’IA au cœur du travail.</p>
+<!-- 8. L'offre : intégrer l'IA dans votre entreprise -->
+<section class="offre" id="offre" aria-labelledby="t-offre">
+  <div class="mw offre-grid">
+    <div class="sign" data-r>
+      <img src="assets/img/monde/panneau-bois.webp" alt="" loading="lazy">
+      <p class="sign-txt">Intégrer l’IA <span>dans votre entreprise</span></p>
+    </div>
+    <div class="offre-txt" data-r style="--d:.1s">
+      <p class="kicker">Travaillons ensemble</p>
+      <h2 class="big" id="t-offre">Ce que je fais pour TRAK, <em>je peux le faire pour vous.</em></h2>
+      <p class="lead">Pendant 3 à 12 mois, je deviens votre responsable IA. J’audite chaque service, j’intègre l’IA dans vos process, je forme chaque employé et je mesure les résultats.</p>
+      <ol class="steps4"><li>Auditer</li><li>Intégrer</li><li>Former</li><li>Mesurer</li></ol>
+      <div class="cta">
+        <a class="btn dark" href="integration-ia.html">Découvrir l’offre<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+        <a class="btn ghost" href="#contact">Me contacter</a>
+      </div>
+      <p class="rate"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 sur Malt · 3 avis clients · Déjà fait chez LYNEWED</p>
     </div>
   </div>
-  <div class="grid">
-    <a class="c dark proj trak-c s2 r2" href="trak.html" data-r>
-      <span class="go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
-      <div class="fan" aria-hidden="true">
-        <div class="ph"><img src="assets/trak-02.jpg" alt="" loading="lazy" width="345" height="768"></div>
-        <div class="ph"><img src="assets/trak-03.jpg" alt="" loading="lazy" width="402" height="874"></div>
-        <div class="ph"><img src="assets/trak-04.jpg" alt="" loading="lazy" width="292" height="720"></div>
-      </div>
-      <div class="txt">
-        <p class="eyebrow">Start-up · Cofondateur et CEO</p>
-        <h3 class="t">TRAK</h3>
-        <p class="p">Une application sportive que je construis avec mon frère. Je conçois le produit et j’organise sa production avec l’IA.</p>
-        <div class="chips"><span class="chip">≈ 480 écrans en 3 semaines</span><span class="chip">Station F Fighters S26</span></div>
-      </div>
-    </a>
-    <a class="c media proj ly-c" href="lynewed.html" data-r style="--d:.06s">
-      <img src="assets/lynewed-app.jpg" alt="" loading="lazy" width="1600" height="816">
-      <span class="go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
-      <div class="txt">
-        <p class="eyebrow">Mission freelance</p>
-        <h3 class="t">LYNEWED</h3>
-        <p class="p">Plateforme livrée, puis son fondateur formé à la faire évoluer seul.</p>
-      </div>
-    </a>
-    <a class="c media proj dark" href="breaking-face.html" data-r style="--d:.1s">
-      <img src="assets/breaking-face.jpg" alt="" loading="lazy" width="1600" height="899">
-      <span class="go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
-      <div class="txt">
-        <p class="eyebrow">1BRIK Studio · 2026</p>
-        <h3 class="t">Breaking Face</h3>
-        <p class="p">Une bande-annonce 100 % IA, dirigée de bout en bout.</p>
-      </div>
-    </a>
-    <div class="c mini" data-r>
-      <p class="eyebrow">Freelance · 2025–2026</p>
-      <div><b class="big">10+</b><p class="p">projets livrés pour des entrepreneurs et des PME, dont <b>Winstory, BullTrading, LYNEWED</b></p></div>
-    </div>
-    <div class="c mini" data-r style="--d:.05s">
-      <p class="eyebrow">Aurizon · Studio produit</p>
-      <div><b class="big">5</b><p class="p">produits conçus avec l’IA, dont <b>GoMuscu, MindUp, LumiAI</b></p></div>
-    </div>
-    <div class="c mini" data-r style="--d:.1s">
-      <p class="eyebrow">BeeFit · Marque</p>
-      <div><b class="big">200+</b><p class="p">clients pour ma marque de compléments alimentaires</p></div>
-    </div>
-  </div>
+  <img class="offre-team" src="assets/img/monde/max-groupe.webp" alt="" loading="lazy">
 </section>
 
-<!-- 5. Méthode : Auditer → Intégrer → Former → Accompagner → Mesurer -->
-<section class="sec wrap" id="methode" aria-labelledby="t-methode">
-  <div class="head" data-r>
-    <div>
-      <h2 class="h2" id="t-methode"><strong>Ma méthode.</strong> Service par service.</h2>
-      <p class="lead">Des premiers usages dès le premier mois. Puis l’IA s’étend à toute l’entreprise, jusqu’à l’autonomie.</p>
-    </div>
-  </div>
-  <ol class="c method" id="steps" data-r>
-    <li class="mrow step"><span class="n">1</span><div><h3>Auditer</h3><p class="p">Chaque service, chaque employé : comment il travaille, ce qu’il fait déjà avec l’IA, ce qu’elle peut changer.</p></div><span class="chip">Feuille de route et objectifs</span></li>
-    <li class="mrow step"><span class="n">2</span><div><h3>Intégrer</h3><p class="p">Process, documentation, outils reliés, automatisations et agents. Des outils internes si besoin.</p></div><span class="chip">Dans vos outils</span></li>
-    <li class="mrow step"><span class="n">3</span><div><h3>Former</h3><p class="p">Chaque employé, sur ses tâches réelles : nouvelles méthodes, nouveaux outils.</p></div><span class="chip">Chaque employé</span></li>
-    <li class="mrow step"><span class="n">4</span><div><h3>Accompagner</h3><p class="p">Les retours de chacun, les process ajustés, les usages améliorés.</p></div><span class="chip">Au quotidien</span></li>
-    <li class="mrow step"><span class="n">5</span><div><h3>Mesurer</h3><p class="p">Usage, temps gagné, tâches automatisées. Et une veille pour intégrer chaque nouveauté.</p></div><span class="chip">Bilan chaque mois</span></li>
-  </ol>
-  <div class="c plan" data-r style="margin-top:var(--gap)">
-    <div class="plan-h"><h3 class="t">Exemple sur 6 mois</h3><span class="eyebrow">Une équipe de 20 à 50 personnes</span></div>
-    <div class="gantt" role="img" aria-label="Audit au premier mois, puis un service intégré environ chaque mois, avec un suivi continu">
-      <div class="gm" aria-hidden="true"><span></span><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
-      <div class="gr"><span>Audit</span><span class="gt"><i class="dk" style="--s:0;--e:1"></i></span></div>
-      <div class="gr"><span>Ventes</span><span class="gt"><i style="--s:.5;--e:2"></i></span></div>
-      <div class="gr"><span>Support</span><span class="gt"><i style="--s:1.5;--e:3"></i></span></div>
-      <div class="gr"><span>Marketing</span><span class="gt"><i style="--s:2.5;--e:4"></i></span></div>
-      <div class="gr"><span>Finance, RH</span><span class="gt"><i style="--s:3.5;--e:5.2"></i></span></div>
-      <div class="gr"><span>Suivi et veille</span><span class="gt"><i class="ln" style="--s:0;--e:6"></i></span></div>
-    </div>
-  </div>
-  <div class="c fmt" data-r style="margin-top:var(--gap)">
-    <div><b>3 à 12 mois</b><span>selon la taille de l’équipe</span></div>
-    <div><b>Temps plein</b><span>ou partiel</span></div>
-    <div><b>100 %</b><span>à distance</span></div>
-    <div><b>Arrêt possible</b><span>à la fin de chaque mois</span></div>
-  </div>
-</section>
-
-<!-- 6. Contact -->
-<section class="sec wrap" id="contact" aria-labelledby="t-contact">
-  <div class="c dark contact" data-r>
-    <h2 class="h2" id="t-contact">Parlons de <strong>votre entreprise.</strong></h2>
-    <p class="lead">Un premier échange pour repérer où l’IA aura le plus d’impact dans vos équipes.</p>
+<!-- 9. Contact, de nuit -->
+<section class="nuit" id="contact" aria-labelledby="t-contact">
+  <div class="stars-bg" aria-hidden="true"></div>
+  <img class="moon" src="assets/img/trak/3d-lune-violette.webp" alt="" loading="lazy" data-depth=".5">
+  <div class="mw nuit-in">
+    <div class="nuit-max"><img src="assets/img/monde/max-pancarte.webp" alt="" loading="lazy"><span aria-hidden="true">On en parle ?</span></div>
+    <h2 class="big" id="t-contact">Un projet, une idée, <em>une mission ?</em></h2>
+    <p class="lead">Écrivez-moi. Je réponds vite, et toujours moi-même.</p>
     <div class="cta">
       <span class="mail">
-        <a class="btn dark" href="mailto:tomberthet1@gmail.com?subject=Int%C3%A9gration%20de%20l%E2%80%99IA">tomberthet1@gmail.com</a>
+        <a class="btn dark" href="mailto:tomberthet1@gmail.com?subject=Bonjour%20Tom">tomberthet1@gmail.com</a>
         <button class="copy" data-copy="tomberthet1@gmail.com" aria-label="Copier l’adresse"><svg class="i cp" aria-hidden="true"><use href="assets/icons.svg#copy"/></svg><svg class="i ok" aria-hidden="true"><use href="assets/icons.svg#check"/></svg></button>
       </span>
       <a class="btn ghost-n" href="tel:+33628500806"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#phone"/></svg>06 28 50 08 06</a>
     </div>
     <div class="links">
-      <a href="assets/Tom-Berthet-CV.pdf">CV</a><a href="assets/Tom-Berthet-Fiche-mission.pdf">Fiche mission</a><a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a><a href="https://www.linkedin.com/in/tomberthet1/">LinkedIn</a><a href="https://www.malt.fr/profile/tomberthet">Malt</a>
+      <a href="https://www.linkedin.com/in/tomberthet1/">LinkedIn</a><a href="https://www.malt.fr/profile/tomberthet">Malt</a><a href="assets/Tom-Berthet-CV.pdf">CV</a><a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a>
     </div>
   </div>
 </section>
 
 </main>
-<footer><div class="wrap"><span>© 2026 Tom Berthet · Toulouse</span><a href="mentions-legales.html">Mentions légales</a></div></footer>
+
+<dialog class="player" id="trailer" aria-label="Bande-annonce de Breaking Face">
+  <video id="trailer-v" controls playsinline preload="none" poster="assets/media/bf-44.webp"><source src="assets/media/breaking-face.mp4" type="video/mp4"></video>
+  <button class="close" type="button" data-close aria-label="Fermer la vidéo">×</button>
+</dialog>
+
+<footer class="foot"><div class="mw"><span>© 2026 Tom Berthet · Toulouse</span><span>Images : mes créations et celles de mes projets, générées avec l’IA.</span><a href="mentions-legales.html">Mentions légales</a></div></footer>
 <script src="assets/site.js" defer></script>
+<script src="assets/monde.js" defer></script>
 </body>
 </html>
