@@ -120,7 +120,7 @@ body.monde .top.on{background:none;box-shadow:none}
 
 /* ===== 4. Mes projets (bento) ===== */
 .projets .sec-head{margin-bottom:0}
-.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gut);margin-top:clamp(28px,3.5vw,44px)}
+.proj-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gut);margin-top:clamp(28px,3.5vw,44px)}
 .bt{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(320px,28vw,400px);padding:clamp(20px,2.2vw,30px);border-radius:calc(var(--rad) - 10px);overflow:hidden;isolation:isolate;color:#fff;background:#111;transition:transform .5s var(--ease)}
 .t-8{grid-column:span 8}.t-6{grid-column:span 6}.t-4{grid-column:span 4}
 .t-tall{min-height:clamp(420px,40vw,560px)}
@@ -372,7 +372,7 @@ figcaption.fcap{padding:12px 16px 14px;font-size:13.5px;font-weight:500;color:va
 @media (min-width:641px) and (max-width:1100px) and (orientation:portrait){.ciel{min-height:min(100svh,960px)}}
 /* ===== Projets : 2 colonnes sous 1100 px, 1 colonne sur téléphone ===== */
 @media (max-width:1100px){
-  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .t-8{grid-column:1/-1}.t-6,.t-4{grid-column:span 1}
   .tl-trak .t-art .ph{width:24%}
 }
@@ -460,7 +460,7 @@ html:not(.js) .bubble{opacity:1;transform:none}
 /* Projets sur téléphone : une colonne ; manifeste plus court sur petits écrans */
 @media (max-width:1100px){.manif{height:160vh}}
 @media (max-width:640px){
-  .bento{grid-template-columns:minmax(0,1fr)}
+  .proj-grid{grid-template-columns:minmax(0,1fr)}
   .t-8,.t-6,.t-4{grid-column:auto}
   .bt{min-height:340px}.t-tall{min-height:420px}
   .tl-trak .t-art .ph{width:30%;top:5%}
