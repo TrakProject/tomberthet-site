@@ -1,18 +1,11 @@
 <!doctype html>
-<!--
-  Site personnel de Tom Berthet, entrepreneur. Statique, sans build. Publier UNIQUEMENT le dossier site/.
-  Accueil en 9 chapitres : ciel (îles de mes mondes, MAX) → qui je suis (pierres gravées) → manifeste → mes mondes (galerie horizontale)
-  → parcours (MAX court le long de la frise) → l'IA, mon équipe → vision → offre (panneau en bois) → contact (nuit).
-  Styles : assets/site.css (base commune) + assets/monde.css (univers). Scripts : assets/site.js (base) + assets/monde.js (univers).
-  Images : assets/img/<monde>/ ; images générées par Tom (MAX, îles, objets, pierres, nuages) dans assets/img/monde/.
-  Faits : 12 000+ h d'IA depuis 2022 · 3 entreprises cofondées (BeeFit, Aurizon, TRAK) · 10+ projets clients · Station F Fighters S26.
--->
+<!-- Site personnel de Tom Berthet. Statique : styles assets/site.css + assets/monde.css, scripts assets/site.js + assets/monde.js. -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tom Berthet · Entrepreneur, je construis avec l’IA</title>
-<meta name="description" content="Tom Berthet, entrepreneur. Une start-up à Station F, un jeu vidéo, un film 100 % IA, des apps et des SaaS pour mes clients. Et une offre pour intégrer l’IA dans votre entreprise.">
+<meta name="description" content="Tom Berthet, entrepreneur : TRAK (Station F), un jeu vidéo, un film 100 % IA, des apps pour mes clients. Et une offre pour intégrer l’IA chez vous.">
 <meta property="og:title" content="Tom Berthet · Je crée des entreprises avec l’IA">
 <meta property="og:description" content="TRAK, Resto Mania, Breaking Face, Booply, LYNEWED… Bienvenue dans mon monde.">
 <meta property="og:image" content="https://trakproject.github.io/tomberthet-site/assets/og.jpg">
@@ -29,7 +22,7 @@
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/monde.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Entrepreneur","description":"Cofondateur et CEO de TRAK (Station F Fighters S26). Je construis des entreprises, des apps, des jeux et des films avec l’IA, et j’intègre l’IA dans les entreprises.","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/","https://www.malt.fr/profile/tomberthet"],"knowsAbout":["Entrepreneuriat","Intelligence artificielle","Intégration de l’IA en entreprise","Applications mobiles","SaaS","Jeu vidéo","Film génératif"]}</script>
-<script>document.documentElement.classList.add('js');setTimeout(()=>document.documentElement.classList.add('rv'),2500)</script>
+<script>document.documentElement.classList.add('js');setTimeout(()=>{if(!document.querySelector('[data-r].in'))document.documentElement.classList.add('rv')},2500)</script>
 </head>
 <body class="monde">
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -54,18 +47,18 @@
     <img class="cloud c5" src="assets/img/monde/nuage-5.webp" alt="" data-depth=".7">
   </div>
   <div class="isles">
-    <a class="isle i1" href="#monde-trak" style="--k:-18" data-depth=".5"><img src="assets/img/monde/ile-stade.webp" alt="" fetchpriority="high"><span class="tag">TRAK</span><span class="sr">Voir TRAK</span></a>
-    <a class="isle i2" href="#parcours" style="--k:-24" data-depth=".35"><img src="assets/img/monde/ile-atelier.webp" alt=""><span class="tag">Entreprendre</span><span class="sr">Voir mon parcours</span></a>
-    <a class="isle i3" href="#monde-film" style="--k:-14" data-depth=".7"><img src="assets/img/monde/ile-cinema.webp" alt=""><span class="tag">Cinéma</span><span class="sr">Voir Breaking Face</span></a>
-    <a class="isle i4" href="#monde-lynewed" style="--k:-10" data-depth=".8"><img src="assets/img/monde/ile-apps.webp" alt=""><span class="tag">Apps et SaaS</span><span class="sr">Voir mes apps et SaaS</span></a>
+    <a class="isle i1" href="#monde-trak" style="--k:-18" data-depth=".5"><img src="assets/img/monde/ile-stade.webp" alt="" fetchpriority="high"><span class="tag">TRAK<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir TRAK</span></a>
+    <a class="isle i2" href="#parcours" style="--k:-24" data-depth=".35"><img src="assets/img/monde/ile-atelier.webp" alt=""><span class="tag">Entreprendre<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir mon parcours</span></a>
+    <a class="isle i3" href="#monde-film" style="--k:-14" data-depth=".7"><img src="assets/img/monde/ile-cinema.webp" alt=""><span class="tag">Cinéma<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir Breaking Face</span></a>
+    <a class="isle i4" href="#monde-lynewed" style="--k:-10" data-depth=".8"><img src="assets/img/monde/ile-apps.webp" alt=""><span class="tag">Apps et SaaS<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir mes apps et SaaS</span></a>
   </div>
 
   <div class="ciel-txt">
-    <p class="kicker"><span class="dot" aria-hidden="true"></span>Tom Berthet · Entrepreneur · Toulouse</p>
+    <p class="kicker"><span class="dot" aria-hidden="true"></span>Tom Berthet · Entrepreneur · Disponible pour une mission</p>
     <h1 class="mega" id="titre">Je crée des entreprises <em>avec l’IA.</em></h1>
-    <p class="sub">Une start-up à Station F, un jeu vidéo, un film, des apps pour mes clients. Bienvenue dans mon monde.</p>
+    <p class="sub">TRAK à Station F, un jeu vidéo, un film, des apps pour mes clients. Et j’aide les entreprises à intégrer l’IA. Bienvenue dans mon monde.</p>
     <div class="cta">
-      <a class="btn dark" href="#moi">Entrer<svg class="i" aria-hidden="true"><use href="assets/icons.svg#down"/></svg></a>
+      <a class="btn dark" href="#moi">Visiter mon monde<svg class="i turn" aria-hidden="true"><use href="assets/icons.svg#next"/></svg></a>
       <a class="btn glass" href="integration-ia.html">Intégrer l’IA chez vous</a>
     </div>
   </div>
@@ -87,7 +80,7 @@
     <div class="moi-txt" data-r style="--d:.1s">
       <p class="kicker">Qui je suis</p>
       <h2 class="big" id="t-moi">Je m’appelle Tom. <em>J’entreprends avec l’IA, chaque jour.</em></h2>
-      <p class="lead">Trois entreprises cofondées, des apps et des SaaS livrés pour mes clients, un jeu vidéo et un film. J’ai été vendeur, designer, développeur, formateur. Aujourd’hui, je dirige TRAK, ma start-up à Station F.</p>
+      <p class="lead">Trois entreprises cofondées, des apps et des SaaS livrés pour mes clients, un jeu vidéo et un film. J’ai été vendeur, designer, développeur, formateur. Aujourd’hui, je dirige TRAK, ma start-up sélectionnée à Station F.</p>
       <ul class="hats" aria-label="Mes métiers">
         <li>Entrepreneur</li><li>Product designer</li><li>Développeur</li><li>Réalisateur IA</li><li>Game designer</li><li>Formateur et consultant IA</li>
       </ul>
@@ -115,9 +108,9 @@
 </section>
 
 <!-- 4. Mes mondes : galerie horizontale épinglée (verticale sur téléphone) -->
-<section class="worlds" aria-labelledby="t-mondes">
+<section class="worlds" id="mondes" aria-labelledby="t-mondes"><span id="realisations" aria-hidden="true"></span>
  <div id="worlds">
-  <div class="pin" id="mondes">
+  <div class="pin">
     <div class="track">
 
       <div class="w-intro">
@@ -139,7 +132,7 @@
         </div>
         <div class="w-art" aria-hidden="true">
           <img class="ph p1" src="assets/img/trak/ecran-running.webp" alt="" loading="lazy">
-          <img class="ph p2" src="assets/img/trak/ecran-hub.webp" alt="" loading="lazy">
+          <img class="ph p2" src="assets/img/trak/ecran-randonnee.webp" alt="" loading="lazy">
           <img class="ph p3" src="assets/img/trak/ecran-nutrition.webp" alt="" loading="lazy">
           <img class="bdg b1" src="assets/img/trak/badge-r3-3-21-1-km.webp" alt="" loading="lazy">
           <img class="bdg b2" src="assets/img/trak/badge-d1-5-50-000-m-dplus.webp" alt="" loading="lazy">
@@ -248,12 +241,12 @@
   <div class="mw">
     <div class="sec-head" data-r>
       <p class="kicker">Mon parcours</p>
-      <h2 class="big" id="t-parcours">Cinq ans, <em>en accéléré.</em></h2>
+      <h2 class="big" id="t-parcours">Depuis 2022, <em>en accéléré.</em></h2>
     </div>
     <ol class="road" id="road">
       <li class="rail" aria-hidden="true"><span class="fill"></span><img class="runner" src="assets/img/monde/max-course.webp" alt=""></li>
       <li class="stop" data-r><span class="yr">2022</span><div class="card"><img class="pic contain" src="assets/img/monde/ile-atelier.webp" alt="" loading="lazy"><h3>Je découvre l’IA générative.</h3><p>Et je ne m’arrête plus. Chaque jour, je teste, je construis, j’apprends.</p></div></li>
-      <li class="stop" data-r><span class="yr">2023</span><div class="card"><img class="pic" src="assets/img/beefit/site-accueil.webp" alt="" loading="lazy"><h3>BeeFit, ma première entreprise.</h3><p>Une marque de compléments pour sportifs. 200+ clients. J’apprends tout : la vente, la marque, le service client.</p></div></li>
+      <li class="stop" data-r><span class="yr">2023</span><div class="card"><img class="pic" src="assets/img/beefit/pack.webp" alt="" loading="lazy"><h3>BeeFit, ma première entreprise.</h3><p>Une marque de compléments pour sportifs. 200+ clients. J’apprends tout : la vente, la marque, le service client.</p></div></li>
       <li class="stop" data-r><span class="yr">2023 – 25</span><div class="card"><img class="pic" src="assets/img/aurizon/mindup.webp" alt="" loading="lazy"><h3>Aurizon, un studio produit.</h3><p>Cinq produits conçus avec l’IA. J’y construis ma méthode : un problème, une expérience, un prototype, vite.</p></div></li>
       <li class="stop" data-r><span class="yr">2025 – 26</span><div class="card"><img class="pic" src="assets/img/lynewed/presentation.webp" alt="" loading="lazy"><h3>Freelance, avec mon frère Léo.</h3><p>Plus de dix projets livrés : SaaS, apps mobiles, sites. Et ma première mission de formation à l’IA.</p></div></li>
       <li class="stop" data-r><span class="yr">2026</span><div class="card"><img class="pic" src="assets/img/affiches/equipe-max-coucher-soleil.webp" alt="" loading="lazy"><h3>TRAK, sélectionnée à Station F.</h3><p>Cofondateur et CEO. Programme Fighters S26. La production pilotée avec des agents IA.</p></div></li>
@@ -322,7 +315,7 @@
         <a class="btn dark" href="integration-ia.html">Découvrir l’offre<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
         <a class="btn ghost" href="#contact">Me contacter</a>
       </div>
-      <p class="rate"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 sur Malt · 3 avis clients · Déjà fait chez LYNEWED</p>
+      <p class="rate"><a href="https://www.malt.fr/profile/tomberthet"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 sur Malt · 3 avis clients</a> · Déjà fait chez <a href="lynewed.html">LYNEWED</a></p>
     </div>
   </div>
   <img class="offre-team" src="assets/img/monde/max-groupe.webp" alt="" loading="lazy">

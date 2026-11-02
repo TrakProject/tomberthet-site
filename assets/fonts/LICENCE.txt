@@ -3,3 +3,4 @@ Texte complet : https://openfontlicense.org — Sources : https://github.com/rsm
 Fichiers réduits au jeu de caractères latin pour le site.
 
 Instrument Serif (Instrument, Rodrigo Fuenzalida & Jordan Egstad) : SIL Open Font License 1.1, https://fonts.google.com/specimen/Instrument+Serif
+Textes complets des licences : OFL-Inter.txt et OFL-InstrumentSerif.txt (dans ce dossier).

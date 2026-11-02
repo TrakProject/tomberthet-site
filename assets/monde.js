@@ -34,7 +34,7 @@
     const zone = box.closest('.say-zone') || box;
     jobs.push(() => {
       const r = zone.getBoundingClientRect(), h = innerHeight;
-      const p = clamp((h * .75 - r.top) / (r.height - h * .35));
+      const p = clamp((h * .15 - r.top) / (r.height - h * 1.05));
       const n = Math.round(p * words.length);
       words.forEach((w, i) => w.classList.toggle('on', i < n));
     });
@@ -47,7 +47,8 @@
     const wide = matchMedia('(min-width:900px)');
     const size = () => {
       if (!wide.matches) { worlds.style.height = ''; track.style.transform = ''; return; }
-      worlds.style.height = (track.scrollWidth - innerWidth + innerHeight) + 'px';
+      // 0,75 : la piste avance plus vite que le défilement, la galerie reste courte
+      worlds.style.height = ((track.scrollWidth - innerWidth) * .75 + innerHeight) + 'px';
     };
     size(); addEventListener('resize', size); wide.addEventListener('change', size);
     addEventListener('load', size);
@@ -55,7 +56,7 @@
     const pin = worlds.querySelector('.pin');
     track.addEventListener('focusin', e => {
       const panel = e.target.closest('.world');
-      if (!panel || !wide.matches) return;
+      if (!panel || !wide.matches || !e.target.matches(':focus-visible')) return;
       pin.scrollLeft = 0;
       const max = track.scrollWidth - innerWidth;
       const top = worlds.getBoundingClientRect().top + scrollY;
@@ -137,7 +138,9 @@
   // Bande-annonce dans une fenêtre
   $$('[data-open]').forEach(b => b.addEventListener('click', () => {
     const d = document.getElementById(b.dataset.open); if (!d) return;
-    d.showModal(); const v = d.querySelector('video'); if (v) v.play().catch(() => {});
+    const v = d.querySelector('video');
+    if (typeof d.showModal !== 'function') { if (v) window.open(v.querySelector('source').src); return; }
+    d.showModal(); if (v) v.play().catch(() => {});
   }));
   $$('dialog.player').forEach(d => {
     const stop = () => { const v = d.querySelector('video'); if (v) v.pause(); };
@@ -162,6 +165,12 @@
     v.muted = false; v.controls = true; v.currentTime = 0; v.play().catch(() => {});
     btn.closest('.player')?.classList.add('playing');
   }));
+
+  // Lien direct (#contact…) : la galerie change la hauteur de la page, on recale après chargement
+  if (location.hash) addEventListener('load', () => {
+    const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (t) setTimeout(() => scrollTo({ top: t.getBoundingClientRect().top + scrollY, behavior: 'instant' }), 60);
+  });
 
   tick();
 })();

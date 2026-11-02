@@ -19,7 +19,7 @@
 <link rel="preload" href="assets/fonts/InterTight-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/monde.css">
-<script>document.documentElement.classList.add('js');setTimeout(()=>document.documentElement.classList.add('rv'),2500)</script>
+<script>document.documentElement.classList.add('js');setTimeout(()=>{if(!document.querySelector('[data-r].in'))document.documentElement.classList.add('rv')},2500)</script>
 </head>
 <body class="monde projet" style="--pbg:#2A140B">
 <a class="skip" href="#contenu">Aller au contenu</a>

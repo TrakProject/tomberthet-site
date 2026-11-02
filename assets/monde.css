@@ -507,3 +507,44 @@ figcaption.cap{padding:12px 16px 14px;font-size:13.5px;font-weight:500;color:var
 .p-hero.light .sub{max-width:min(54%,30em)}
 .p-hero.light .hero-art{top:15%;right:-3%;width:min(46%,680px)}
 @media (max-width:1100px){.p-hero.light .mega,.p-hero.light .sub{max-width:none}.p-hero.light .hero-art{opacity:.18;top:8%}}
+
+/* Corrections du challenge (02/11) */
+.card .pic{max-width:none}
+.btn .i.turn{transform:rotate(90deg)}
+.isle .tag{display:inline-flex;align-items:center;gap:5px}
+.isle .tag .i{width:12px;height:12px}
+.rate a{text-decoration:underline;text-underline-offset:3px}
+.w-beefit .w-txt{z-index:3}
+.w-beefit .pack{width:58%;-webkit-mask-image:linear-gradient(90deg,#0000 0%,#000 45%);mask-image:linear-gradient(90deg,#0000 0%,#000 45%)}
+@media (max-width:640px){
+  .bubble{left:50%;right:auto;bottom:104%;transform:translateX(-50%) translateY(8px);border-radius:18px;text-align:center}
+  .bubble.on{transform:translateX(-50%)}
+  .guide{z-index:4}
+}
+
+/* Corrections du challenge, robustesse (02/11) */
+.moi{overflow-x:clip}
+.idea:hover{transform:none;translate:0 -6px}
+.idea{transition:translate .5s var(--ease),box-shadow .5s var(--ease),opacity .9s var(--ease),transform .9s var(--ease)}
+.g2{transform:none;translate:0 -18px}
+.player video{width:auto;max-width:100%;max-height:calc(100dvh - 40px);margin:0 auto}
+.player .close{top:10px;right:10px;z-index:2;box-shadow:0 4px 14px #0006}
+.tools-row{gap:0}
+.tools-row span{margin-right:10px}
+.ciel-txt .cta{position:relative;z-index:5}
+.bubble{pointer-events:none}
+html:not(.js) .pin{position:static;height:auto;overflow-x:auto}
+html:not(.js) .bubble{opacity:1;transform:none}
+@media (min-width:900px) and (max-height:720px){
+  .w-txt h3{font-size:clamp(22px,4.4vh,34px);margin-top:12px}
+  .w-txt>p{display:none}
+  .w-facts{margin-top:12px}.w-go{margin-top:14px}
+  .w-title{font-size:clamp(44px,9vh,72px)!important}
+}
+@media (min-width:641px) and (max-width:1100px) and (orientation:portrait){.ciel{min-height:min(100svh,980px)}}
+@media (max-width:640px){
+  .g2{translate:none}
+  .o2{right:2%}
+  .i2{left:-2%}.i4{left:-1%}.i1{right:-2%}.i3{right:-1%}
+  .ciel-txt{padding-bottom:150px}
+}

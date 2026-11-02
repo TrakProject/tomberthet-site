@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://trakproject.github.io/tomberthet-site/sitemap.xml
