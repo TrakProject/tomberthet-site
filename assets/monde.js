@@ -111,9 +111,9 @@
     const LINES = [
       'Salut, moi c’est MAX. Je te fais visiter ?',
       'Je suis la mascotte de TRAK, l’app de Tom.',
-      'Les îles autour de nous ? Ce sont ses mondes. Clique dessus !',
-      'Tom a passé plus de 12 000 heures avec l’IA. Moi aussi, un peu.',
-      'Descends, je t’attends plus bas.',
+      'Les îles autour de nous ? Ce sont ses projets. Clique dessus !',
+      'Plus de 12 000 heures d’IA depuis 2022. Moi, j’arrête de compter.',
+      'Son profil est juste en dessous. Descends !',
     ];
     let k = 0;
     setTimeout(() => bubble.classList.add('on'), reduce ? 0 : 1100);
