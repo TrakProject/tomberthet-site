@@ -1159,3 +1159,20 @@ a.way:hover .wv-form .sign{transform:translateX(-50%)}
 .sure b{display:block;font-size:16.5px;letter-spacing:-.02em}
 .sure span{display:block;margin-top:6px;font-size:14.5px;line-height:1.5;color:var(--soft-ink)}
 @media (max-width:860px){.vs2,.sure{grid-template-columns:1fr}}
+
+/* v17 : le constat au style des cartes du blog, logos des IA, missions */
+.feat-main.static:hover{transform:none}
+.ai-logos{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:26px}
+.ai-logos span{display:inline-flex;align-items:center;gap:9px;padding:9px 15px 9px 11px;border-radius:99px;background:#fff;color:var(--ink);font-size:15px;font-weight:600}
+.ai-logos img{width:20px;height:20px}
+.feat-main .ai-cap{margin-top:14px;font-size:clamp(18px,1.5vw,21px);font-weight:700;letter-spacing:-.02em;color:#fff}
+.feat-parts .fp{display:flex;align-items:center;gap:16px;height:100%;padding:18px 22px;border-radius:22px;background:#fff;font-size:clamp(17px,1.4vw,20px);font-weight:700;letter-spacing:-.025em;line-height:1.2}
+.feat-parts .fp img{width:64px;height:auto;flex:none;filter:drop-shadow(0 10px 12px #0002)}
+.feat-parts .fp small{display:block;font-size:12.5px;font-weight:700;color:var(--mute);letter-spacing:0;margin-bottom:4px}
+#constat .note a{color:var(--mute);font-weight:500}
+#idee .calc{background:var(--tint)}
+#idee .calc-g:not(.on){background:#fff}
+#idee .calc-tag{background:#fff}
+#ensemble .sure li{display:flex;flex-direction:column;background:#fff;padding:22px 24px}
+#ensemble .sure span{margin-bottom:14px}
+#ensemble .sure a{margin-top:auto;font-size:14.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
