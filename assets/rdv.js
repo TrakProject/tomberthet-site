@@ -1,6 +1,6 @@
 // Formulaire de rendez-vous en 3 étapes, envoyé par Web3Forms (api.web3forms.com) sans ouvrir de logiciel de messagerie.
-// Étape 1 : prénom, email, téléphone facultatif. Envoyé tout de suite : Tom a le contact même si la personne s'arrête là.
-// Étape 2 : précisions à cocher (besoin, taille, délai, créneau), envoyées dans un second email. On peut la passer.
+// Étape 1 : prénom et email. Envoyé tout de suite : Tom a le contact même si la personne s'arrête là.
+// Étape 2 : le sujet et la façon d'être recontacté (email, ou rappel avec le numéro), dans un second email. On peut la passer.
 // Étape 3 : merci, et invitation à se connecter sur LinkedIn.
 // La clé (data-key) est publique par nature. En cas d'échec réseau : un lien email prêt à envoyer.
 (() => {
@@ -18,33 +18,16 @@
   };
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 
-  // Calendrier : les 5 prochains jours ouvrés, en cartes (jour, date, mois), plus « Autre jour »
-  const box = form.querySelector('[data-days]');
-  if (box) {
-    const long = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
-    const wd = new Intl.DateTimeFormat('fr-FR', { weekday: 'short' });
-    const mo = new Intl.DateTimeFormat('fr-FR', { month: 'short' });
-    const d = new Date(); d.setHours(12, 0, 0, 0);
-    let n = 0;
-    const card = (value, top, mid, bot) => {
-      const lab = document.createElement('label');
-      const input = Object.assign(document.createElement('input'), { type: 'radio', name: 'jour', value });
-      const span = document.createElement('span');
-      [['small', top], ['b', mid], ['small', bot]].forEach(([t, x]) => { const e = document.createElement(t); e.textContent = x; span.append(e); });
-      lab.append(input, span); box.append(lab); return input;
-    };
-    while (n < 5) {
-      d.setDate(d.getDate() + 1);
-      if (d.getDay() === 0 || d.getDay() === 6) continue;
-      const i = card(long.format(d), cap(wd.format(d).replace('.', '')), String(d.getDate()), mo.format(d).replace('.', ''));
-      if (n === 0) i.checked = true;
-      n++;
-    }
-    card('un autre jour, à convenir', 'Autre', '+', 'jour');
-  }
+  // « Rappelez-moi » fait apparaître le champ du numéro (alors obligatoire)
+  const tel = form.querySelector('.lf-tel'), telInput = form.elements.telephone;
+  form.querySelectorAll('[name="canal"]').forEach(r => r.addEventListener('change', () => {
+    const call = val('canal') === 'Par téléphone';
+    tel.hidden = !call; telInput.required = call;
+    if (call) telInput.focus();
+  }));
 
   // Un lien « ?sujet=produit#contact » arrive avec le bon besoin déjà choisi
-  const SUJETS = { ia: 'Intégrer l’IA', audit: 'Audit IA', produit: 'Construire un produit', former: 'Former une équipe' };
+  const SUJETS = { ia: 'Intégrer l’IA', audit: 'Intégrer l’IA', produit: 'Construire un produit', former: 'Former une équipe' };
   const pre = SUJETS[new URLSearchParams(location.search).get('sujet')];
   if (pre) form.querySelectorAll('[name="besoin"]').forEach(r => { r.checked = r.value === pre; });
 
@@ -97,7 +80,7 @@
     if (step === 1) {
       const need = ['prenom', 'email'].map(n => form.elements[n]);
       if (!need.every(i => i.reportValidity())) return;
-      const fields = { Prénom: val('prenom'), Email: val('email'), Téléphone: val('telephone') || '—', Étape: '1 sur 2 · coordonnées' };
+      const fields = { Prénom: val('prenom'), Email: val('email'), Étape: '1 sur 2 · coordonnées' };
       busy(btn, true, 'Être recontacté');
       const ok = await send(`Nouveau contact · ${val('prenom')}`, fields);
       busy(btn, false, 'Être recontacté');
@@ -106,16 +89,20 @@
       form.querySelector('[data-thanks]').textContent = `Merci ${val('prenom')}, c’est envoyé.`;
       show(2);
     } else if (step === 2) {
+      const call = val('canal') === 'Par téléphone';
+      if (call && !telInput.reportValidity()) return;
       const fields = {
-        Prénom: val('prenom'), Email: val('email'), Téléphone: val('telephone') || '—',
-        Besoin: val('besoin') || '—', 'Taille de l’entreprise': val('taille') || '—', Démarrage: val('demarrage') || '—',
-        'Créneau souhaité': [val('jour'), val('moment')].filter(Boolean).join(', ') || '—', Message: val('message') || '—',
+        Prénom: val('prenom'), Email: val('email'), Sujet: val('besoin') || '—',
+        'Recontacter': call ? `Par téléphone : ${val('telephone')}` : 'Par email',
         Étape: '2 sur 2 · précisions',
       };
-      busy(btn, true, 'Envoyer les précisions');
-      const ok = await send(`Précisions · ${val('prenom')} · ${val('besoin') || 'besoin à préciser'}`, fields);
-      busy(btn, false, 'Envoyer les précisions');
+      busy(btn, true, 'Valider');
+      const ok = await send(`${call ? 'À rappeler' : 'Précisions'} · ${val('prenom')} · ${val('besoin') || 'sujet à préciser'}`, fields);
+      busy(btn, false, 'Valider');
       if (!ok) return fail(fields);
+      form.querySelector('[data-next]').textContent = call
+        ? 'Je vous rappelle sous 24 h au numéro indiqué. D’ici là, connectons-nous sur LinkedIn.'
+        : 'Je vous écris sous 24 h pour fixer un premier échange. D’ici là, connectons-nous sur LinkedIn.';
       show(3);
     }
   });

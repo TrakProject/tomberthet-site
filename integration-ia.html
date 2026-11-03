@@ -152,14 +152,14 @@
   </div>
 </section>
 
-<!-- 6. Rendez-vous : formulaire en 3 étapes (assets/rdv.js). Étape 1 = point de contact, envoyé tout de suite par Web3Forms ; étape 2 = précisions à cocher ; étape 3 = merci + LinkedIn. -->
+<!-- 6. Contact : formulaire en 3 étapes (assets/rdv.js). Étape 1 = prénom + email, envoyé tout de suite par Web3Forms ; étape 2 = le besoin et la façon d’être recontacté (email ou rappel) ; étape 3 = merci + LinkedIn. -->
 <section class="panel dark nuit pad" id="contact" aria-labelledby="t-contact">
   <div class="stars-bg" aria-hidden="true"></div>
   <img class="moon" src="assets/img/trak/3d-lune-violette.webp" alt="" loading="lazy" data-depth=".5">
   <div class="mw">
     <div class="nuit-max"><img src="assets/img/monde/max-pancarte.webp" alt="" loading="lazy"><span aria-hidden="true">On en parle ?</span></div>
-    <h2 class="big" id="t-contact">Par quels postes <em>commencer ?</em></h2>
-    <p class="lead">30 minutes en visio : vous me décrivez deux postes, je vous indique où l’IA rapportera le plus. Vous repartez avec des pistes concrètes, même sans suite.</p>
+    <h2 class="big" id="t-contact">Parlons de <em>votre entreprise.</em></h2>
+    <p class="lead">Un premier échange pour comprendre votre entreprise et voir comment procéder ensemble, en commençant par un audit complet. Sans engagement.</p>
     <form class="rdv lf" data-lf data-mail="tomberthet1@gmail.com" data-key="a1e2123b-a580-4bd3-8246-c2a4cc4ec69d" action="https://api.web3forms.com/submit" method="POST" aria-label="Prendre rendez-vous">
       <ol class="lf-steps" aria-hidden="true"><li class="on">Contact</li><li>Besoin</li><li>Envoyé</li></ol>
 
@@ -169,7 +169,6 @@
         <div class="lf-grid">
           <label class="fld"><span>Prénom</span><input name="prenom" autocomplete="given-name" required maxlength="60" placeholder="Votre prénom"></label>
           <label class="fld"><span>Email</span><input name="email" type="email" autocomplete="email" required maxlength="120" placeholder="nom@entreprise.fr"></label>
-          <label class="fld wide"><span>Téléphone <em>· facultatif</em></span><input name="telephone" type="tel" autocomplete="tel" maxlength="30" placeholder="Pour un rappel plus rapide"></label>
         </div>
         <button class="btn white lf-go" type="submit"><span>Être recontacté</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></button>
         <p class="lf-note">Réponse sous 24 h. Vos coordonnées servent uniquement à vous répondre (<a href="mentions-legales.html#donnees">données personnelles</a>).</p>
@@ -178,37 +177,21 @@
       <!-- Étape 2 : des précisions, presque tout à cocher -->
       <div class="lf-step" data-step="2" hidden>
         <p class="lf-ok" data-hello>C’est noté, je vous recontacte.</p>
-        <p class="lf-q">Quelques précisions pour préparer l’échange <small>· 30 secondes</small></p>
-        <fieldset class="rdv-row"><legend>Votre besoin</legend>
+        <p class="lf-q">Deux questions, et c’est tout</p>
+        <fieldset class="rdv-row"><legend>Ce qui vous intéresse</legend>
           <label><input type="radio" name="besoin" value="Intégrer l’IA" checked><span>Intégrer l’IA</span></label>
-          <label><input type="radio" name="besoin" value="Audit IA"><span>Un audit</span></label>
           <label><input type="radio" name="besoin" value="Former une équipe"><span>Former une équipe</span></label>
           <label><input type="radio" name="besoin" value="Construire un produit"><span>Construire un produit</span></label>
-          <label><input type="radio" name="besoin" value="Autre"><span>Autre</span></label>
+          <label><input type="radio" name="besoin" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
         </fieldset>
-        <fieldset class="rdv-row"><legend>Taille de l’entreprise</legend>
-          <label><input type="radio" name="taille" value="1 à 10"><span>1 à 10</span></label>
-          <label><input type="radio" name="taille" value="11 à 50"><span>11 à 50</span></label>
-          <label><input type="radio" name="taille" value="51 à 200"><span>51 à 200</span></label>
-          <label><input type="radio" name="taille" value="Plus de 200"><span>200 +</span></label>
+        <fieldset class="rdv-row"><legend>Comment préférez-vous être recontacté ?</legend>
+          <label><input type="radio" name="canal" value="Par email" checked><span>Par email</span></label>
+          <label><input type="radio" name="canal" value="Par téléphone"><span>Rappelez-moi</span></label>
         </fieldset>
-        <fieldset class="rdv-row"><legend>Quand démarrer ?</legend>
-          <label><input type="radio" name="demarrage" value="Dès que possible"><span>Dès que possible</span></label>
-          <label><input type="radio" name="demarrage" value="Dans les 3 mois"><span>Dans les 3 mois</span></label>
-          <label><input type="radio" name="demarrage" value="Je me renseigne"><span>Je me renseigne</span></label>
-        </fieldset>
-        <fieldset class="rdv-row lf-cal"><legend>Un créneau pour l’appel de 30 minutes</legend>
-          <div class="lf-days" data-days></div>
-          <div class="lf-moments">
-            <label><input type="radio" name="moment" value="le matin" checked><span>Matin</span></label>
-            <label><input type="radio" name="moment" value="l’après-midi"><span>Après-midi</span></label>
-            <label><input type="radio" name="moment" value="en fin de journée"><span>Fin de journée</span></label>
-          </div>
-        </fieldset>
-        <label class="fld wide"><span>Un mot sur le contexte <em>· facultatif</em></span><textarea name="message" rows="2" maxlength="1200" placeholder="Ce qui prend du temps, l’objectif…"></textarea></label>
+        <label class="fld wide lf-tel" hidden><span>Votre numéro</span><input name="telephone" type="tel" autocomplete="tel" maxlength="30" placeholder="06 12 34 56 78"></label>
         <div class="lf-actions">
-          <button class="btn white lf-go" type="submit"><span>Envoyer les précisions</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></button>
-          <button class="lf-skip" type="button" data-skip>Passer cette étape</button>
+          <button class="btn white lf-go" type="submit"><span>Valider</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></button>
+          <button class="lf-skip" type="button" data-skip>Passer</button>
         </div>
       </div>
 
@@ -216,7 +199,7 @@
       <div class="lf-step lf-done" data-step="3" hidden>
         <span class="lf-check" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#check"/></svg></span>
         <p class="lf-q" data-thanks>Merci, c’est envoyé.</p>
-        <p class="lf-sub">Je vous réponds par email sous 24 h avec un lien de visio. Pour échanger plus vite, connectons-nous sur LinkedIn.</p>
+        <p class="lf-sub" data-next>Je vous recontacte sous 24 h pour fixer un premier échange. D’ici là, connectons-nous sur LinkedIn.</p>
         <a class="btn white" href="https://www.linkedin.com/in/tomberthet1/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#linkedin"/></svg>Se connecter sur LinkedIn</a>
       </div>
 
@@ -240,6 +223,6 @@
 <footer class="foot"><div class="mw"><span>© 2026 Tom Berthet · Toulouse</span><a href="mentions-legales.html">Mentions légales</a></div></footer>
 <script src="assets/site.js" defer></script>
 <script src="assets/monde.js" defer></script>
-<script src="assets/rdv.js?v=19" defer></script>
+<script src="assets/rdv.js?v=20" defer></script>
 </body>
 </html>

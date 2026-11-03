@@ -1347,3 +1347,5 @@ video:focus-visible{outline:3px solid #0A84FF;outline-offset:3px}
   .lf-actions{flex-direction:column;align-items:stretch;gap:0}
   .lf-skip{height:44px;margin-top:6px}
 }
+.lf .lf-tel[hidden]{display:none}
+.lf .lf-tel{margin-bottom:6px}
