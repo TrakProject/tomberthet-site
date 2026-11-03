@@ -1,6 +1,6 @@
 // Demande de rendez-vous envoyée directement par email, sans ouvrir de logiciel de messagerie.
-// Service : FormSubmit (formsubmit.co), gratuit, sans compte. À la toute première demande, FormSubmit envoie
-// un email d'activation à l'adresse de Tom : il faut cliquer sur le lien une fois pour recevoir les suivantes.
+// Service : Web3Forms (api.web3forms.com) si le formulaire porte data-key (clé publique, faite pour être dans la page),
+// sinon FormSubmit (data-endpoint). Clé posée par build/formulaire.py. En cas d'échec : un lien email prêt à envoyer.
 // Les 5 prochains jours ouvrés sont proposés. Sans JavaScript, le formulaire s'envoie quand même (page FormSubmit).
 (() => {
   document.querySelectorAll('[data-rdv]').forEach(form => {
@@ -70,11 +70,15 @@
       const label = btn.querySelector('span');
       btn.disabled = true; label.textContent = 'Envoi…';
       const stop = new AbortController(), timer = setTimeout(() => stop.abort(), 15000); // réseau bloqué : on passe au repli
+      // Web3Forms : mêmes champs, plus la clé, l'adresse de réponse et le piège à robots
+      const key = form.dataset.key;
+      const url = key ? 'https://api.web3forms.com/submit' : form.dataset.endpoint;
+      const payload = key ? { access_key: key, subject: data._subject, from_name: 'Site tomberthet.fr', replyto: data._replyto, botcheck: false, ...Object.fromEntries(Object.entries(data).filter(([k]) => !k.startsWith('_'))) } : data;
       try {
-        const r = await fetch(form.dataset.endpoint, {
+        const r = await fetch(url, {
           method: 'POST', signal: stop.signal,
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(data),
+          body: JSON.stringify(payload),
         });
         const j = await r.json().catch(() => ({}));
         if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || r.status);
