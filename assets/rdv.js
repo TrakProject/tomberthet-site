@@ -1,97 +1,124 @@
-// Demande de rendez-vous envoyée directement par email, sans ouvrir de logiciel de messagerie.
-// Service : Web3Forms (api.web3forms.com) si le formulaire porte data-key (clé publique, faite pour être dans la page),
-// sinon FormSubmit (data-endpoint). Clé posée par build/formulaire.py. En cas d'échec : un lien email prêt à envoyer.
-// Les 5 prochains jours ouvrés sont proposés. Sans JavaScript, le formulaire s'envoie quand même (page FormSubmit).
+// Formulaire de rendez-vous en 3 étapes, envoyé par Web3Forms (api.web3forms.com) sans ouvrir de logiciel de messagerie.
+// Étape 1 : prénom, email, téléphone facultatif. Envoyé tout de suite : Tom a le contact même si la personne s'arrête là.
+// Étape 2 : précisions à cocher (besoin, taille, délai, créneau), envoyées dans un second email. On peut la passer.
+// Étape 3 : merci, et invitation à se connecter sur LinkedIn.
+// La clé (data-key) est publique par nature. En cas d'échec réseau : un lien email prêt à envoyer.
 (() => {
-  document.querySelectorAll('[data-rdv]').forEach(form => {
-    const box = form.querySelector('[data-days]');
-    if (box) {
-      const fmt = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
-      const short = new Intl.DateTimeFormat('fr-FR', { weekday: 'short', day: 'numeric' });
-      const d = new Date(); d.setHours(12, 0, 0, 0);
-      let n = 0;
-      while (n < 5) {
-        d.setDate(d.getDate() + 1);
-        const wd = d.getDay();
-        if (wd === 0 || wd === 6) continue;
-        const lab = document.createElement('label');
-        const s = short.format(d).replace('.', '');
-        lab.innerHTML = `<input type="radio" name="jour" value="${fmt.format(d)}"${n === 0 ? ' checked' : ''}><span>${s.charAt(0).toUpperCase() + s.slice(1)}</span>`;
-        box.appendChild(lab); n++;
-      }
+  const form = document.querySelector('[data-lf]');
+  if (!form) return;
+  const key = form.dataset.key, mail = form.dataset.mail;
+  const steps = [...form.querySelectorAll('.lf-step')];
+  const dots = [...form.querySelectorAll('.lf-steps li')];
+  const status = form.querySelector('.rdv-status');
+  const val = n => {
+    const checked = form.querySelector(`[name="${n}"]:checked`);
+    if (checked) return (checked.value || '').trim();
+    const el = form.elements[n];
+    return el && el.type !== 'radio' && !(el instanceof RadioNodeList) ? (el.value || '').trim() : '';
+  };
+  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+
+  // Calendrier : les 5 prochains jours ouvrés, en cartes (jour, date, mois), plus « Autre jour »
+  const box = form.querySelector('[data-days]');
+  if (box) {
+    const long = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+    const wd = new Intl.DateTimeFormat('fr-FR', { weekday: 'short' });
+    const mo = new Intl.DateTimeFormat('fr-FR', { month: 'short' });
+    const d = new Date(); d.setHours(12, 0, 0, 0);
+    let n = 0;
+    const card = (value, top, mid, bot) => {
+      const lab = document.createElement('label');
+      const input = Object.assign(document.createElement('input'), { type: 'radio', name: 'jour', value });
+      const span = document.createElement('span');
+      [['small', top], ['b', mid], ['small', bot]].forEach(([t, x]) => { const e = document.createElement(t); e.textContent = x; span.append(e); });
+      lab.append(input, span); box.append(lab); return input;
+    };
+    while (n < 5) {
+      d.setDate(d.getDate() + 1);
+      if (d.getDay() === 0 || d.getDay() === 6) continue;
+      const i = card(long.format(d), cap(wd.format(d).replace('.', '')), String(d.getDate()), mo.format(d).replace('.', ''));
+      if (n === 0) i.checked = true;
+      n++;
     }
+    card('un autre jour, à convenir', 'Autre', '+', 'jour');
+  }
 
-    // Un lien « ?sujet=produit#contact » arrive avec le bon sujet déjà choisi
-    const SUJETS = { ia: 'Intégration de l’IA', audit: 'Audit IA', produit: 'Construire un produit', former: 'Former une équipe' };
-    const pre = SUJETS[new URLSearchParams(location.search).get('sujet')];
-    if (pre) form.querySelectorAll('[name="sujet"]').forEach(r => { r.checked = r.value === pre; });
+  // Un lien « ?sujet=produit#contact » arrive avec le bon besoin déjà choisi
+  const SUJETS = { ia: 'Intégrer l’IA', audit: 'Audit IA', produit: 'Construire un produit', former: 'Former une équipe' };
+  const pre = SUJETS[new URLSearchParams(location.search).get('sujet')];
+  if (pre) form.querySelectorAll('[name="besoin"]').forEach(r => { r.checked = r.value === pre; });
 
-    const btn = form.querySelector('.rdv-go');
-    const status = form.querySelector('.rdv-status');
-    status.setAttribute('tabindex', '-1');
-    // Message construit avec textContent : aucune donnée saisie n'est interprétée comme du HTML
-    const say = (cls, parts) => {
-      status.className = 'rdv-status ' + cls; status.replaceChildren();
-      parts.forEach(p => {
-        if (typeof p === 'string') status.append(p);
-        else { const el = document.createElement(p.tag); el.textContent = p.text; if (p.href) el.href = p.href; status.append(el); }
-      });
-      status.focus();
-    };
-    const done = (nom, email) => {
-      form.classList.add('sent');
-      say('ok', [{ tag: 'b', text: `Demande envoyée, merci ${nom.split(' ')[0]}.` }, { tag: 'br', text: '' }, `Tom répond par email à ${email} pour confirmer le créneau et envoyer le lien de la visio.`]);
-    };
+  let step = 1;
+  const show = k => {
+    step = k;
+    steps.forEach(s => { s.hidden = +s.dataset.step !== k; });
+    dots.forEach((li, i) => { li.classList.toggle('on', i === k - 1); li.classList.toggle('done', i < k - 1); });
+    status.className = 'rdv-status'; status.textContent = '';
+    const head = steps[k - 1].querySelector('.lf-q');
+    if (head) { head.setAttribute('tabindex', '-1'); head.focus({ preventScroll: true }); }
+    form.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  };
 
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      const v = k => ((form.querySelector(`[name="${k}"]:checked`) || form.elements[k] || {}).value || '').trim();
-      if (v('_honey')) { done(v('nom'), v('email')); return; } // robot (ou remplissage automatique) : rien n'est envoyé
-      const sujet = v('sujet'), ent = v('entreprise');
-      const data = {
-        _subject: `Rendez-vous · ${sujet}${ent ? ' · ' + ent : ''}`,
-        _replyto: v('email'),
-        _template: 'table',
-        Sujet: sujet,
-        'Créneau souhaité': [v('jour'), v('moment')].filter(Boolean).join(', '),
-        Nom: v('nom'),
-        Email: v('email'),
-        Entreprise: ent || '—',
-        Message: v('message') || '—',
-        Page: location.pathname.split('/').pop() || 'accueil',
-      };
-      // En cas d'échec : un lien email prêt à envoyer, avec le même contenu
-      const mail = form.dataset.mail;
-      const body = Object.entries(data).filter(([k]) => !k.startsWith('_')).map(([k, x]) => `${k} : ${x}`).join('\n');
-      const fallback = `mailto:${mail}?subject=${encodeURIComponent(data._subject)}&body=${encodeURIComponent(body.slice(0, 800))}`; // corps raccourci : limite des liens email
-
-      // Le libellé du bouton est dans un <span> (l'icône suit)
-      const label = btn.querySelector('span');
-      btn.disabled = true; label.textContent = 'Envoi…';
-      const stop = new AbortController(), timer = setTimeout(() => stop.abort(), 15000); // réseau bloqué : on passe au repli
-      // Web3Forms : mêmes champs, plus la clé, l'adresse de réponse et le piège à robots
-      const key = form.dataset.key;
-      const url = key ? 'https://api.web3forms.com/submit' : form.dataset.endpoint;
-      const payload = key ? { access_key: key, subject: data._subject, from_name: 'Site tomberthet.fr', replyto: data._replyto, botcheck: false, ...Object.fromEntries(Object.entries(data).filter(([k]) => !k.startsWith('_'))) } : data;
-      try {
-        const r = await fetch(url, {
-          method: 'POST', signal: stop.signal,
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const j = await r.json().catch(() => ({}));
-        if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || r.status);
-        done(data.Nom, data.Email);
-      } catch (e) {
-        // FormSubmit refuse tout envoi tant que l'adresse de réception n'est pas activée (lien envoyé par email à cette adresse)
-        const why = /activ/i.test(String(e && e.message)) ? 'Le formulaire est en cours d’activation. ' : 'L’envoi n’a pas fonctionné. ';
-        if (why.startsWith('Le formulaire')) console.warn('FormSubmit : activation requise. Cliquer le lien « Activate Form » reçu sur', mail);
-        say('err', [why, { tag: 'a', text: 'Envoyer la demande par email', href: fallback }, `, ou écrire directement à ${mail}.`]);
-      } finally {
-        clearTimeout(timer);
-        btn.disabled = false; label.textContent = 'Envoyer la demande';
-      }
+  // Message d'état construit avec textContent : rien de ce qui est saisi n'est interprété comme du HTML
+  const say = (cls, parts) => {
+    status.className = 'rdv-status ' + cls; status.replaceChildren();
+    parts.forEach(p => {
+      if (typeof p === 'string') status.append(p);
+      else { const el = document.createElement(p.tag); el.textContent = p.text; if (p.href) el.href = p.href; status.append(el); }
     });
+    status.focus();
+  };
+
+  const send = async (subject, fields) => {
+    if (form.elements.botcheck && form.elements.botcheck.checked) return true; // robot : rien n'est envoyé
+    const payload = { access_key: key, subject, from_name: 'Site tomberthet.fr', replyto: val('email'), ...fields, Page: location.pathname.split('/').pop() || 'accueil' };
+    const stop = new AbortController(), timer = setTimeout(() => stop.abort(), 15000);
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', signal: stop.signal,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const j = await r.json().catch(() => ({}));
+      return r.ok && String(j.success) === 'true';
+    } catch { return false; } finally { clearTimeout(timer); }
+  };
+
+  const fail = fields => {
+    const body = Object.entries(fields).map(([k, x]) => `${k} : ${x}`).join('\n').slice(0, 800);
+    say('err', ['L’envoi n’a pas fonctionné. ', { tag: 'a', text: 'Envoyer la demande par email', href: `mailto:${mail}?subject=${encodeURIComponent('Rendez-vous depuis le site')}&body=${encodeURIComponent(body)}` }, `, ou écrire directement à ${mail}.`]);
+  };
+
+  const busy = (btn, on, label) => { btn.disabled = on; btn.querySelector('span').textContent = on ? 'Envoi…' : label; };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = steps[step - 1].querySelector('.lf-go');
+    if (step === 1) {
+      const need = ['prenom', 'email'].map(n => form.elements[n]);
+      if (!need.every(i => i.reportValidity())) return;
+      const fields = { Prénom: val('prenom'), Email: val('email'), Téléphone: val('telephone') || '—', Étape: '1 sur 2 · coordonnées' };
+      busy(btn, true, 'Être recontacté');
+      const ok = await send(`Nouveau contact · ${val('prenom')}`, fields);
+      busy(btn, false, 'Être recontacté');
+      if (!ok) return fail(fields);
+      form.querySelector('[data-hello]').textContent = `C’est noté, ${val('prenom')} : je vous recontacte.`;
+      form.querySelector('[data-thanks]').textContent = `Merci ${val('prenom')}, c’est envoyé.`;
+      show(2);
+    } else if (step === 2) {
+      const fields = {
+        Prénom: val('prenom'), Email: val('email'), Téléphone: val('telephone') || '—',
+        Besoin: val('besoin') || '—', 'Taille de l’entreprise': val('taille') || '—', Démarrage: val('demarrage') || '—',
+        'Créneau souhaité': [val('jour'), val('moment')].filter(Boolean).join(', ') || '—', Message: val('message') || '—',
+        Étape: '2 sur 2 · précisions',
+      };
+      busy(btn, true, 'Envoyer les précisions');
+      const ok = await send(`Précisions · ${val('prenom')} · ${val('besoin') || 'besoin à préciser'}`, fields);
+      busy(btn, false, 'Envoyer les précisions');
+      if (!ok) return fail(fields);
+      show(3);
+    }
   });
+
+  form.querySelector('[data-skip]').addEventListener('click', () => show(3));
 })();
