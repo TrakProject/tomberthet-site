@@ -1135,3 +1135,27 @@ a.way:hover .wv-form .sign{transform:translateX(-50%)}
 .calc-wrap .calc{grid-template-columns:1fr}
 @media (max-width:900px){.calc-wrap{grid-template-columns:1fr}}
 #preuve .who .lead{margin-top:14px}
+
+/* v16 : le constat en deux temps (abonnement contre IA intégrée), trois garanties */
+.vs2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gut)}
+.vs2-c{display:flex;flex-direction:column;padding:clamp(24px,2.8vw,36px);border-radius:26px;background:var(--night2)}
+.vs2-c.on{background:#fff;color:var(--ink)}
+.vs2-k{font-size:13.5px;font-weight:600;color:#8E8E96}
+.vs2-c.on .vs2-k{color:var(--mute)}
+.vs2-logos{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.vs2-logos span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:99px;background:#fff;color:var(--ink);font-size:14.5px;font-weight:600}
+.vs2-logos img{width:18px;height:18px}
+.vs2-c.on .vs2-logos span{background:var(--ink);color:#fff}
+.vs2-eq{margin-top:22px;font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-.035em;line-height:1.1;color:#fff}
+.vs2-c.on .vs2-eq{color:var(--ink)}
+.vs2-s{margin-top:8px;font-size:15.5px;line-height:1.5;color:#B4B4BC}
+.vs2-c.on .vs2-s{color:var(--soft-ink)}
+.why-now{margin-top:clamp(40px,5vw,64px);max-width:860px}
+.why-t{margin-top:12px;font-size:clamp(24px,2.6vw,36px);font-weight:700;letter-spacing:-.035em;line-height:1.15;color:#fff;text-wrap:balance}
+.why-t em{font-style:normal;background:linear-gradient(100deg,#FFFFFF 0%,#C9C9D2 50%,#8E8E99 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.why-now .risk-stat{margin-top:22px}
+.sure{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gut);margin:var(--gut) 0 0;padding:0}
+.sure li{padding:20px 22px;border-radius:20px;background:var(--tint)}
+.sure b{display:block;font-size:16.5px;letter-spacing:-.02em}
+.sure span{display:block;margin-top:6px;font-size:14.5px;line-height:1.5;color:var(--soft-ink)}
+@media (max-width:860px){.vs2,.sure{grid-template-columns:1fr}}
