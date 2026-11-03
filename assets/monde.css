@@ -1125,3 +1125,13 @@ a.way:hover .wv-form .sign{transform:translateX(-50%)}
   #preuve .built .bt{min-height:220px}
   #preuve .built .bt h3{font-size:15px}
 }
+
+/* v15 : page Intégrer l'IA courte — constat en trois phrases, calcul seul */
+#constat .risk li{border-color:#FFFFFF2E}
+#constat .risk b{font-size:clamp(20px,1.9vw,26px);line-height:1.25;letter-spacing:-.03em}
+#constat .risk-stat{max-width:none;margin-top:clamp(28px,3.5vw,44px)}
+.calc-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.calc-wrap .sec-head{margin-bottom:0}
+.calc-wrap .calc{grid-template-columns:1fr}
+@media (max-width:900px){.calc-wrap{grid-template-columns:1fr}}
+#preuve .who .lead{margin-top:14px}
