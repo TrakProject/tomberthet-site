@@ -1,7 +1,9 @@
-// Formulaire de rendez-vous en 3 étapes, envoyé par Web3Forms (api.web3forms.com) sans ouvrir de logiciel de messagerie.
-// Étape 1 : prénom et email. Envoyé tout de suite : Tom a le contact même si la personne s'arrête là.
-// Étape 2 : le sujet et la façon d'être recontacté (email, ou rappel avec le numéro), dans un second email. On peut la passer.
-// Étape 3 : merci, et invitation à se connecter sur LinkedIn.
+// Formulaire de contact en 3 étapes, envoyé par Web3Forms (api.web3forms.com) sans ouvrir de logiciel de messagerie.
+// Un seul email par demande : il part à la fin de l'étape 2 (bouton « Valider » ou « Passer »).
+// Si la personne quitte la page après l'étape 1, ou reste 10 minutes sans terminer, l'email part quand même
+// avec le prénom et l'email : Tom ne perd pas le contact. Cas rare : si elle revient terminer après cet envoi,
+// un second email complète le premier.
+// Envois en FormData (pas de requête préalable du navigateur), ce qui permet aussi l'envoi au moment de quitter la page.
 // La clé (data-key) est publique par nature. En cas d'échec réseau : un lien email prêt à envoyer.
 (() => {
   const form = document.querySelector('[data-lf]');
@@ -16,7 +18,6 @@
     const el = form.elements[n];
     return el && el.type !== 'radio' && !(el instanceof RadioNodeList) ? (el.value || '').trim() : '';
   };
-  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 
   // « Rappelez-moi » fait apparaître le champ du numéro (alors obligatoire)
   const tel = form.querySelector('.lf-tel'), telInput = form.elements.telephone;
@@ -52,60 +53,84 @@
     status.focus();
   };
 
-  const send = async (subject, fields) => {
-    if (form.elements.botcheck && form.elements.botcheck.checked) return true; // robot : rien n'est envoyé
-    const payload = { access_key: key, subject, from_name: 'Site tomberthet.fr', replyto: val('email'), ...fields, Page: location.pathname.split('/').pop() || 'accueil' };
-    const stop = new AbortController(), timer = setTimeout(() => stop.abort(), 15000);
+  // Le contenu de l'email, selon ce qui a été rempli
+  const message = (done, skipped) => {
+    const call = val('canal') === 'Par téléphone';
+    const fields = { Prénom: val('prenom'), Email: val('email') };
+    if (done) {
+      fields.Sujet = val('besoin') || '—';
+      fields['Recontacter'] = call ? `Par téléphone : ${val('telephone')}` : 'Par email';
+    } else fields.Note = skipped ? 'La personne a passé les deux questions.' : 'La personne n’a pas terminé le formulaire : seuls le prénom et l’email sont connus.';
+    const subject = done
+      ? `${call ? 'À rappeler' : 'Nouveau contact'} · ${val('prenom')} · ${val('besoin') || 'sujet à préciser'}`
+      : `Nouveau contact · ${val('prenom')}${skipped ? '' : ' (formulaire non terminé)'}`;
+    return { subject, fields };
+  };
+
+  const formData = ({ subject, fields }) => {
+    const fd = new FormData();
+    fd.append('access_key', key); fd.append('subject', subject); fd.append('from_name', 'Site tomberthet.fr'); fd.append('replyto', val('email'));
+    Object.entries(fields).forEach(([k, x]) => fd.append(k, x));
+    fd.append('Page', location.pathname.split('/').pop() || 'accueil');
+    return fd;
+  };
+
+  let sent = false, partial = false, timer = 0;
+  const robot = () => form.elements.botcheck && form.elements.botcheck.checked;
+
+  // Envoi normal (fin de l'étape 2)
+  const send = async msg => {
+    if (robot()) return true; // robot : rien n'est envoyé
+    const stop = new AbortController(), t = setTimeout(() => stop.abort(), 15000);
     try {
-      const r = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST', signal: stop.signal,
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData(msg), signal: stop.signal, headers: { Accept: 'application/json' } });
       const j = await r.json().catch(() => ({}));
       return r.ok && String(j.success) === 'true';
-    } catch { return false; } finally { clearTimeout(timer); }
+    } catch { return false; } finally { clearTimeout(t); }
   };
 
-  const fail = fields => {
-    const body = Object.entries(fields).map(([k, x]) => `${k} : ${x}`).join('\n').slice(0, 800);
-    say('err', ['L’envoi n’a pas fonctionné. ', { tag: 'a', text: 'Envoyer la demande par email', href: `mailto:${mail}?subject=${encodeURIComponent('Rendez-vous depuis le site')}&body=${encodeURIComponent(body)}` }, `, ou écrire directement à ${mail}.`]);
+  // Envoi de secours (départ de la page ou 10 minutes sans terminer), une seule fois
+  const rescue = () => {
+    if (sent || step !== 2 || robot()) return;
+    sent = partial = true; clearTimeout(timer);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData(message(false)), keepalive: true }).catch(() => {});
+  };
+  addEventListener('pagehide', rescue);
+
+  const fail = msg => {
+    const body = Object.entries(msg.fields).map(([k, x]) => `${k} : ${x}`).join('\n').slice(0, 800);
+    say('err', ['L’envoi n’a pas fonctionné. ', { tag: 'a', text: 'Envoyer la demande par email', href: `mailto:${mail}?subject=${encodeURIComponent(msg.subject)}&body=${encodeURIComponent(body)}` }, `, ou écrire directement à ${mail}.`]);
   };
 
-  const busy = (btn, on, label) => { btn.disabled = on; btn.querySelector('span').textContent = on ? 'Envoi…' : label; };
+  const finish = async (btn, done) => {
+    const msg = message(done, !done);
+    if (sent && !partial) { show(3); return; } // déjà envoyé : rien à renvoyer
+    if (btn) { btn.disabled = true; btn.querySelector('span').textContent = 'Envoi…'; }
+    const ok = await send(msg);
+    if (btn) { btn.disabled = false; btn.querySelector('span').textContent = 'Valider'; }
+    if (!ok) return fail(msg);
+    sent = true; partial = false; clearTimeout(timer);
+    const call = done && val('canal') === 'Par téléphone';
+    form.querySelector('[data-next]').textContent = call
+      ? 'Je vous rappelle sous 24 h au numéro indiqué. D’ici là, connectons-nous sur LinkedIn.'
+      : 'Je vous écris sous 24 h pour fixer un premier échange. D’ici là, connectons-nous sur LinkedIn.';
+    show(3);
+  };
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const btn = steps[step - 1].querySelector('.lf-go');
     if (step === 1) {
       const need = ['prenom', 'email'].map(n => form.elements[n]);
       if (!need.every(i => i.reportValidity())) return;
-      const fields = { Prénom: val('prenom'), Email: val('email'), Étape: '1 sur 2 · coordonnées' };
-      busy(btn, true, 'Être recontacté');
-      const ok = await send(`Nouveau contact · ${val('prenom')}`, fields);
-      busy(btn, false, 'Être recontacté');
-      if (!ok) return fail(fields);
-      form.querySelector('[data-hello]').textContent = `C’est noté, ${val('prenom')} : je vous recontacte.`;
+      form.querySelector('[data-hello]').textContent = `Plus que deux questions, ${val('prenom')}.`;
       form.querySelector('[data-thanks]').textContent = `Merci ${val('prenom')}, c’est envoyé.`;
+      timer = setTimeout(rescue, 10 * 60 * 1000);
       show(2);
     } else if (step === 2) {
-      const call = val('canal') === 'Par téléphone';
-      if (call && !telInput.reportValidity()) return;
-      const fields = {
-        Prénom: val('prenom'), Email: val('email'), Sujet: val('besoin') || '—',
-        'Recontacter': call ? `Par téléphone : ${val('telephone')}` : 'Par email',
-        Étape: '2 sur 2 · précisions',
-      };
-      busy(btn, true, 'Valider');
-      const ok = await send(`${call ? 'À rappeler' : 'Précisions'} · ${val('prenom')} · ${val('besoin') || 'sujet à préciser'}`, fields);
-      busy(btn, false, 'Valider');
-      if (!ok) return fail(fields);
-      form.querySelector('[data-next]').textContent = call
-        ? 'Je vous rappelle sous 24 h au numéro indiqué. D’ici là, connectons-nous sur LinkedIn.'
-        : 'Je vous écris sous 24 h pour fixer un premier échange. D’ici là, connectons-nous sur LinkedIn.';
-      show(3);
+      if (val('canal') === 'Par téléphone' && !telInput.reportValidity()) return;
+      finish(steps[1].querySelector('.lf-go'), true);
     }
   });
 
-  form.querySelector('[data-skip]').addEventListener('click', () => show(3));
+  form.querySelector('[data-skip]').addEventListener('click', () => finish(null, false));
 })();
