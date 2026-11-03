@@ -1,5 +1,5 @@
 // tomberthet.fr : comportements communs. Chaque bloc ne s'active que si son élément est présent.
-// data-r : apparition · data-count : compteur · #flow : usages par métier
+// data-r : apparition · data-count : compteur
 // #stage : cartes du premier écran · .pile : pastilles déplaçables · .copy : copier l'email · #steps : méthode qui s'allume au défilement
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -82,49 +82,6 @@
       ch.addEventListener('pointerup', end); ch.addEventListener('pointercancel', end);
     });
   });
-
-  // Usages par métier : choisir un métier rejoue les quatre étapes
-  const flow = $('#flow');
-  if (flow) {
-    // Chaque étape : [texte, qui la fait] ; E = entrée, I = IA, V = vous, A = automatique
-    const FLOWS = {
-      'Support client': [['Demande client', 'E'], ['L’IA lit votre base', 'I'], ['Réponse préparée', 'I'], ['Validée en un clic', 'V']],
-      'Ventes': [['Appel commercial', 'V'], ['Compte rendu automatique', 'I'], ['Relance rédigée', 'I'], ['CRM à jour', 'A']],
-      'Marketing': [['Une idée', 'V'], ['Articles, posts, visuels', 'I'], ['Relecture', 'V'], ['Publication planifiée', 'A']],
-      'Ressources humaines': [['Candidatures', 'E'], ['Tri selon vos critères', 'I'], ['Réponses préparées', 'I'], ['Entretiens planifiés', 'A']],
-      'Juridique': [['Contrat reçu', 'E'], ['Comparé à vos clauses', 'I'], ['Points à risque signalés', 'I'], ['Validé par le juriste', 'V']],
-      'Finance': [['Factures reçues', 'E'], ['Lues et classées', 'I'], ['Écarts signalés', 'I'], ['Export comptable', 'A']],
-      'Développement': [['Ticket', 'V'], ['Code proposé par l’agent', 'I'], ['Tests et relecture', 'V'], ['Mise en ligne', 'A']],
-      'Design': [['Brief', 'V'], ['Pistes générées', 'I'], ['Choix et retouches', 'V'], ['Maquette prête', 'A']],
-      'Image et vidéo': [['Script', 'V'], ['Images et voix', 'I'], ['Montage', 'I'], ['Vidéo validée', 'V']],
-      'Direction': [['Données éparpillées', 'E'], ['Synthèse automatique', 'I'], ['Points clés', 'I'], ['Décision', 'V']],
-    };
-    const WHO = { E: ['Entrée', ''], I: ['IA', 'ia'], V: ['Vous', 'you'], A: ['Auto', ''] };
-    const names = Object.keys(FLOWS), btns = $$('#jobs button'), items = $$('li', flow), card = flow.closest('.c');
-    let cur = 0, step = -1, hold = false;
-    const seen = () => { const r = card.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
-    const show = i => {
-      cur = i; step = -1;
-      btns.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
-      items.forEach((li, k) => {
-        const [txt, w] = FLOWS[names[i]][k], em = $('em', li);
-        $('span', li).textContent = txt; em.textContent = WHO[w][0]; em.className = WHO[w][1];
-        li.classList.toggle('on', reduce);
-      });
-      flow.style.setProperty('--p', reduce ? 1 : 0);
-      flow.classList.remove('swap'); void flow.offsetWidth; flow.classList.add('swap');
-    };
-    btns.forEach((b, k) => b.addEventListener('click', () => { show(k); hold = true; }));
-    card.addEventListener('pointerleave', () => { hold = false; });
-    show(0);
-    if (!reduce) setInterval(() => {
-      if (document.hidden || !seen()) return;
-      step++;
-      if (step > 5) { if (hold) { step = 3; return; } show((cur + 1) % names.length); return; }
-      items.forEach((li, k) => li.classList.toggle('on', k <= step));
-      flow.style.setProperty('--p', clamp(step / 3));
-    }, 750);
-  }
 
   // Méthode : la barre avance au défilement et allume chaque étape
   const steps = $('#steps');
