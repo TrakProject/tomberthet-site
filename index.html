@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Site de Tom Berthet, Product Builder et intégrateur IA. Accueil : présentation courte, puis liens vers le portfolio et la page Collaborer. Blocs arrondis (.panel) et sections ouvertes (.panel.open) en alternance.
+<!-- Site de Tom Berthet, Product Builder et intégrateur IA. Accueil : présentation courte, puis liens vers le portfolio et la page Intégrer l’IA (qui contient le rendez-vous). Blocs arrondis (.panel) et sections ouvertes (.panel.open) en alternance.
      Styles : assets/site.css + assets/monde.css ; scripts : site.js, monde.js, carnet.js (présentation). -->
 <html lang="fr">
 <head>
@@ -30,8 +30,8 @@
 <header class="top">
   <div class="mw">
     <a class="me" href="./"><img src="assets/avatar.jpg" alt="" width="28" height="28">Tom Berthet</a>
-    <nav id="menu" aria-label="Pages"><a href="portfolio.html">Portfolio</a><a href="collaborer.html">Collaborer</a><a href="integration-ia.html">Intégrer l’IA</a><a href="blog.html">Blog</a><a class="nav-cta" href="collaborer.html#contact">Prendre rendez-vous</a></nav>
-    <a class="btn dark sm" href="collaborer.html#contact">Prendre rendez-vous</a>
+    <nav id="menu" aria-label="Pages"><a href="portfolio.html">Portfolio</a><a href="integration-ia.html">Intégrer l’IA</a><a href="blog.html">Blog</a><a class="nav-cta" href="integration-ia.html#contact">Prendre rendez-vous</a></nav>
+    <a class="btn dark sm" href="integration-ia.html#contact">Prendre rendez-vous</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu"><span></span><span></span></button>
   </div>
 </header>
@@ -56,7 +56,7 @@
     <p class="sub">Entrepreneur. L’IA intégrée dans les entreprises, et les outils qui manquent construits sur mesure. Trois entreprises cofondées, plus de 12 000 heures d’IA depuis 2022.</p>
     <div class="cta">
       <a class="btn dark" href="portfolio.html">Voir le portfolio<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
-      <a class="btn glass" href="collaborer.html">Collaborer</a>
+      <a class="btn glass" href="integration-ia.html">Intégrer l’IA</a>
     </div>
   </div>
 </section>
@@ -195,55 +195,21 @@
   </div>
 </section>
 
-<!-- 4. Collaborer : trois façons de travailler ensemble (détails sur collaborer.html) -->
+<!-- 4. Intégrer l'IA : la vision en un écran, renvoi vers la page complète -->
 <section class="panel open pad" id="collaborer" aria-labelledby="t-collab"><span id="offre" aria-hidden="true"></span>
-  <div class="mw">
-    <div class="home-intro sec-head" data-r>
-      <div>
-        <p class="kicker">Collaborer</p>
-        <h2 class="big" id="t-collab">Intégrer, construire, former. <em>Trois façons de travailler ensemble.</em></h2>
-      </div>
-      <a class="more-link" href="collaborer.html">Comment collaborer<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+  <div class="mw vision">
+    <div data-r>
+      <p class="kicker">Intégrer l’IA</p>
+      <h2 class="big" id="t-collab">Chaque salarié, <em>chef d’équipe de ses agents IA.</em></h2>
+      <p class="lead">Ne pas remplacer les équipes, mais démultiplier ce que chacun sait faire. Tom Berthet audite chaque poste, installe les bons outils et forme chaque salarié à diriger ses agents.</p>
+      <div class="cta"><a class="btn dark" href="integration-ia.html">Comprendre l’approche<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a><a class="btn white" href="integration-ia.html#contact">Prendre rendez-vous</a></div>
+      <p class="also">Aussi : <a href="integration-ia.html?sujet=produit#contact">construire un produit</a> ou <a href="integration-ia.html?sujet=former#contact">former une équipe</a>.</p>
     </div>
-    <div class="ways">
-      <a class="way dark illus" href="integration-ia.html" data-r>
-        <div class="way-vis wv-ia" aria-hidden="true">
-          <span class="tagf q1">Ventes</span><span class="tagf q2">Support</span><span class="tagf q3">Marketing</span><span class="tagf q4">RH</span>
-          <img class="max" src="assets/img/monde/max-ordinateur.webp" alt="" loading="lazy">
-        </div>
-        <div class="way-in">
-          <span class="tag">Mission phare</span>
-          <h3>Intégrer l’IA <em>dans toute l’entreprise.</em></h3>
-          <p>Pour que chaque équipe travaille avec l’IA, pas seulement quelques curieux.</p>
-          <p class="w-foot"><small>Audit, puis 3 à 12 mois</small><span class="w-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span></p>
-        </div>
-      </a>
-      <a class="way illus" href="collaborer.html?sujet=produit#contact" data-r style="--d:.06s">
-        <div class="way-vis wv-prod" aria-hidden="true">
-          <img class="p1" src="assets/img/lynewed/app-connexion.webp" alt="" loading="lazy">
-          <img class="p2" src="assets/img/lynewed/app-feed.webp" alt="" loading="lazy">
-          <img class="p3" src="assets/img/lynewed/app-replay.webp" alt="" loading="lazy">
-        </div>
-        <div class="way-in">
-          <span class="tag">Produits et outils</span>
-          <h3>Construire un produit <em>ou un outil interne.</em></h3>
-          <p>Pour les fondateurs sans équipe technique, ou les équipes qui veulent aller plus vite. Comme LYNEWED : une app, un CRM et un site.</p>
-          <p class="w-foot"><small>En parler</small><span class="w-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span></p>
-        </div>
-      </a>
-      <a class="way illus" href="collaborer.html?sujet=former#contact" data-r style="--d:.12s">
-        <div class="way-vis wv-form" aria-hidden="true">
-          <img class="fo f1" src="assets/img/monde/obj-livres.webp" alt="" loading="lazy">
-          <img class="fo f2" src="assets/img/monde/obj-micro.webp" alt="" loading="lazy">
-          <div class="sign"><img src="assets/img/monde/max-pancarte.webp" alt="" loading="lazy"><span>Atelier IA</span></div>
-        </div>
-        <div class="way-in">
-          <span class="tag">Formation</span>
-          <h3>Former <em>les équipes.</em></h3>
-          <p>Pour les équipes qui ont accès à l’IA, mais ne savent pas encore quoi en faire au quotidien.</p>
-          <p class="w-foot"><small>En parler</small><span class="w-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span></p>
-        </div>
-      </a>
+    <div class="c-stage" aria-hidden="true">
+      <span class="halo"></span>
+      <img class="crew" src="assets/img/monde/max-groupe.webp" alt="" loading="lazy">
+      <span class="float-chip fc1"><span class="dot" aria-hidden="true"></span>1 salarié · 5 agents IA</span>
+      <span class="float-chip fc2">Tourne 24 h/24</span>
     </div>
   </div>
 </section>
@@ -275,7 +241,7 @@
   </div>
 </section>
 
-<!-- 6. Contact, de nuit : renvoie vers le formulaire de la page Collaborer -->
+<!-- 6. Contact, de nuit : renvoie vers le formulaire de la page Intégrer l’IA -->
 <section class="panel dark nuit pad" id="contact" aria-labelledby="t-contact">
   <div class="stars-bg" aria-hidden="true"></div>
   <img class="moon" src="assets/img/trak/3d-lune-violette.webp" alt="" loading="lazy" data-depth=".5">
@@ -284,7 +250,7 @@
     <h2 class="big" id="t-contact">Un projet, une équipe, <em>une mission ?</em></h2>
     <p class="lead">30 minutes en visio pour comprendre le besoin. Sans engagement.</p>
     <div class="cta">
-      <a class="btn white" href="collaborer.html#contact">Prendre rendez-vous<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+      <a class="btn white" href="integration-ia.html#contact">Prendre rendez-vous<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
       <a class="btn ghost-w" href="https://www.linkedin.com/in/tomberthet1/"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#linkedin"/></svg>LinkedIn</a>
     </div>
     <div class="links">

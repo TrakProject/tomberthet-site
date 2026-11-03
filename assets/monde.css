@@ -961,3 +961,98 @@ a.way:hover .wv-form .sign{transform:translateX(-50%)}
 .pg-photo{background:radial-gradient(80% 70% at 50% 35%,#34343C 0%,#18181C 62%,#0E0E11 100%)}
 @media (max-width:860px){.pg-photo{min-height:320px}}
 .who .cond{grid-template-columns:repeat(3,minmax(0,1fr))}@media (max-width:560px){.who .cond{grid-template-columns:1fr}}
+
+/* =====================================================================
+   v13 (vision du 3 novembre) : Collaborer fusionnée dans Intégrer l'IA.
+   Chaque salarié devient chef d'équipe de ses agents IA : journée type, calcul, risque, 4 étapes.
+   ===================================================================== */
+.note{margin-top:18px;font-size:13.5px;line-height:1.5;color:var(--mute);max-width:60em}
+.sub-h{font-size:clamp(20px,1.8vw,24px);font-weight:700;letter-spacing:-.03em}
+.fact.dark p.p{color:#B4B4BC}
+/* Journée type : la barre de 8 heures, avant et après */
+.day{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gut)}
+.day-c{display:flex;flex-direction:column;padding:clamp(24px,2.8vw,36px);border-radius:26px;background:var(--tint)}
+.day-c.dark{background:var(--night);color:#fff}
+.day-c h3{margin-top:10px;font-size:clamp(22px,2vw,28px);font-weight:700;letter-spacing:-.035em;line-height:1.1}
+.day-c h3 em{font-style:normal;background:linear-gradient(100deg,#1C1C21 0%,#5C5C66 55%,#8E8E99 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.day-c.dark h3 em{background-image:linear-gradient(100deg,#FFFFFF 0%,#C9C9D2 50%,#8E8E99 100%)}
+.tl{display:flex;gap:4px;height:58px;margin-top:auto;padding-top:28px;box-sizing:content-box}
+.tl i{flex:var(--h) 1 0;min-width:0;display:grid;place-items:center;padding:0 6px;border-radius:12px;background:#DCDCE2;font-style:normal;font-size:12.5px;font-weight:600;color:var(--soft-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl i.v{background:var(--ink);color:#fff}
+.dark .tl i{background:#2A2A31;color:#B4B4BC}
+.dark .tl i.v{background:#fff;color:var(--ink)}
+.day-f{margin-top:14px;font-size:15.5px;color:var(--soft-ink)}
+.day-f b{color:var(--ink)}
+.dark .day-f{color:#B4B4BC}.dark .day-f b{color:#fff}
+.agents{list-style:none;display:grid;gap:8px;margin:22px 0 0;padding:0}
+.agents li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;background:var(--night2);font-size:14px;color:#B4B4BC}
+.agents .ag{padding:4px 10px;border-radius:99px;background:#fff;color:var(--ink);font-size:12.5px;font-weight:700;white-space:nowrap}
+.agents svg{width:18px;height:18px;color:var(--green)}
+.agents li.run .dot{margin-right:4px}
+/* Le calcul : coût, valeur, marge */
+.calc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gut);padding:clamp(22px,2.8vw,36px);border-radius:26px;background:#fff}
+.calc-g{display:grid;gap:12px;padding:clamp(18px,2vw,26px);border-radius:20px;background:var(--tint)}
+.calc-g.on{background:var(--night);color:#fff}
+.calc-h{margin-bottom:6px;font-size:14px;font-weight:700;color:var(--mute)}
+.calc-g.on .calc-h{color:#8E8E96}
+.cb{display:grid;grid-template-columns:74px minmax(0,1fr) 54px;align-items:center;gap:12px;font-size:14px;font-weight:600}
+.cb>b{font-size:20px;letter-spacing:-.03em;text-align:right;white-space:nowrap}
+.bar{display:flex;gap:3px;height:28px}
+.bar i{width:calc(var(--v) / 5 * 100%);border-radius:8px;background:#C4C4CC;font-style:normal;font-size:11.5px;font-weight:700;display:grid;place-items:center;transition:width 1s var(--ease)}
+.bar i.val{background:var(--ink)}
+.bar i.m{background:var(--green)}
+.bar i.ia{background:repeating-linear-gradient(135deg,#C4C4CC 0 6px,#DADAE0 6px 12px);color:var(--ink)}
+.calc-g.on .bar i{background:#3A3A42}
+.calc-g.on .bar i.val{background:#fff}
+.calc-g.on .bar i.m{background:var(--green)}
+.calc-g.on .bar i.ia{background:repeating-linear-gradient(135deg,#3A3A42 0 6px,#55555E 6px 12px);color:#fff}
+.cb.mg{padding-top:12px;border-top:1px solid #0000001A}
+.calc-g.on .cb.mg{border-color:#FFFFFF1F}
+.calc-n{grid-column:1/-1;font-size:13.5px;line-height:1.5;color:var(--mute)}
+.js:not(.rv) .calc:not(.in) .bar i{width:0}
+.calc .bar i{transition-delay:.2s}
+/* Ne rien faire : trois conséquences et le poste qui manque */
+.risk{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,44px);margin:0;padding:0;counter-reset:r}
+.risk li{counter-increment:r;border-top:1.5px solid #FFFFFF26;padding-top:20px}
+.risk li::before{content:"0" counter(r);display:block;margin-bottom:10px;font-size:13px;font-weight:700;color:#8E8E96}
+.risk b{display:block;font-size:clamp(19px,1.6vw,23px);letter-spacing:-.025em;color:#fff}
+.risk p{margin-top:8px;font-size:15.5px;line-height:1.55;color:#B4B4BC}
+.role{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(18px,3vw,40px);margin-top:clamp(36px,4.5vw,60px);padding:clamp(22px,3vw,40px);border-radius:26px;background:#fff;color:var(--ink)}
+.role img{width:clamp(110px,12vw,170px);height:auto;filter:drop-shadow(0 16px 20px #0003)}
+.role .kicker{color:var(--mute)}
+.role-t{margin-top:8px;font-size:clamp(22px,2.4vw,34px);font-weight:700;letter-spacing:-.04em;line-height:1.12;text-wrap:balance}
+.role-t em{font-style:normal;background:linear-gradient(100deg,#1C1C21 0%,#5C5C66 55%,#8E8E99 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role-s{margin-top:10px;font-size:15.5px;line-height:1.55;color:var(--soft-ink)}
+/* Travailler ensemble : quatre étapes, puis les forfaits */
+.etapes{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gut);margin:0 0 var(--gut);padding:0}
+.etapes li{position:relative;padding:clamp(20px,2.2vw,28px);padding-top:clamp(100px,9vw,124px);border-radius:24px;background:#fff;box-shadow:0 1px 0 #0000000A,0 6px 18px #0000000A;overflow:hidden}
+.etapes img{position:absolute;top:16px;right:16px;width:clamp(68px,6vw,88px);height:auto;filter:drop-shadow(0 14px 16px #0002);transition:transform .6s var(--ease)}
+.etapes li:hover img{transform:rotate(-6deg) translateY(-4px)}
+.etapes .n{position:absolute;top:20px;left:22px;font-size:13px;font-weight:700;color:var(--mute)}
+.etapes b{display:block;font-size:clamp(20px,1.7vw,24px);letter-spacing:-.03em}
+.etapes p{margin-top:8px;font-size:15px;line-height:1.55;color:var(--soft-ink)}
+.deals .way h3{margin-top:12px}
+.deals .way>p{flex:none}
+@media (max-width:1000px){.etapes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.day,.calc{grid-template-columns:1fr}.risk{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .etapes{grid-template-columns:1fr}
+  .role{grid-template-columns:1fr}.role img{width:96px}
+  .cb{grid-template-columns:62px minmax(0,1fr) 46px;gap:8px;font-size:13px}.cb>b{font-size:17px}
+  .tl i{font-size:11px;padding:0 3px}
+  .agents li{grid-template-columns:auto minmax(0,1fr) auto;font-size:13px;padding:10px 12px}
+}
+/* Accueil : l'aperçu de la vision (remplace les trois façons de collaborer) */
+.vision{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,60px);align-items:center}
+.vision .lead{margin-top:16px;max-width:32em}
+.vision .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.vision .also{margin-top:22px;font-size:14.5px;color:var(--mute)}
+.vision .also a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.vision .c-stage{max-width:480px}
+@media (max-width:900px){.vision{grid-template-columns:1fr}.vision .c-stage{max-width:360px}}
+.etapes li{display:block}
+.agents.todo li{background:#fff;color:var(--soft-ink)}
+.agents.todo .ag{background:var(--tint);color:var(--ink)}
+.agents.todo .wait{font-size:12px;font-weight:600;color:var(--mute);white-space:nowrap}
+.facts-row .fact b{white-space:nowrap}
+@media (max-width:640px){.facts-row>.fact:nth-child(3):last-child{grid-column:1/-1}}

@@ -1,36 +1,36 @@
 <!doctype html>
-<!-- La mission phare (détail de collaborer.html) : intégrer l’IA dans toute l’entreprise. Audit au forfait, puis intégration au forfait mensuel (3 à 12 mois). Chiffres sourcés : Insee 2025, Harvard & BCG 2023, Microsoft & LinkedIn 2024. -->
+<!-- Intégrer l'IA (v13, fusion avec l'ancienne page Collaborer) : la vision (chaque salarié devient chef d'équipe de ses agents IA), l'impact, le risque de ne rien faire, puis comment travailler ensemble et le rendez-vous (assets/rdv.js).
+     Chiffres sourcés : Insee 2025, Microsoft & LinkedIn 2024, Harvard & BCG 2023, NBER 2023. Les exemples « journée » et « calcul » sont illustratifs et présentés comme tels. Aucun prix affiché. -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Intégrer l’IA dans votre entreprise · Tom Berthet</title>
-<meta name="description" content="Audit et intégration de l’IA dans toute l’entreprise : chaque service, chaque outil, chaque équipe. Outils internes sur mesure, formation, résultats mesurés. Audit au forfait, puis intégration de 3 à 12 mois au forfait mensuel.">
-<meta property="og:title" content="Tom Berthet · Intégrer l’IA, démultiplier les capacités de vos équipes">
-<meta property="og:description" content="Audit, intégration, formation et suivi : l’IA dans chaque service, au forfait, de 3 à 12 mois.">
+<meta name="description" content="Faire de chaque salarié le chef d’équipe de ses agents IA. Tom Berthet audite chaque poste, installe les bons outils, forme les équipes et suit les résultats. Au forfait, de 3 à 12 mois.">
+<meta property="og:title" content="Tom Berthet · Chaque salarié, chef d’équipe de ses agents IA">
+<meta property="og:description" content="L’IA ne remplace pas vos équipes : elle démultiplie ce que chacun sait faire. Audit, outils, formation et suivi, au forfait.">
 <meta property="og:image" content="https://trakproject.github.io/tomberthet-site/assets/og.jpg">
 <meta property="og:url" content="https://trakproject.github.io/tomberthet-site/integration-ia.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Tom Berthet">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F5F5F7">
+<meta name="theme-color" content="#DCE7F1">
 <link rel="canonical" href="https://trakproject.github.io/tomberthet-site/integration-ia.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/monde.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Product Builder et intégrateur IA","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/","https://www.malt.fr/profile/tomberthet"],"knowsAbout":["Intégration de l’IA en entreprise","Audit IA","Formation des équipes à l’IA","Automatisation","Agents IA"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Berthet","jobTitle":"Product Builder et intégrateur IA","description":"Intégration de l’IA en entreprise : audit de chaque poste, outils et agents IA, formation des équipes, suivi des résultats. Cofondateur de TRAK, Aurizon et BeeFit.","url":"https://trakproject.github.io/tomberthet-site/","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/tomberthet1/","https://www.malt.fr/profile/tomberthet"],"knowsAbout":["Intégration de l’IA en entreprise","Audit IA","Agents IA","Formation des équipes à l’IA","Automatisation","Product building"]}</script>
 <script>document.documentElement.classList.add('js');setTimeout(()=>{if(!document.querySelector('[data-r].in'))document.documentElement.classList.add('rv')},2500)</script>
 </head>
-<body class="monde page-simple">
+<body class="monde">
 <a class="skip" href="#contenu">Aller au contenu</a>
 
 <header class="top">
   <div class="mw">
     <a class="me" href="./"><img src="assets/avatar.jpg" alt="" width="28" height="28">Tom Berthet</a>
-    <nav id="menu" aria-label="Pages"><a href="portfolio.html">Portfolio</a><a href="collaborer.html">Collaborer</a><a href="integration-ia.html" aria-current="page">Intégrer l’IA</a><a href="blog.html">Blog</a><a class="nav-cta" href="#contact">Prendre rendez-vous</a></nav>
+    <nav id="menu" aria-label="Pages"><a href="portfolio.html">Portfolio</a><a href="integration-ia.html" aria-current="page">Intégrer l’IA</a><a href="blog.html">Blog</a><a class="nav-cta" href="#contact">Prendre rendez-vous</a></nav>
     <a class="btn dark sm" href="#contact">Prendre rendez-vous</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu"><span></span><span></span></button>
   </div>
@@ -38,168 +38,145 @@
 
 <main id="contenu">
 
-<!-- 1. L’offre en une phrase, et pourquoi Tom -->
-<section class="panel hero-panel" aria-labelledby="titre"><div class="hero wrap" id="hero">
-  <!-- Derrière le titre : trame fine et outils de l'IA en tuiles flottantes (décor) -->
-  <div class="aura" aria-hidden="true"></div>
-  <div class="float" aria-hidden="true">
-    <img class="tile t1" style="--k:-16" src="assets/img/monde/obj-carnet.webp" alt="">
-    <img class="tile t2 far" style="--k:-8" src="assets/img/monde/obj-chrono.webp" alt="">
-    <img class="tile t3" style="--k:-22" src="assets/img/monde/max-ordinateur.webp" alt="">
-    <img class="tile t4 far" style="--k:-6" src="assets/img/monde/obj-touche.webp" alt="">
-    <img class="tile t5" style="--k:-20" src="assets/img/monde/obj-trophee.webp" alt="">
-    <img class="tile t6 far" style="--k:-7" src="assets/img/monde/obj-boussole.webp" alt="">
-    <img class="tile t7" style="--k:-15" src="assets/img/monde/obj-livres.webp" alt="">
-    <img class="tile t8 far" style="--k:-9" src="assets/img/monde/obj-cafe.webp" alt="">
+<!-- 1. La vision en une phrase : un salarié et son équipe d'agents (MAX et sa bande) -->
+<section class="panel c-hero" aria-labelledby="titre">
+  <div class="mw">
+    <div data-r>
+      <span class="chip-dispo"><span class="dot" aria-hidden="true"></span>Disponible dès maintenant</span>
+      <h1 class="mega" id="titre">Chaque salarié, <em>chef d’équipe de ses agents IA.</em></h1>
+      <p class="lead">L’IA ne remplace pas vos équipes : elle démultiplie ce que chacun sait faire. Tom Berthet observe comment chaque poste travaille, installe les bons outils, et forme chaque salarié à diriger ses propres agents.</p>
+      <div class="cta"><a class="btn dark" href="#contact">Prendre rendez-vous<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a><a class="btn white" href="#idee">Comprendre l’idée</a></div>
+    </div>
+    <div class="c-stage" aria-hidden="true">
+      <span class="halo"></span>
+      <img class="crew" src="assets/img/monde/max-groupe.webp" alt="" fetchpriority="high">
+      <img class="ob o2" src="assets/img/monde/obj-chrono.webp" alt="">
+      <img class="ob o4" src="assets/img/monde/obj-boussole.webp" alt="">
+      <span class="float-chip fc1"><span class="dot" aria-hidden="true"></span>1 salarié · 5 agents IA</span>
+      <span class="float-chip fc2">Tourne 24 h/24</span>
+    </div>
   </div>
+</section>
 
-  <div class="lede" data-r>
-    <p class="crumb"><a href="collaborer.html">Collaborer</a><span aria-hidden="true">›</span>La mission phare</p>
-    <h1 class="h1" id="titre"><span class="ai-t">Intégrer l’IA.</span> <strong>Démultiplier les capacités<br class="lg"> de vos équipes.</strong></h1>
-    <p class="lead">Un audit pour savoir où l’IA fera gagner le plus, puis son intégration dans chaque service, jusqu’à l’autonomie des équipes. Une méthode éprouvée par Tom Berthet sur ses trois entreprises, appliquée à la vôtre.</p>
-    <div class="cta">
-      <a class="btn dark" href="#contact">Prendre rendez-vous</a>
-      <a class="btn ghost" href="portfolio.html">Voir le portfolio</a>
+<!-- 2. Le constat : un abonnement ne suffit pas -->
+<section class="panel open pad" id="constat" aria-labelledby="t-constat" style="padding-top:clamp(24px,3vw,40px)">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Le constat</p>
+      <h2 class="big" id="t-constat">Un abonnement à ChatGPT <em>ne suffit pas.</em></h2>
+      <p class="lead">Donner un accès à l’IA ne change presque rien. Sans audit, sans outils configurés et sans formation, elle sert à poser quelques questions, et le travail reste le même.</p>
+    </div>
+    <div class="grid g2">
+      <div class="c vs" data-r>
+        <p class="eyebrow">Un abonnement donné à l’équipe</p>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Quelques curieux s’en servent</li>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Des questions, au cas par cas</li>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Les tâches répétitives restent</li>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Aucun gain mesuré</li>
+        </ul>
+      </div>
+      <div class="c vs dark on" data-r style="--d:.08s">
+        <p class="eyebrow">L’IA intégrée</p>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Chaque poste audité, puis équipé</li>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des agents sur les tâches répétitives</li>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Chaque salarié formé à les diriger</li>
+          <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des résultats suivis chaque mois</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid facts-row">
+      <div class="c fact" data-r><b>18 %</b><p class="p">seulement des entreprises françaises de 10 salariés et plus utilisent l’IA.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
+      <div class="c fact" data-r style="--d:.05s"><b>54 %</b><p class="p">des entreprises qui n’utilisent pas l’IA citent le manque d’expertise.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
+      <div class="c fact" data-r style="--d:.1s"><b>39 %</b><p class="p">seulement des utilisateurs d’IA ont été formés par leur entreprise.</p><a class="src" href="https://news.microsoft.com/source/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft &amp; LinkedIn, 2024</a></div>
     </div>
   </div>
+</section>
 
-  <div class="stage" id="stage">
-    <div class="col">
-      <div class="c stat s-hours" data-r style="--d:.1s;--k:7">
-        <p class="eyebrow">Depuis 2022</p>
-        <div><b><span data-count="12000">12 000</span>+<span class="u">h</span></b><p class="p">de pratique de l’IA</p></div>
+<!-- 3. L'idée : le salarié devient orchestrateur (journée type, exemple illustratif) -->
+<section class="panel pad" id="idee" aria-labelledby="t-idee">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">L’idée</p>
+      <h2 class="big" id="t-idee">Ne pas remplacer vos salariés. <em>Les démultiplier.</em></h2>
+      <p class="lead">Aujourd’hui, un salarié fait tout lui-même, une tâche après l’autre. Avec l’IA intégrée, il confie les tâches répétitives à des agents qui travaillent en parallèle, sans pause. Lui vérifie, décide, et passe son temps sur ce qui rapporte.</p>
+    </div>
+    <div class="day">
+      <div class="day-c" data-r>
+        <p class="eyebrow">Aujourd’hui</p>
+        <h3>Il fait tout, <em>une tâche après l’autre.</em></h3>
+        <ul class="agents todo" aria-label="Les tâches du salarié">
+          <li><span class="ag">Emails</span><span>à trier, à rédiger</span><span class="wait">1 h 30</span></li>
+          <li><span class="ag">Devis</span><span>à préparer à la main</span><span class="wait">2 h</span></li>
+          <li><span class="ag">Relances</span><span>à écrire une par une</span><span class="wait">1 h</span></li>
+          <li><span class="ag">Reporting</span><span>à faire en fin de journée</span><span class="wait">1 h 30</span></li>
+        </ul>
+        <div class="tl" role="img" aria-label="Une journée de 8 heures : 6 heures de tâches répétitives, 2 heures de vrai travail">
+          <i style="--h:1.5">Emails</i><i style="--h:2">Devis</i><i style="--h:1">Relances</i><i style="--h:1.5">Reporting</i><i class="v" style="--h:2">Vrai travail</i>
+        </div>
+        <p class="day-f"><b>2 h sur 8</b> pour vendre, créer, décider.</p>
       </div>
-      <div class="c stat jobs" data-r style="--d:.18s;--k:10">
-        <div class="pile"><span class="chip">Vente</span><span class="chip">Marketing</span><span class="chip">Communication</span><span class="chip">Produit</span><span class="chip">Design</span><span class="chip">Développement</span><span class="chip">Service client</span><span class="chip">Gestion</span></div>
-        <div><b>8<span class="u">métiers</span></b><p class="p">exercés en entreprise</p></div>
+      <div class="day-c dark" data-r style="--d:.08s">
+        <p class="eyebrow">Avec l’IA intégrée</p>
+        <h3>Il dirige <em>son équipe d’agents.</em></h3>
+        <ul class="agents" aria-label="Les agents du salarié">
+          <li><span class="ag">Agent emails</span><span>triés, réponses prêtes</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg></li>
+          <li><span class="ag">Agent devis</span><span>préparés depuis le CRM</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg></li>
+          <li><span class="ag">Agent relances</span><span>rédigées, planifiées</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg></li>
+          <li class="run"><span class="ag">Agent reporting</span><span>en cours, cette nuit</span><span class="dot" aria-hidden="true"></span></li>
+        </ul>
+        <div class="tl" role="img" aria-label="Une journée de 8 heures : 2 heures pour valider le travail des agents, 6 heures de vrai travail">
+          <i style="--h:2">Valider</i><i class="v" style="--h:6">Vrai travail</i>
+        </div>
+        <p class="day-f"><b>6 h sur 8</b> pour vendre, créer, décider. Trois fois plus.</p>
       </div>
     </div>
-    <figure class="c portrait" data-r style="--d:.05s;--k:-3">
-      <figcaption class="pcap"><span><b>Tom Berthet</b><small>Toulouse · 100 % à distance</small></span></figcaption>
-      <img src="assets/portrait-cut.webp" alt="Portrait de Tom Berthet" width="900" height="1011" fetchpriority="high">
-    </figure>
-    <div class="col">
-      <div class="c stat s-co" data-r style="--d:.14s;--k:7">
-        <div class="logos" aria-hidden="true"><span class="lg-beefit"><img src="assets/img/beefit/logo.webp" alt=""></span><span class="lg-aurizon"><img src="assets/img/aurizon/logo.webp" alt=""></span><span class="lg-trak"><img src="assets/img/trak/logo-trak-blanc.svg" alt=""></span></div>
-        <div><b>3<span class="u">entreprises</span></b><p class="p">cofondées : BeeFit, Aurizon, TRAK</p></div>
-      </div>
-      <a class="c stat dark malt" href="https://www.malt.fr/profile/tomberthet" data-r style="--d:.22s;--k:10">
-        <p class="q">« Très bon travail, fluide et parfait. »<small>Avis Malt · Mercure SAS</small></p>
-        <div><b>5,0<span class="u">/ 5</span></b><p class="p"><span class="stars" aria-hidden="true">★★★★★</span> 3 avis clients sur Malt</p></div>
-      </a>
-    </div>
+    <p class="note" data-r>Exemple illustratif, pour un poste commercial. Chaque audit mesure les vrais chiffres de chaque poste.</p>
   </div>
-</div></section>
+</section>
 
-<!-- 2. Pourquoi intégrer l'IA : la différence avec un usage ponctuel, et les chiffres -->
-<section class="panel open pad" id="pourquoi" aria-labelledby="t-pourquoi"><div class="wrap">
-  <div class="head" data-r>
-    <div>
-      <h2 class="big" id="t-pourquoi">Utiliser ChatGPT <em>n’est pas intégrer l’IA.</em></h2>
-      <p class="lead">Poser des questions à l’IA fait gagner quelques minutes. L’intégrer dans les process de chaque service change le quotidien de toute l’entreprise.</p>
+<!-- 4. Le calcul : coût, valeur, marge (exemple en unités), puis ce que mesurent les études -->
+<section class="panel open pad" id="calcul" aria-labelledby="t-calcul">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Le calcul</p>
+      <h2 class="big" id="t-calcul">Un salarié qui rapporte 2. <em>Puis 5.</em></h2>
+      <p class="lead">Un salarié coûte 1 et rapporte 2. Équipé et formé, il produit bien plus. Même en comptant l’IA aussi cher que son salaire, la marge de l’entreprise est multipliée par trois.</p>
+    </div>
+    <div class="calc" data-r>
+      <div class="calc-g">
+        <p class="calc-h">Aujourd’hui</p>
+        <div class="cb"><span>Coût</span><span class="bar"><i style="--v:1"></i></span><b>1</b></div>
+        <div class="cb"><span>Rapporte</span><span class="bar"><i class="val" style="--v:2"></i></span><b>2</b></div>
+        <div class="cb mg"><span>Marge</span><span class="bar"><i class="m" style="--v:1"></i></span><b>1</b></div>
+      </div>
+      <div class="calc-g on">
+        <p class="calc-h">Avec l’IA intégrée</p>
+        <div class="cb"><span>Coût</span><span class="bar"><i style="--v:1"></i><i class="ia" style="--v:1">IA</i></span><b>1 + 1</b></div>
+        <div class="cb"><span>Rapporte</span><span class="bar"><i class="val" style="--v:5"></i></span><b>5</b></div>
+        <div class="cb mg"><span>Marge</span><span class="bar"><i class="m" style="--v:3"></i></span><b>3</b></div>
+      </div>
+      <p class="calc-n">Exemple en unités, pour illustrer. En pratique, les outils d’IA coûtent souvent quelques dizaines d’euros par mois et par personne.</p>
+    </div>
+    <div class="grid facts-row">
+      <div class="c fact" data-r><b>+25 %</b><p class="p">de rapidité pour des consultants équipés d’IA, avec un travail de meilleure qualité.</p><a class="src" href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700">Harvard &amp; BCG, 2023</a></div>
+      <div class="c fact" data-r style="--d:.05s"><b>+34 %</b><p class="p">de demandes clients résolues par heure pour les nouveaux arrivants d’un service client (+14 % en moyenne).</p><a class="src" href="https://www.nber.org/papers/w31161">NBER, 2023</a></div>
+      <div class="c fact dark" data-r style="--d:.1s"><b>24 h/24</b><p class="p">Un agent ne s’arrête pas le soir : il avance la nuit et le week-end sur les tâches qui reviennent.</p></div>
     </div>
   </div>
-  <div class="grid g2">
-    <div class="c vs" data-r>
-      <p class="eyebrow">Usage ponctuel</p>
-      <ul>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Quelques curieux s’en servent</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Des questions, au cas par cas</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Les tâches répétitives restent à faire</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#minus"/></svg>Aucun gain mesuré</li>
-      </ul>
-    </div>
-    <div class="c vs dark on" data-r style="--d:.08s">
-      <p class="eyebrow">IA intégrée</p>
-      <ul>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Chaque employé formé et assisté</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des process et des outils reliés</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des agents qui tournent 24 h/24</li>
-        <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Des résultats suivis chaque mois</li>
-      </ul>
-    </div>
-  </div>
-  <div class="grid g4 facts-row">
-    <div class="c fact" data-r><b>18 %</b><p class="p">des entreprises françaises de 10 salariés et plus utilisent l’IA.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
-    <div class="c fact" data-r style="--d:.05s"><b>25 %</b><p class="p">plus rapides sur les tâches adaptées à l’IA, avec un travail de meilleure qualité.</p><a class="src" href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700">Harvard &amp; BCG, 2023</a></div>
-    <div class="c fact" data-r style="--d:.1s"><b>39 %</b><p class="p">des utilisateurs d’IA ont été formés par leur entreprise.</p><a class="src" href="https://news.microsoft.com/source/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft &amp; LinkedIn, 2024</a></div>
-    <div class="c fact" data-r style="--d:.15s"><b>54 %</b><p class="p">des entreprises sans IA citent le manque d’expertise.</p><a class="src" href="https://www.insee.fr/fr/statistiques/9025878">Insee, 2025</a></div>
-  </div>
-</div></section>
+</section>
 
-<!-- 3. Mon rôle : ce que l'entreprise obtient -->
-<section class="panel pad" id="offre" aria-labelledby="t-offre"><div class="wrap">
-  <div class="head" data-r>
-    <div>
-      <h2 class="big" id="t-offre">Votre responsable IA, <em>le temps de la mission.</em></h2>
-      <p class="lead">Audit, intégration, outils sur mesure, formation, mesure. Objectif : que chaque employé utilise l’IA à son plein potentiel.</p>
+<!-- 5. Concrètement, par métier : le salarié et ses agents (animation, assets/site.js #flow) -->
+<section class="panel pad" id="metiers" aria-labelledby="t-metiers">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Concrètement</p>
+      <h2 class="big" id="t-metiers">Dans chaque métier, <em>des agents au travail.</em></h2>
+      <p class="lead">Un développeur lance des agents qui codent et testent en parallèle. Un monteur produit ses vidéos plus vite. Le service client répond en un clic. Choisissez un métier.</p>
     </div>
-  </div>
-  <div class="grid bento">
-    <article class="c b s2 b-audit" data-r>
-      <div class="vis lv" aria-hidden="true">
-        <div class="lv-k"><span><i class="now"></i>Aujourd’hui</span><span><i class="goal"></i>Objectif</span></div>
-        <div class="lv-r"><span>Ventes</span><span class="tr"><i style="--a:.3;--b:.8"></i></span></div>
-        <div class="lv-r"><span>Marketing</span><span class="tr"><i style="--a:.45;--b:.9"></i></span></div>
-        <div class="lv-r"><span>Support</span><span class="tr"><i style="--a:.15;--b:.75"></i></span></div>
-        <div class="lv-r"><span>Finance</span><span class="tr"><i style="--a:.1;--b:.6"></i></span></div>
-      </div>
-      <h3 class="t">Un audit de chaque service</h3>
-      <p class="p">Comment chacun travaille, où en est l’IA, ce qu’elle peut changer. Avec des objectifs par service.</p>
-    </article>
-    <article class="c b b-agents" data-r style="--d:.06s">
-      <ul class="vis sched" aria-hidden="true">
-        <li><time>07:00</time>Veille concurrents<svg class="i"><use href="assets/icons.svg#check"/></svg></li>
-        <li><time>09:00</time>Relances clients<svg class="i"><use href="assets/icons.svg#check"/></svg></li>
-        <li class="run"><time>18:00</time>Rapport du jour<span class="dot"></span></li>
-      </ul>
-      <h3 class="t">Des agents 24 h/24</h3>
-      <p class="p">Planifiés pour les tâches qui reviennent.</p>
-    </article>
-    <article class="c b b-flow" data-r>
-      <div class="vis nodes" aria-hidden="true">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="50" x2="18" y2="16"/><line x1="50" y1="50" x2="20" y2="84"/><line x1="50" y1="50" x2="82" y2="18"/><line x1="50" y1="50" x2="80" y2="84"/></svg>
-        <span>CRM</span><span>Emails</span><span class="hub">Claude</span><span>Slack</span><span>Notion</span>
-      </div>
-      <h3 class="t">Des process reliés</h3>
-      <p class="p">Documentés, automatisés, sans double saisie.</p>
-    </article>
-    <article class="c b b-team" data-r style="--d:.06s">
-      <div class="vis team" aria-hidden="true">
-        <span style="--l:16%">CL</span><span style="--l:30%">MA</span><span style="--l:44%">JU</span><span style="--l:56%">LÉ</span><span style="--l:24%">SA</span>
-      </div>
-      <div class="vis tbar" aria-hidden="true"><span>Équipe formée</span><i></i></div>
-      <h3 class="t">Chaque employé formé</h3>
-      <p class="p">Sur ses tâches, avec les nouvelles méthodes et les nouveaux outils.</p>
-    </article>
-    <article class="c b dark b-gen" data-r style="--d:.12s">
-      <div class="vis gen" aria-hidden="true">
-        <div class="pr"><span>Vidéo produit, 15 s, lumière studio</span><b>Générer</b></div>
-        <div class="tiles"><i><svg><use href="assets/icons.svg#film"/></svg></i><i><svg><use href="assets/icons.svg#film"/></svg></i><i class="ld"></i></div>
-      </div>
-      <h3 class="t">Images et vidéos</h3>
-      <p class="p">Higgsfield relié à Claude : produire plus vite, à moindre coût.</p>
-    </article>
-    <article class="c b b-tool" data-r>
-      <div class="vis win" aria-hidden="true">
-        <div class="wb"><i></i><i></i><i></i></div>
-        <div class="wc"><span class="side"></span><span class="rows"><i></i><i></i><i></i><i></i></span></div>
-      </div>
-      <h3 class="t">Des outils internes</h3>
-      <p class="p">Si l’outil n’existe pas, il est construit sur mesure. Pour TRAK : 500+ écrans maquettés.</p>
-    </article>
-    <article class="c b s2 b-kpi" data-r style="--d:.06s">
-      <div class="vis kpi" aria-hidden="true">
-        <i style="--v:.18"></i><i style="--v:.32"></i><i style="--v:.5"></i><i style="--v:.66"></i><i style="--v:.8"></i><i style="--v:.94"></i>
-      </div>
-      <div class="kx" aria-hidden="true"><span>Usage de l’IA</span><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
-      <h3 class="t">Un bilan chaque mois</h3>
-      <p class="p">Usage, temps gagné, tâches automatisées. Et une veille quotidienne pour intégrer chaque nouveauté.</p>
-    </article>
-    <div class="c dark after s4" data-r>
-      <p class="eyebrow">Un exemple par service</p>
-      <h3 class="t">Concrètement, au quotidien.</h3>
-      <div class="chips" id="jobs" role="group" aria-label="Choisir un service">
+    <div class="c dark after" data-r>
+      <div class="chips" id="jobs" role="group" aria-label="Choisir un métier">
         <button aria-pressed="true">Support client</button><button aria-pressed="false">Ventes</button><button aria-pressed="false">Marketing</button><button aria-pressed="false">Ressources humaines</button><button aria-pressed="false">Juridique</button><button aria-pressed="false">Finance</button><button aria-pressed="false">Développement</button><button aria-pressed="false">Design</button><button aria-pressed="false">Image et vidéo</button><button aria-pressed="false">Direction</button>
       </div>
       <ol class="flow" id="flow">
@@ -207,86 +184,125 @@
       </ol>
     </div>
   </div>
-</div></section>
+</section>
 
-<!-- 4. Deux forfaits qui s'enchaînent : l'audit (prix fixe), puis l'intégration (forfait mensuel, 3 à 12 mois) -->
-<section class="panel open pad" id="missions" aria-labelledby="t-missions"><div class="wrap">
-  <div class="head" data-r>
-    <div>
-      <h2 class="big" id="t-missions">Deux forfaits. <em>Dans cet ordre.</em></h2>
-      <p class="lead">Un audit pour savoir où agir. Une intégration pour que ça change vraiment le quotidien. Des prix fixes, jamais un décompte d’heures.</p>
+<!-- 6. Ne rien faire a un coût : la concurrence des entreprises nées avec l'IA -->
+<section class="panel dark pad" id="risque" aria-labelledby="t-risque">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Et si on ne fait rien ?</p>
+      <h2 class="big" id="t-risque">Ne rien faire <em>a aussi un coût.</em></h2>
+      <p class="lead">Des entreprises naissent aujourd’hui avec l’IA au cœur. Elles produisent plus, plus vite et moins cher. Face à elles, une entreprise sans IA intégrée devra baisser ses prix, ou perdre des clients.</p>
+    </div>
+    <ol class="risk" data-r>
+      <li><b>Les prix baissent</b><p>Quand l’IA produit plus pour moins cher, les prix du marché suivent.</p></li>
+      <li><b>Les délais raccourcissent</b><p>Ce qui prenait une semaine se fait en une journée. Les clients s’y habituent vite.</p></li>
+      <li><b>Les marges fondent</b><p>Sans gain de productivité, chaque baisse de prix se paie sur la marge.</p></li>
+    </ol>
+    <div class="role" data-r>
+      <img src="assets/img/monde/max-ordinateur.webp" alt="" loading="lazy">
+      <div>
+        <p class="kicker">Le poste qui manque</p>
+        <p class="role-t">Le poste le plus important à créer aujourd’hui : <em>responsable de l’intégration de l’IA.</em></p>
+        <p class="role-s">Tom Berthet le tient le temps de la mission, jusqu’à ce que l’équipe soit autonome.</p>
+      </div>
     </div>
   </div>
-  <div class="missions">
-    <article class="c mission" data-r>
-      <p class="eyebrow">Forfait 1 · L’audit</p>
-      <h3>L’audit IA</h3>
-      <p class="p">Chaque service, chaque outil, chaque tâche répétitive passés en revue avec les équipes.</p>
-      <ul>
-        <li>Entretiens par service et par poste</li>
-        <li>Carte des tâches à automatiser, classées par gain et par effort</li>
-        <li>Choix des outils, règles de données</li>
-        <li>Un plan d’action complet, chiffré et priorisé</li>
-      </ul>
-      <p class="m-foot"><b>Prix fixe</b> · livré en 1 à 3 semaines selon la taille de l’entreprise</p>
-    </article>
-    <article class="c dark mission" data-r style="--d:.08s">
-      <p class="eyebrow">Forfait 2 · L’intégration</p>
-      <h3>L’intégration de l’IA</h3>
-      <p class="p">Le plan d’action mis en place, service par service, jusqu’à l’autonomie des équipes.</p>
-      <ul>
-        <li>Process documentés, outils reliés, automatisations</li>
-        <li>Agents IA sur les tâches qui reviennent</li>
-        <li>Outils internes sur mesure si rien n’existe</li>
-        <li>Formation de chaque employé, bilan chaque mois</li>
-      </ul>
-      <p class="m-foot"><b>Forfait mensuel fixe</b> · de 3 à 12 mois, arrêt possible à la fin de chaque mois</p>
-    </article>
+</section>
+
+<!-- 7. Travailler ensemble : les quatre étapes, puis les deux forfaits (aucun prix affiché) -->
+<section class="panel open pad" id="ensemble" aria-labelledby="t-ensemble"><span id="missions" aria-hidden="true"></span>
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Travailler ensemble</p>
+      <h2 class="big" id="t-ensemble">Auditer, équiper, former, suivre. <em>Poste par poste.</em></h2>
+    </div>
+    <ol class="etapes" data-r>
+      <li><img src="assets/img/monde/obj-boussole.webp" alt="" loading="lazy"><span class="n">01</span><b>Auditer</b><p>Observer comment chaque salarié travaille vraiment : ses tâches, ses outils, ses compétences. Repérer ce que l’IA peut prendre.</p></li>
+      <li><img src="assets/img/monde/obj-touche.webp" alt="" loading="lazy"><span class="n">02</span><b>Équiper</b><p>Configurer les outils, les espaces de travail et les agents, reliés aux logiciels déjà en place. Construire l’outil sur mesure s’il manque.</p></li>
+      <li><img src="assets/img/monde/obj-livres.webp" alt="" loading="lazy"><span class="n">03</span><b>Former</b><p>Chaque salarié, sur ses propres tâches, jusqu’à savoir diriger ses agents seul.</p></li>
+      <li><img src="assets/img/monde/obj-chrono.webp" alt="" loading="lazy"><span class="n">04</span><b>Suivre</b><p>Un bilan chaque mois : usage, temps gagné, tâches automatisées. Et une veille pour intégrer chaque nouveauté.</p></li>
+    </ol>
+    <div class="ways deals">
+      <div class="way" data-r>
+        <span class="tag">Pour commencer</span>
+        <h3>L’audit IA. <em>Un prix fixe.</em></h3>
+        <p>Chaque poste passé en revue avec les équipes. À la clé, un plan d’action chiffré et priorisé. Livré en 1 à 3 semaines.</p>
+      </div>
+      <div class="way dark" data-r style="--d:.06s">
+        <span class="tag">La mission complète</span>
+        <h3>L’intégration. <em>Un forfait mensuel.</em></h3>
+        <p>Le plan mis en place, service par service, de 3 à 12 mois. Arrêt possible à la fin de chaque mois.</p>
+      </div>
+      <a class="way" href="?sujet=produit#contact" data-r style="--d:.12s">
+        <span class="tag">Aussi</span>
+        <h3>Un produit, un outil, <em>une formation.</em></h3>
+        <p>Construire une app ou un outil interne, ou former une équipe sur une journée.</p>
+        <p class="w-foot"><small>En parler</small><span class="w-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span></p>
+      </a>
+    </div>
+    <p class="note" data-r>Des prix fixés avant de commencer, selon la taille de l’entreprise et le périmètre. Jamais de compteur d’heures.</p>
   </div>
-  <div class="c plan" data-r style="margin-top:var(--gap)">
-    <div class="plan-h"><h3 class="t">Exemple sur 6 mois</h3><span class="eyebrow">Une équipe de 20 à 50 personnes</span></div>
-    <div class="gantt" role="img" aria-label="Audit au premier mois, puis un service intégré environ chaque mois, avec un suivi continu">
-      <div class="gm" aria-hidden="true"><span></span><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
-      <div class="gr"><span>Audit</span><span class="gt"><i class="dk" style="--s:0;--e:1"></i></span></div>
-      <div class="gr"><span>Ventes</span><span class="gt"><i style="--s:.5;--e:2"></i></span></div>
-      <div class="gr"><span>Support</span><span class="gt"><i style="--s:1.5;--e:3"></i></span></div>
-      <div class="gr"><span>Marketing</span><span class="gt"><i style="--s:2.5;--e:4"></i></span></div>
-      <div class="gr"><span>Finance, RH</span><span class="gt"><i style="--s:3.5;--e:5.2"></i></span></div>
-      <div class="gr"><span>Suivi et veille</span><span class="gt"><i class="ln" style="--s:0;--e:6"></i></span></div>
+</section>
+
+<!-- 8. Pourquoi Tom : appliqué d'abord à ses propres entreprises, avec quatre projets en preuve -->
+<section class="panel pad" id="preuve" aria-labelledby="t-preuve">
+  <div class="mw">
+    <div class="who">
+      <figure class="who-photo" data-r>
+        <img class="me" src="assets/portrait-cut.webp" alt="Portrait de Tom Berthet" loading="lazy" width="900" height="1011">
+        <figcaption class="badge">Toulouse · 100 % à distance</figcaption>
+        <img class="pet" src="assets/img/monde/max-assis.webp" alt="" loading="lazy">
+      </figure>
+      <div data-r style="--d:.08s">
+        <p class="kicker">Pourquoi Tom</p>
+        <h2 class="big" id="t-preuve">Appliqué d’abord <em>à ses propres entreprises.</em></h2>
+        <p class="lead">Trois entreprises cofondées, plus de 10 projets clients, plus de 12 000 heures d’IA depuis 2022. Chez TRAK, plus de 1 000 agents IA lancés en 3 jours. Chaque méthode proposée a d’abord été testée en interne.</p>
+        <div class="cond">
+          <div><b>Un seul interlocuteur</b><span>du premier appel au bilan</span></div>
+          <div><b>Seul ou en équipe</b><span>selon la taille de la mission</span></div>
+          <div><b>★★★★★ 5,0</b><span>3 avis clients sur Malt</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="home-intro" data-r style="margin-top:clamp(40px,5vw,64px);margin-bottom:var(--gut)">
+      <h3 class="sub-h">Déjà construit avec l’IA</h3>
+      <a class="more-link" href="portfolio.html">Tout le portfolio<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+    </div>
+    <div class="built">
+      <a class="bt" href="trak.html" data-r><img class="t-bg" src="assets/img/affiches/max-lac-sans-logo.webp" alt="" loading="lazy" style="--pos:30% 60%"><span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span><h3>TRAK. <em>500+ écrans, 1 000+ agents IA.</em></h3></a>
+      <a class="bt" href="resto-mania.html" data-r style="--d:.05s"><img class="t-bg" src="assets/img/resto/panorama-coucher-soleil.webp" alt="" loading="lazy" style="--pos:40% 50%"><span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span><h3>Resto Mania. <em>Un jeu 3D, sans artiste.</em></h3></a>
+      <a class="bt" href="breaking-face.html" data-r style="--d:.1s"><img class="t-bg" src="assets/media/bf-fourgon-nuit.webp" alt="" loading="lazy"><span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span><h3>Breaking Face. <em>Un film 100 % IA.</em></h3></a>
+      <a class="bt tl-lynewed" href="lynewed.html" data-r style="--d:.15s"><div class="t-art" aria-hidden="true"><img class="ph p1" src="assets/img/lynewed/app-connexion.webp" alt="" loading="lazy"><img class="ph p2" src="assets/img/lynewed/app-feed.webp" alt="" loading="lazy"><img class="ph p3" src="assets/img/lynewed/app-replay.webp" alt="" loading="lazy"></div><span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span><h3>LYNEWED. <em>Une plateforme pour un client.</em></h3></a>
     </div>
   </div>
-  <div class="c fmt" data-r style="margin-top:var(--gap)">
-    <div><b>3 à 12 mois</b><span>selon la taille de l’équipe</span></div>
-    <div><b>Forfait mensuel</b><span>sans décompte d’heures</span></div>
-    <div><b>100 %</b><span>à distance</span></div>
-    <div><b>Un bilan</b><span>chaque mois</span></div>
-  </div>
-</div></section>
+</section>
 
-
-<!-- 5. Questions fréquentes : lever les doutes avant le premier échange -->
-<section class="panel open pad" id="questions" aria-labelledby="t-faq"><div class="wrap">
-  <div class="head" data-r>
-    <div>
-      <h2 class="big" id="t-faq">Vos questions. <em>Les réponses.</em></h2>
-      <p class="lead">Ce que les dirigeants demandent avant de commencer.</p>
+<!-- 9. Questions : lever les doutes avant le premier échange -->
+<section class="panel open pad" id="questions" aria-labelledby="t-faq">
+  <div class="mw">
+    <div class="sec-head" data-r>
+      <p class="kicker">Questions</p>
+      <h2 class="big" id="t-faq">Ce que les dirigeants <em>demandent d’abord.</em></h2>
+    </div>
+    <div class="faq" data-r>
+      <details><summary>L’IA va-t-elle remplacer mes salariés ?</summary><p>Ce n’est pas l’objectif. L’idée est que chacun fasse plus et mieux : moins de tâches répétitives, plus de temps pour vendre, créer et décider. Les salariés restent aux commandes, les agents travaillent pour eux.</p></details>
+      <details><summary>Peut-on commencer petit ?</summary><p>Oui. L’audit est fait pour ça : un prix fixe, un plan d’action, puis une décision. L’intégration peut ensuite démarrer par un seul service, et s’arrêter à la fin de chaque mois.</p></details>
+      <details><summary>Et les données de l’entreprise, elles restent où ?</summary><p>Les outils sont choisis avec vous, selon vos règles de confidentialité, avec des réglages qui excluent l’entraînement des modèles sur vos données. Rien ne part chez un outil sans votre accord.</p></details>
+      <details><summary>Combien coûtent les outils d’IA ?</summary><p>Souvent quelques dizaines d’euros par mois et par personne. Seuls les outils vraiment utiles sont recommandés, et chacun est mesuré : il doit rapporter plus qu’il ne coûte.</p></details>
+      <details><summary>Et si l’équipe n’y croit pas ?</summary><p>C’est le cas le plus courant. La formation se fait sur les propres tâches de chacun, pas sur des exemples théoriques. Une heure gagnée sur une tâche détestée convainc plus qu’un discours.</p></details>
     </div>
   </div>
-  <div class="faq" data-r>
-    <details><summary>Concrètement, qu’est-ce que l’entreprise obtient ?</summary><p>Une feuille de route par service, des process documentés, des outils reliés et automatisés, des agents qui tournent seuls, chaque employé formé sur ses tâches. Et un bilan chiffré chaque mois : usage, temps gagné, tâches automatisées.</p></details>
-    <details><summary>Peut-on commencer petit ?</summary><p>Oui. L’audit est fait pour ça : un prix fixe, un plan d’action, puis une décision. L’intégration peut ensuite démarrer par un seul service, et s’arrêter à la fin de chaque mois.</p></details>
-    <details><summary>Et les données de l’entreprise, elles restent où ?</summary><p>Les outils sont choisis avec vous, selon vos règles de confidentialité, avec des réglages qui excluent l’entraînement des modèles sur vos données. Rien ne part chez un outil sans votre accord.</p></details>
-    <details><summary>Combien coûtent les outils d’IA ?</summary><p>Souvent quelques dizaines d’euros par mois et par personne. Seuls les outils vraiment utiles sont recommandés, et chacun est mesuré : il doit rapporter plus qu’il ne coûte.</p></details>
-    <details><summary>Et si l’équipe n’y croit pas ?</summary><p>C’est le cas le plus courant. La formation se fait sur les propres tâches de chacun, pas sur des exemples théoriques. Une heure gagnée sur une tâche détestée convainc plus qu’un discours.</p></details>
-    <details><summary>Et après la mission ?</summary><p>Tout est documenté et les équipes sont autonomes : c’est l’objectif. Un suivi léger, au forfait, reste possible pour la veille et les nouveaux outils.</p></details>
-  </div>
-</div></section>
+</section>
 
-<!-- 6. Contact -->
-<section class="panel pad dark-wrap" id="contact" aria-labelledby="t-contact"><div class="wrap">
-  <div class="c dark contact" data-r>
+<!-- 10. Rendez-vous : la demande part directement par email (assets/rdv.js) -->
+<section class="panel dark nuit pad" id="contact" aria-labelledby="t-contact">
+  <div class="stars-bg" aria-hidden="true"></div>
+  <img class="moon" src="assets/img/trak/3d-lune-violette.webp" alt="" loading="lazy" data-depth=".5">
+  <div class="mw">
+    <div class="nuit-max"><img src="assets/img/monde/max-pancarte.webp" alt="" loading="lazy"><span aria-hidden="true">On en parle ?</span></div>
     <h2 class="big" id="t-contact">Parlons de <em>votre entreprise.</em></h2>
-    <p class="lead">30 minutes en visio pour comprendre l’entreprise et repérer où l’IA aura le plus d’impact. Sans engagement. Tom confirme le rendez-vous par email.</p>
+    <p class="lead">30 minutes en visio pour comprendre l’entreprise et repérer où l’IA aura le plus d’impact. Sans engagement. Le rendez-vous est confirmé par email.</p>
     <form class="rdv" data-rdv data-mail="tomberthet1@gmail.com" data-endpoint="https://formsubmit.co/ajax/tomberthet1@gmail.com" action="https://formsubmit.co/tomberthet1@gmail.com" method="POST" aria-label="Demander un rendez-vous">
       <fieldset class="rdv-row"><legend>Le sujet</legend>
         <label><input type="radio" name="sujet" value="Intégration de l’IA" checked><span>Intégrer l’IA</span></label>
@@ -321,11 +337,13 @@
       <a href="assets/Tom-Berthet-Fiche-mission.pdf">Fiche mission (PDF)</a><a href="assets/Tom-Berthet-CV.pdf">CV</a><a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a><a href="https://www.malt.fr/profile/tomberthet">Malt</a>
     </div>
   </div>
-</div></section>
+</section>
 
 </main>
+
 <footer class="foot"><div class="mw"><span>© 2026 Tom Berthet · Toulouse</span><a href="mentions-legales.html">Mentions légales</a></div></footer>
 <script src="assets/site.js" defer></script>
+<script src="assets/monde.js" defer></script>
 <script src="assets/rdv.js" defer></script>
 </body>
 </html>
