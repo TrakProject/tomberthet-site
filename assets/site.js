@@ -12,6 +12,16 @@
   const onTop = () => top && top.classList.toggle('on', scrollY > 8);
   addEventListener('scroll', onTop, { passive: true }); onTop();
 
+  // Menu sur téléphone : le bouton ouvre la liste des pages ; Échap ou un clic ailleurs la ferme
+  const menuBtn = $('.menu-btn');
+  if (top && menuBtn) {
+    const setMenu = open => { top.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); menuBtn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu'); };
+    menuBtn.addEventListener('click', e => { e.stopPropagation(); setMenu(!top.classList.contains('open')); });
+    document.addEventListener('click', e => { if (!top.contains(e.target)) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && top.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+    $$('nav a', top).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  }
+
   // Compteurs (12 000, 480…) : démarrent quand la carte apparaît
   const fmt = n => n.toLocaleString('fr-FR').replace(/\s/g, ' ');
   const count = el => {

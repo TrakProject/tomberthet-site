@@ -1,6 +1,6 @@
 // Accueil « monde » : animations propres à la page d'accueil. Sans dépendance.
 // .say : texte qui s'allume mot à mot au défilement · #worlds : galerie horizontale épinglée (ordinateur)
-// [data-depth] : couches en profondeur · .ciel : les îles suivent la souris · #guide : MAX parle quand on clique
+// [data-depth] : couches en profondeur · .ciel : les îles suivent la souris 
 // #road : la frise se remplit et MAX court dessus · .tools-row : défilé des outils · dialog : bande-annonce
 // video[data-auto] : lecture seulement quand la vidéo est visible
 (() => {
@@ -104,27 +104,6 @@
     ciel.addEventListener('pointerleave', () => { ciel.style.setProperty('--px', 0); ciel.style.setProperty('--py', 0); });
   }
 
-  // MAX, le guide : une bulle à l'arrivée, une nouvelle phrase à chaque clic
-  const guide = document.getElementById('guide');
-  if (guide) {
-    const bubble = guide.querySelector('.bubble');
-    const LINES = [
-      'Salut, moi c’est MAX. Je te fais visiter ?',
-      'Je suis la mascotte de TRAK, l’app de Tom.',
-      'Les îles autour de nous ? Ce sont ses projets. Clique dessus !',
-      'Plus de 12 000 heures d’IA depuis 2022. Moi, j’arrête de compter.',
-      'Son profil est juste en dessous. Descends !',
-    ];
-    let k = 0;
-    setTimeout(() => bubble.classList.add('on'), reduce ? 0 : 1100);
-    guide.querySelector('.max-btn').addEventListener('click', () => {
-      k = (k + 1) % LINES.length;
-      bubble.classList.remove('on');
-      setTimeout(() => { bubble.textContent = LINES[k]; bubble.classList.add('on'); }, reduce ? 0 : 160);
-      guide.classList.remove('hop'); void guide.offsetWidth; guide.classList.add('hop');
-    });
-  }
-
   // Parcours : la frise se remplit, MAX court avec elle
   const road = document.getElementById('road');
   if (road) jobs.push(() => {
@@ -168,7 +147,7 @@
 
   // Lien direct (#contact…) : la galerie change la hauteur de la page, on recale après chargement
   if (location.hash) addEventListener('load', () => {
-    const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    let t = null; try { t = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch {}
     if (t) setTimeout(() => scrollTo({ top: t.getBoundingClientRect().top + scrollY, behavior: 'instant' }), 60);
   });
 

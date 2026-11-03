@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- Site de Tom Berthet, Product Builder et intégrateur IA. Chaque section est un bloc arrondi (.panel).
-     Styles : assets/site.css + assets/monde.css ; scripts : site.js, monde.js, carnet.js (profil), rdv.js (prise de rendez-vous). -->
+<!-- Site de Tom Berthet, Product Builder et intégrateur IA. Accueil : présentation courte, puis liens vers le portfolio et la page Collaborer. Blocs arrondis (.panel) et sections ouvertes (.panel.open) en alternance.
+     Styles : assets/site.css + assets/monde.css ; scripts : site.js, monde.js, carnet.js (présentation). -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -30,14 +30,15 @@
 <header class="top">
   <div class="mw">
     <a class="me" href="./"><img src="assets/avatar.jpg" alt="" width="28" height="28">Tom Berthet</a>
-    <nav aria-label="Sections"><a href="#projets">Projets</a><a href="#profil">Profil</a><a href="integration-ia.html">L’offre IA</a><a href="#vision">Vision</a></nav>
-    <a class="btn dark sm" href="#contact">Prendre rendez-vous</a>
+    <nav id="menu" aria-label="Pages"><a href="portfolio.html">Portfolio</a><a href="collaborer.html">Collaborer</a><a href="integration-ia.html">Intégrer l’IA</a><a href="blog.html">Blog</a><a class="nav-cta" href="collaborer.html#contact">Prendre rendez-vous</a></nav>
+    <a class="btn dark sm" href="collaborer.html#contact">Prendre rendez-vous</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="contenu">
 
-<!-- 1. Le ciel : les projets flottent, MAX accueille -->
+<!-- 1. Le ciel : qui est Tom, en une phrase. Les îles mènent aux projets. -->
 <section class="panel ciel" id="ciel" aria-labelledby="titre">
   <div class="sky" aria-hidden="true">
     <img class="cloud c1" src="assets/img/monde/nuage-1.webp" alt="" data-depth=".25">
@@ -48,30 +49,26 @@
   </div>
   <div class="isles">
     <a class="isle i1" href="trak.html" style="--k:-18" data-depth=".5"><img src="assets/img/monde/ile-stade.webp" alt="" fetchpriority="high"><span class="tag">TRAK<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir TRAK</span></a>
-    <a class="isle i2" href="#profil" style="--k:-24" data-depth=".35"><img src="assets/img/monde/ile-atelier.webp" alt=""><span class="tag">Profil<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir le profil</span></a>
+    <a class="isle i2" href="#profil" style="--k:-24" data-depth=".35"><img src="assets/img/monde/ile-atelier.webp" alt=""><span class="tag">Présentation<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir la présentation</span></a>
     <a class="isle i3" href="breaking-face.html" style="--k:-14" data-depth=".7"><img src="assets/img/monde/ile-cinema.webp" alt=""><span class="tag">Cinéma<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir Breaking Face</span></a>
-    <a class="isle i4" href="#projets" style="--k:-10" data-depth=".8"><img src="assets/img/monde/ile-apps.webp" alt=""><span class="tag">Apps et SaaS<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir les projets</span></a>
+    <a class="isle i4" href="portfolio.html" style="--k:-10" data-depth=".8"><img src="assets/img/monde/ile-apps.webp" alt=""><span class="tag">Apps et SaaS<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span><span class="sr">Voir le portfolio</span></a>
   </div>
   <div class="ciel-txt">
-    <p class="kicker"><span class="dot" aria-hidden="true"></span>Product Builder et intégrateur IA · Disponible dès maintenant</p>
-    <h1 class="mega" id="titre">Auditer, intégrer, construire. <em>L’IA dans toute l’entreprise.</em></h1>
-    <p class="sub">Trois entreprises créées, plus de 10 projets clients, plus de 12 000 heures d’IA depuis 2022. Une expérience de terrain, au service des start-up et des PME.</p>
+    <a class="chip-stars" href="https://www.malt.fr/profile/tomberthet"><span class="stars" aria-hidden="true">★★★★★</span>5,0 sur Malt · 3 avis</a>
+    <h1 class="mega" id="titre">Tom Berthet. <em>Product Builder et intégrateur IA.</em></h1>
+    <p class="sub">Entrepreneur. L’IA intégrée dans les entreprises, et les outils qui manquent construits sur mesure. Trois entreprises cofondées, plus de 12 000 heures d’IA depuis 2022.</p>
     <div class="cta">
-      <a class="btn dark" href="integration-ia.html">Découvrir l’offre<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
-      <a class="btn glass" href="#projets">Voir les projets<svg class="i turn" aria-hidden="true"><use href="assets/icons.svg#next"/></svg></a>
-    </div>
-    <div class="guide" id="guide">
-      <p class="bubble" aria-live="polite">Salut, moi c’est MAX. Je te fais visiter ?</p>
-      <button class="max-btn" type="button" aria-label="MAX, le guide du site : cliquer pour qu’il parle"><img src="assets/img/monde/max-salut.webp" alt=""></button>
+      <a class="btn dark" href="portfolio.html">Voir le portfolio<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+      <a class="btn glass" href="collaborer.html">Collaborer</a>
     </div>
   </div>
 </section>
 
 <!-- 2. Profil : un carnet qui se feuillette (assets/carnet.js). Sans JavaScript, toutes les pages s'affichent l'une sous l'autre. -->
-<section class="panel profil pad" id="profil" aria-labelledby="t-profil"><span id="moi" aria-hidden="true"></span><span id="parcours" aria-hidden="true"></span>
+<section class="panel open profil pad" id="profil" aria-labelledby="t-profil"><span id="moi" aria-hidden="true"></span><span id="parcours" aria-hidden="true"></span>
   <div class="mw">
     <div class="sec-head center" data-r>
-      <p class="kicker">Profil</p>
+      <p class="kicker">Présentation</p>
       <h2 class="big" id="t-profil">Un profil polyvalent. <em>Une seule obsession : livrer.</em></h2>
     </div>
 
@@ -88,16 +85,16 @@
         <article class="spread is-on" id="cp-1" role="tabpanel" aria-labelledby="ct-1">
           <div class="pg pg-l pg-photo">
             <img src="assets/portrait-cut.webp" alt="Portrait de Tom Berthet" loading="lazy" width="900" height="1011">
-            <p class="pg-badge"><span class="dot" aria-hidden="true"></span>Disponible dès maintenant</p>
+            <p class="pg-badge">Entrepreneur depuis 2023</p>
           </div>
           <div class="pg pg-r">
             <p class="pg-k">Product Builder · Intégrateur IA</p>
             <h3>Tom Berthet</h3>
-            <p class="pg-lead">Entrepreneur depuis 2023. Trois entreprises cofondées, plus de 10 projets clients, deux jeux vidéo, un film. Chaque métier d’une entreprise exercé au moins une fois, et l’IA au quotidien depuis 2022.</p>
+            <p class="pg-lead">Entrepreneur. Trois entreprises cofondées, plus de 10 projets clients, deux jeux vidéo, un film. Chaque métier d’une entreprise exercé au moins une fois, et l’IA au quotidien depuis 2022.</p>
             <dl class="facts">
               <div><dt>Base</dt><dd>Toulouse · 100 % à distance</dd></div>
-              <div><dt>Disponibilité</dt><dd>Dès maintenant, temps plein ou partiel</dd></div>
-              <div><dt>Missions</dt><dd>Audit IA, intégration de 3 à 12 mois, product building</dd></div>
+              <div><dt>Entreprises</dt><dd>BeeFit, Aurizon, TRAK</dd></div>
+              <div><dt>Missions</dt><dd>Audit IA, intégration, product building</dd></div>
               <div><dt>Avis clients</dt><dd><span class="stars" aria-hidden="true">★★★★★</span> 5,0 sur Malt, 3 avis</dd></div>
             </dl>
           </div>
@@ -183,12 +180,15 @@
   </div>
 </section>
 
-<!-- 3. Projets (bento) -->
-<section class="panel projets pad" id="projets" aria-labelledby="t-projets"><span id="realisations" aria-hidden="true"></span><span id="mondes" aria-hidden="true"></span>
+<!-- 3. Portfolio : deux projets, puis le lien vers tout le portfolio -->
+<section class="panel projets pad" id="projets" aria-labelledby="t-projets">
   <div class="mw">
-    <div class="sec-head" data-r>
-      <p class="kicker">Projets</p>
-      <h2 class="big" id="t-projets">Des entreprises, des apps, des jeux. <em>Tous construits avec l’IA.</em></h2>
+    <div class="home-intro" data-r>
+      <div>
+        <p class="kicker">Portfolio</p>
+        <h2 class="big" id="t-projets">Des entreprises, des apps, des jeux. <em>Tous construits avec l’IA.</em></h2>
+      </div>
+      <a class="more-link" href="portfolio.html">Tout le portfolio<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
     </div>
     <div class="proj-grid">
       <a class="bt tl-trak t-8 t-tall" id="p-trak" href="trak.html" data-r>
@@ -210,177 +210,67 @@
         <h3>Resto Mania. <em>Un jeu vidéo 3D.</em></h3>
         <p>Un salon de thé japonais qui devient un domaine. Construit par des agents IA.</p>
       </a>
-      <div class="bt tl-film t-4" id="p-film" data-r>
-        <video class="t-bg" data-auto muted loop playsinline preload="none" poster="assets/media/bf-29.webp" aria-hidden="true"><source src="assets/media/breaking-face-loop.mp4" type="video/mp4"></video>
-        <h3>Breaking Face. <em>Un film 100 % IA.</em></h3>
-        <p>Scénario, personnages, décors : tout est écrit et généré.</p>
-        <div class="t-btns">
-          <button class="btn white" type="button" data-open="trailer"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#play"/></svg>Regarder</button>
-          <a class="btn glassd" href="breaking-face.html">L’histoire</a>
-        </div>
-      </div>
-      <a class="bt tl-booply t-4" id="p-booply" href="booply.html" data-r style="--d:.06s">
-        <div class="t-art" aria-hidden="true">
-          <img class="st k1" src="assets/img/booply/store-cascade.webp" alt="" loading="lazy">
-          <img class="st k2" src="assets/img/booply/store-modes.webp" alt="" loading="lazy">
-          <img class="st k3" src="assets/img/booply/store-tresor.webp" alt="" loading="lazy">
-        </div>
-        <span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
-        <h3>Booply. <em>Un jeu mobile en 4 jours.</em></h3>
-        <p>De l’idée au prototype jouable.</p>
-      </a>
-      <a class="bt tl-lynewed t-4" id="p-lynewed" href="lynewed.html" data-r style="--d:.12s">
-        <div class="t-art" aria-hidden="true">
-          <img class="ph p1" src="assets/img/lynewed/app-connexion.webp" alt="" loading="lazy">
-          <img class="ph p2" src="assets/img/lynewed/app-feed.webp" alt="" loading="lazy">
-          <img class="ph p3" src="assets/img/lynewed/app-replay.webp" alt="" loading="lazy">
-        </div>
-        <span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
-        <h3>LYNEWED. <em>Une plateforme pour un client.</em></h3>
-        <p>App mobile, CRM et site, livrés de bout en bout.</p>
-      </a>
-      <a class="bt tl-aurizon t-6" id="p-aurizon" href="aurizon.html" data-r>
-        <div class="t-art" aria-hidden="true">
-          <img class="ph p1" src="assets/img/aurizon/mindup-habitudes.webp" alt="" loading="lazy">
-          <img class="ph p2" src="assets/img/aurizon/mindup-running.webp" alt="" loading="lazy">
-          <img class="ph p3" src="assets/img/aurizon/mindup-moment.webp" alt="" loading="lazy">
-        </div>
-        <span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
-        <img class="t-logo" src="assets/img/aurizon/logo.webp" alt="Aurizon">
-        <h3>Studio produit. <em>Cinq produits conçus avec l’IA.</em></h3>
-      </a>
-      <a class="bt tl-beefit t-6" id="p-beefit" href="beefit.html" data-r style="--d:.06s">
-        <img class="t-bg" src="assets/img/beefit/pack.webp" alt="" loading="lazy" style="--pos:50% 40%">
-        <span class="t-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span>
-        <img class="t-logo" src="assets/img/beefit/logo.webp" alt="BeeFit">
-        <h3>E-commerce. <em>Une marque créée de A à Z, 200+ clients.</em></h3>
-      </a>
     </div>
-    <p class="clients" data-r>Et d’autres projets clients, pour <b>Winstory</b>, <b>BullTrading</b> et des entrepreneurs de tous secteurs.</p>
+    <div class="center-cta" data-r><a class="btn dark" href="portfolio.html">Voir les 7 projets<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a></div>
   </div>
 </section>
 
-<!-- 4. Résultats chiffrés + outils -->
-<section class="panel equipe pad" id="ia" aria-labelledby="t-ia">
+<!-- 4. Collaborer : trois façons de travailler ensemble (détails sur collaborer.html) -->
+<section class="panel open pad" id="collaborer" aria-labelledby="t-collab"><span id="offre" aria-hidden="true"></span>
   <div class="mw">
-    <div class="sec-head center" data-r>
-      <p class="kicker">Résultats</p>
-      <h2 class="big" id="t-ia">Ce que l’IA rend possible. <em>Chiffres à l’appui.</em></h2>
-      <p class="lead">Obtenus sur des projets réels, pas dans une démo.</p>
-    </div>
-    <div class="orbit">
-      <img class="orbit-max" src="assets/img/monde/max-ordinateur.webp" alt="MAX travaille sur son ordinateur" loading="lazy">
-      <ul class="proofs">
-        <li data-r><b>500+</b><span>écrans maquettés</span><small>TRAK</small></li>
-        <li data-r style="--d:.05s"><b>1 000+</b><span>agents IA lancés en 3 jours</span><small>TRAK</small></li>
-        <li data-r style="--d:.1s"><b>100 %</b><span>d’un film généré par l’IA</span><small>Breaking Face</small></li>
-        <li data-r style="--d:.15s"><b>100+</b><span>modèles 3D, sans artiste</span><small>Resto Mania</small></li>
-        <li data-r style="--d:.2s"><b>4 jours</b><span>de l’idée au jeu jouable</span><small>Booply</small></li>
-        <li data-r style="--d:.25s"><b>5,0 / 5</b><span>de note moyenne sur Malt</span><small>3 avis clients</small></li>
-      </ul>
-    </div>
-    <div class="tools" aria-label="Outils utilisés">
-      <div class="tools-row">
-        <span><img src="assets/img/outils/claude.svg" alt="" loading="lazy">Claude</span><span><img src="assets/img/outils/claude-code.svg" alt="" loading="lazy">Claude Code</span><span><img src="assets/img/outils/openai.svg" alt="" loading="lazy">ChatGPT</span><span><img src="assets/img/outils/openai.svg" alt="" loading="lazy">Codex</span><span><b class="glyph" aria-hidden="true">H</b>Higgsfield</span><span><img src="assets/img/outils/cursor.svg" alt="" loading="lazy">Cursor</span><span><b class="glyph" aria-hidden="true">L</b>Lovable</span><span><img src="assets/img/outils/figma.svg" alt="" loading="lazy">Figma</span><span><img src="assets/img/outils/framer.svg" alt="" loading="lazy">Framer</span><span><img src="assets/img/outils/excalidraw.svg" alt="" loading="lazy">Excalidraw</span><span><img src="assets/img/outils/n8n.svg" alt="" loading="lazy">n8n</span><span><img src="assets/img/outils/react.svg" alt="" loading="lazy">React</span><span><img src="assets/img/outils/flutter.svg" alt="" loading="lazy">Flutter</span><span><img src="assets/img/outils/supabase.svg" alt="" loading="lazy">Supabase</span><span><img src="assets/img/outils/firebase.svg" alt="" loading="lazy">Firebase</span><span><img src="assets/img/outils/godot.svg" alt="" loading="lazy">Godot</span><span><img src="assets/img/outils/github.svg" alt="" loading="lazy">GitHub</span>
+    <div class="home-intro sec-head" data-r>
+      <div>
+        <p class="kicker">Collaborer</p>
+        <h2 class="big" id="t-collab">Intégrer, construire, former. <em>Trois façons de travailler ensemble.</em></h2>
       </div>
+      <a class="more-link" href="collaborer.html">Comment collaborer<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+    </div>
+    <div class="ways">
+      <a class="way dark" href="integration-ia.html" data-r>
+        <span class="tag">Mission phare</span>
+        <h3>Intégrer l’IA <em>dans toute l’entreprise.</em></h3>
+        <p>Un audit de chaque service, puis l’intégration de l’IA dans les process, les outils et les équipes.</p>
+        <p class="w-foot"><small>Audit, puis 3 à 12 mois</small><span class="w-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span></p>
+      </a>
+      <a class="way" href="collaborer.html?sujet=produit#contact" data-r style="--d:.06s">
+        <span class="tag">Produits et outils</span>
+        <h3>Construire un produit <em>ou un outil interne.</em></h3>
+        <p>App mobile, logiciel en ligne, site, outil interne : de la maquette à la mise en ligne.</p>
+        <p class="w-foot"><small>Forfait au projet</small><span class="w-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span></p>
+      </a>
+      <a class="way" href="collaborer.html?sujet=former#contact" data-r style="--d:.12s">
+        <span class="tag">Formation</span>
+        <h3>Former <em>les équipes.</em></h3>
+        <p>Des ateliers par métier, sur les vraies tâches de chacun.</p>
+        <p class="w-foot"><small>Forfait par atelier</small><span class="w-go" aria-hidden="true"><svg class="i"><use href="assets/icons.svg#go"/></svg></span></p>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- 5. L'offre en bref : deux missions qui s'enchaînent -->
-<section class="panel offre pad" id="offre" aria-labelledby="t-offre">
-  <div class="mw offre-grid">
-    <div class="sign" data-r>
-      <img src="assets/img/monde/panneau-bois.webp" alt="" loading="lazy">
-      <p class="sign-txt">Intégrer l’IA <span>dans votre entreprise</span></p>
-    </div>
-    <div class="offre-txt" data-r style="--d:.08s">
-      <p class="kicker">L’offre</p>
-      <h2 class="big" id="t-offre">Deux missions. <em>Une IA intégrée partout.</em></h2>
-      <div class="duo">
-        <div><b>1. L’audit</b><p>Ponctuel, à prix fixe. Chaque service, chaque outil, chaque tâche répétitive passés en revue. Un plan d’action complet à la clé.</p></div>
-        <div><b>2. L’intégration</b><p>De 3 à 12 mois. Process, agents IA, automatisations, outils internes sur mesure et formation de chaque équipe.</p></div>
-      </div>
-      <ol class="steps4"><li>Auditer</li><li>Intégrer</li><li>Construire</li><li>Former</li><li>Mesurer</li></ol>
-      <div class="cta">
-        <a class="btn dark" href="integration-ia.html">Découvrir l’offre<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
-        <a class="btn soft" href="#contact">Prendre rendez-vous</a>
-      </div>
-      <p class="rate"><a href="https://www.malt.fr/profile/tomberthet"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 sur Malt, 3 avis</a> · Disponible dès maintenant</p>
-    </div>
-  </div>
-  <img class="offre-team" src="assets/img/monde/max-groupe.webp" alt="" loading="lazy">
-</section>
-
-<!-- 6. Vision -->
-<section class="panel vision pad" id="vision" aria-labelledby="t-vision">
-  <div class="mw">
-    <div class="sec-head center" data-r>
-      <p class="kicker">Vision</p>
-      <h2 class="big" id="t-vision">Trois convictions <em>sur l’IA et l’entreprise.</em></h2>
-    </div>
-    <div class="ideas">
-      <a class="idea" href="vision.html#equipe" data-r><img src="assets/img/monde/pierre-basalte.webp" alt="" loading="lazy"><span class="n">01</span><h3>L’IA est une équipe, pas un outil.</h3><p>Savoir lui confier du travail change la vitesse d’une entreprise.</p><span class="more">Lire<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span></a>
-      <a class="idea" href="vision.html#france" data-r style="--d:.08s"><img src="assets/img/monde/pierre-gres.webp" alt="" loading="lazy"><span class="n">02</span><h3>Les petites équipes ont une carte à jouer.</h3><p>En France, peu d’entreprises utilisent vraiment l’IA. Le terrain est libre.</p><span class="more">Lire<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span></a>
-      <a class="idea" href="vision.html#integrer" data-r style="--d:.16s"><img src="assets/img/monde/pierre-granit.webp" alt="" loading="lazy"><span class="n">03</span><h3>Utiliser ChatGPT n’est pas intégrer l’IA.</h3><p>Le vrai gain vient des process, pas des questions.</p><span class="more">Lire<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></span></a>
-    </div>
-  </div>
-</section>
-
-<!-- 7. Contact, de nuit : demande de rendez-vous (assets/rdv.js), email, téléphone -->
+<!-- 5. Contact, de nuit : renvoie vers le formulaire de la page Collaborer -->
 <section class="panel dark nuit pad" id="contact" aria-labelledby="t-contact">
   <div class="stars-bg" aria-hidden="true"></div>
   <img class="moon" src="assets/img/trak/3d-lune-violette.webp" alt="" loading="lazy" data-depth=".5">
   <div class="mw">
     <div class="nuit-max"><img src="assets/img/monde/max-pancarte.webp" alt="" loading="lazy"><span aria-hidden="true">On en parle ?</span></div>
     <h2 class="big" id="t-contact">Un projet, une équipe, <em>une mission ?</em></h2>
-    <p class="lead">30 minutes en visio pour comprendre l’entreprise et repérer où l’IA aura le plus d’impact. Sans engagement.</p>
-
-    <form class="rdv" data-rdv data-mail="tomberthet1@gmail.com" aria-label="Demander un rendez-vous">
-      <fieldset class="rdv-row"><legend>Le sujet</legend>
-        <label><input type="radio" name="sujet" value="Audit IA" checked><span>Audit IA</span></label>
-        <label><input type="radio" name="sujet" value="Intégration de l’IA"><span>Intégration de l’IA</span></label>
-        <label><input type="radio" name="sujet" value="Product building"><span>Product building</span></label>
-        <label><input type="radio" name="sujet" value="Autre projet"><span>Autre projet</span></label>
-      </fieldset>
-      <fieldset class="rdv-row rdv-days"><legend>Le jour</legend><div class="rdv-dlist" data-days></div></fieldset>
-      <fieldset class="rdv-row"><legend>Le moment</legend>
-        <label><input type="radio" name="moment" value="le matin" checked><span>Matin</span></label>
-        <label><input type="radio" name="moment" value="en début d’après-midi"><span>Début d’après-midi</span></label>
-        <label><input type="radio" name="moment" value="en fin d’après-midi"><span>Fin d’après-midi</span></label>
-      </fieldset>
-      <div class="rdv-fields">
-        <label class="fld"><span>Entreprise</span><input name="entreprise" autocomplete="organization" placeholder="Nom de l’entreprise"></label>
-        <label class="fld"><span>En une phrase</span><input name="besoin" placeholder="Le besoin, l’équipe, le contexte…"></label>
-      </div>
-      <button class="btn white rdv-go" type="submit">Envoyer la demande<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></button>
-      <p class="rdv-note">Un email prêt à envoyer s’ouvre. Le créneau est confirmé par retour, avec le lien de la visio.</p>
-    </form>
-
+    <p class="lead">30 minutes en visio pour comprendre le besoin. Sans engagement.</p>
     <div class="cta">
-      <span class="mail">
-        <a class="btn dark" href="mailto:tomberthet1@gmail.com?subject=Bonjour%20Tom">tomberthet1@gmail.com</a>
-        <button class="copy" data-copy="tomberthet1@gmail.com" aria-label="Copier l’adresse"><svg class="i cp" aria-hidden="true"><use href="assets/icons.svg#copy"/></svg><svg class="i ok" aria-hidden="true"><use href="assets/icons.svg#check"/></svg></button>
-      </span>
-      <a class="btn ghost-n" href="tel:+33628500806"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#phone"/></svg>06 28 50 08 06</a>
+      <a class="btn white" href="collaborer.html#contact">Prendre rendez-vous<svg class="i" aria-hidden="true"><use href="assets/icons.svg#go"/></svg></a>
+      <a class="btn ghost-w" href="https://www.linkedin.com/in/tomberthet1/"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#linkedin"/></svg>LinkedIn</a>
     </div>
     <div class="links">
-      <a href="https://www.linkedin.com/in/tomberthet1/">LinkedIn</a><a href="https://www.malt.fr/profile/tomberthet">Malt</a><a href="assets/Tom-Berthet-CV.pdf">CV</a><a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a>
+      <a href="mailto:tomberthet1@gmail.com?subject=Bonjour%20Tom">tomberthet1@gmail.com</a><a href="https://www.malt.fr/profile/tomberthet">Malt</a><a href="assets/Tom-Berthet-CV.pdf">CV</a><a href="assets/Tom-Berthet-Dossier.pdf">Dossier</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<dialog class="player" id="trailer" aria-label="Bande-annonce de Breaking Face">
-  <video id="trailer-v" controls playsinline preload="none" poster="assets/media/bf-44.webp"><source src="assets/media/breaking-face.mp4" type="video/mp4"></video>
-  <button class="close" type="button" data-close aria-label="Fermer la vidéo">×</button>
-</dialog>
-
 <footer class="foot"><div class="mw"><span>© 2026 Tom Berthet · Toulouse</span><a href="mentions-legales.html">Mentions légales</a></div></footer>
 <script src="assets/site.js" defer></script>
 <script src="assets/monde.js" defer></script>
 <script src="assets/carnet.js" defer></script>
-<script src="assets/rdv.js" defer></script>
 </body>
 </html>
