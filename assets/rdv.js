@@ -79,8 +79,11 @@
         const j = await r.json().catch(() => ({}));
         if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || r.status);
         done(data.Nom, data.Email);
-      } catch {
-        say('err', ['L’envoi n’a pas fonctionné. ', { tag: 'a', text: 'Envoyer la demande par email', href: fallback }, `, ou écrire directement à ${mail}.`]);
+      } catch (e) {
+        // FormSubmit refuse tout envoi tant que l'adresse de réception n'est pas activée (lien envoyé par email à cette adresse)
+        const why = /activ/i.test(String(e && e.message)) ? 'Le formulaire est en cours d’activation. ' : 'L’envoi n’a pas fonctionné. ';
+        if (why.startsWith('Le formulaire')) console.warn('FormSubmit : activation requise. Cliquer le lien « Activate Form » reçu sur', mail);
+        say('err', [why, { tag: 'a', text: 'Envoyer la demande par email', href: fallback }, `, ou écrire directement à ${mail}.`]);
       } finally {
         clearTimeout(timer);
         btn.disabled = false; label.textContent = 'Envoyer la demande';
