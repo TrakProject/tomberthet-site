@@ -858,7 +858,7 @@ html:not(.js) .flow li{color:#fff}
 body.monde{background:var(--page)}
 .open .c-tabs button,.open .c-nav button,.open .skills-line span{box-shadow:0 1px 0 #0000000A,0 4px 14px #0000000A}
 /* La suite d'un titre : noir qui s'éclaircit, au lieu d'un gris plat */
-.mega em,.big em,.way h3 em,.pg-title em,.essay h2 em,.page-simple .h2 em{
+.mega em,.big em,.way h3 em,.pg-title em,.essay h2 em,.page-simple .h2 em,.feat-main h2 em{
   background:linear-gradient(100deg,#1C1C21 0%,#5C5C66 55%,#8E8E99 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
   -webkit-box-decoration-break:clone;box-decoration-break:clone}
 .dark .mega em,.dark .big em,.nuit .big em,.p-hero:not(.light) .mega em,.p-next .big em,.way.dark h3 em,.pg-l .pg-title em,.feat-main h2 em,.c.dark .big em{
@@ -953,3 +953,11 @@ a.way:hover .wv-form .sign{transform:translateX(-50%)}
 .way-in>p:not(.w-foot){margin-top:10px;font-size:15.5px;line-height:1.55;color:var(--soft-ink)}
 .way.dark .way-in>p:not(.w-foot){color:#B4B4BC}
 @media (max-width:640px){.nuit .moon{display:none}}
+
+/* v12.1 : îles de l'accueil au-dessus de la section suivante ; carnet un peu plus petit, portrait moins zoomé */
+.ciel{overflow-x:clip;overflow-y:visible;z-index:2}
+.spread{min-height:486px}
+.pg-photo img{inset:auto;left:50%;bottom:0;width:auto;height:86%;max-width:none;object-fit:contain;transform:translateX(-50%)}
+.pg-photo{background:radial-gradient(80% 70% at 50% 35%,#34343C 0%,#18181C 62%,#0E0E11 100%)}
+@media (max-width:860px){.pg-photo{min-height:320px}}
+.who .cond{grid-template-columns:repeat(3,minmax(0,1fr))}@media (max-width:560px){.who .cond{grid-template-columns:1fr}}

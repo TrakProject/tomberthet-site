@@ -75,7 +75,6 @@
         <button role="tab" id="ct-2" aria-controls="cp-2" aria-selected="false" tabindex="-1"><span>02</span>Compétences</button>
         <button role="tab" id="ct-3" aria-controls="cp-3" aria-selected="false" tabindex="-1"><span>03</span>Parcours</button>
         <button role="tab" id="ct-4" aria-controls="cp-4" aria-selected="false" tabindex="-1"><span>04</span>Méthode</button>
-        <button role="tab" id="ct-5" aria-controls="cp-5" aria-selected="false" tabindex="-1"><span>05</span>Outils</button>
       </div>
 
       <div class="c-book">
@@ -150,27 +149,11 @@
           </div>
         </article>
 
-        <article class="spread" id="cp-5" role="tabpanel" aria-labelledby="ct-5">
-          <div class="pg pg-l">
-            <span class="pg-n">05</span>
-            <p class="pg-title">Les bons outils. <em>Pour chaque besoin.</em></p>
-            <p class="pg-note">Pas de dogme : l’outil qui fait gagner le plus de temps, au bon endroit.</p>
-            <img class="pg-obj" src="assets/img/monde/max-ordinateur.webp" alt="" loading="lazy">
-          </div>
-          <div class="pg pg-r">
-            <div class="tool-groups">
-              <div><h4>IA et code</h4><p class="chips"><span>Claude</span><span>Claude Code</span><span>ChatGPT</span><span>Codex</span><span>Cursor</span><span>Lovable</span></p></div>
-              <div><h4>Création</h4><p class="chips"><span>Higgsfield</span><span>Figma</span><span>Framer</span><span>Excalidraw</span><span>CapCut</span></p></div>
-              <div><h4>Automatisation</h4><p class="chips"><span>n8n</span><span>Agents IA</span><span>Workflows sur mesure</span></p></div>
-              <div><h4>Développement</h4><p class="chips"><span>React</span><span>Flutter</span><span>Supabase</span><span>Firebase</span><span>GitHub</span><span>Godot</span></p></div>
-            </div>
-          </div>
-        </article>
       </div>
 
       <div class="c-nav">
         <button type="button" class="c-prev" aria-label="Page précédente"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#back"/></svg></button>
-        <span class="c-count" aria-live="polite">1 / 5</span>
+        <span class="c-count" aria-live="polite">1 / 4</span>
         <button type="button" class="c-next" aria-label="Page suivante"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#next"/></svg></button>
       </div>
     </div>
@@ -265,7 +248,34 @@
   </div>
 </section>
 
-<!-- 5. Contact, de nuit : renvoie vers le formulaire de la page Collaborer -->
+<!-- 5. Résultats chiffrés et outils (déplacés du portfolio) -->
+<section class="panel equipe pad" id="resultats" aria-labelledby="t-ia">
+  <div class="mw">
+    <div class="sec-head center" data-r>
+      <p class="kicker">Résultats</p>
+      <h2 class="big" id="t-ia">Ce que l’IA rend possible. <em>Chiffres à l’appui.</em></h2>
+      <p class="lead">Obtenus sur des projets réels, pas dans une démo.</p>
+    </div>
+    <div class="orbit">
+      <img class="orbit-max" src="assets/img/monde/max-ordinateur.webp" alt="MAX travaille sur son ordinateur" loading="lazy">
+      <ul class="proofs">
+        <li data-r><b>500+</b><span>écrans maquettés</span><small>TRAK</small></li>
+        <li data-r style="--d:.05s"><b>1 000+</b><span>agents IA lancés en 3 jours</span><small>TRAK</small></li>
+        <li data-r style="--d:.1s"><b>100 %</b><span>d’un film généré par l’IA</span><small>Breaking Face</small></li>
+        <li data-r style="--d:.15s"><b>100+</b><span>modèles 3D, sans artiste</span><small>Resto Mania</small></li>
+        <li data-r style="--d:.2s"><b>4 jours</b><span>de l’idée au jeu jouable</span><small>Booply</small></li>
+        <li data-r style="--d:.25s"><b>200+</b><span>clients pour une marque créée de A à Z</span><small>BeeFit</small></li>
+      </ul>
+    </div>
+    <div class="tools" aria-label="Outils utilisés">
+      <div class="tools-row">
+        <span><img src="assets/img/outils/claude.svg" alt="" loading="lazy">Claude</span><span><img src="assets/img/outils/claude-code.svg" alt="" loading="lazy">Claude Code</span><span><img src="assets/img/outils/openai.svg" alt="" loading="lazy">ChatGPT</span><span><img src="assets/img/outils/openai.svg" alt="" loading="lazy">Codex</span><span><b class="glyph" aria-hidden="true">H</b>Higgsfield</span><span><img src="assets/img/outils/cursor.svg" alt="" loading="lazy">Cursor</span><span><b class="glyph" aria-hidden="true">L</b>Lovable</span><span><img src="assets/img/outils/figma.svg" alt="" loading="lazy">Figma</span><span><img src="assets/img/outils/framer.svg" alt="" loading="lazy">Framer</span><span><img src="assets/img/outils/excalidraw.svg" alt="" loading="lazy">Excalidraw</span><span><img src="assets/img/outils/n8n.svg" alt="" loading="lazy">n8n</span><span><img src="assets/img/outils/react.svg" alt="" loading="lazy">React</span><span><img src="assets/img/outils/flutter.svg" alt="" loading="lazy">Flutter</span><span><img src="assets/img/outils/supabase.svg" alt="" loading="lazy">Supabase</span><span><img src="assets/img/outils/firebase.svg" alt="" loading="lazy">Firebase</span><span><img src="assets/img/outils/godot.svg" alt="" loading="lazy">Godot</span><span><img src="assets/img/outils/github.svg" alt="" loading="lazy">GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Contact, de nuit : renvoie vers le formulaire de la page Collaborer -->
 <section class="panel dark nuit pad" id="contact" aria-labelledby="t-contact">
   <div class="stars-bg" aria-hidden="true"></div>
   <img class="moon" src="assets/img/trak/3d-lune-violette.webp" alt="" loading="lazy" data-depth=".5">
