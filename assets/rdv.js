@@ -64,7 +64,7 @@
       // En cas d'échec : un lien email prêt à envoyer, avec le même contenu
       const mail = form.dataset.mail;
       const body = Object.entries(data).filter(([k]) => !k.startsWith('_')).map(([k, x]) => `${k} : ${x}`).join('\n');
-      const fallback = `mailto:${mail}?subject=${encodeURIComponent(data._subject)}&body=${encodeURIComponent(body)}`;
+      const fallback = `mailto:${mail}?subject=${encodeURIComponent(data._subject)}&body=${encodeURIComponent(body.slice(0, 800))}`; // corps raccourci : limite des liens email
 
       // Le libellé du bouton est dans un <span> (l'icône suit)
       const label = btn.querySelector('span');

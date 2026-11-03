@@ -1176,3 +1176,128 @@ a.way:hover .wv-form .sign{transform:translateX(-50%)}
 #ensemble .sure li{display:flex;flex-direction:column;background:#fff;padding:22px 24px}
 #ensemble .sure span{margin-bottom:14px}
 #ensemble .sure a{margin-top:auto;font-size:14.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* =====================================================================
+   v18 (challenge final) : accueil — deux îles autour du titre, nuages petits et entiers ; carnet plus compact,
+   cartes qui défilent au doigt sur téléphone (assets/carnet.js)
+   ===================================================================== */
+.isles.duo .isle{width:clamp(170px,16.5vw,250px)}
+.j1{left:5.5%;top:27%}
+.j2{right:5.5%;top:40%}
+.j2 img{animation-delay:-2.5s}
+.ciel .c1{left:3%;top:10%;width:min(13vw,190px);opacity:.95}
+.ciel .c2{right:4%;top:15%;width:min(11vw,160px);opacity:.9;animation-duration:30s}
+.ciel .c3{left:21%;top:auto;bottom:12%;width:min(7vw,100px);opacity:.85;animation-duration:24s}
+@media (min-width:641px) and (max-width:1100px){
+  .isles.duo .isle{width:clamp(140px,19vw,190px)}
+  .j1{left:3%;top:10%}.j2{right:3%;top:auto;bottom:7%}
+  .ciel .c1{left:2%;top:auto;bottom:10%;width:18vw}.ciel .c2{right:3%;top:9%;width:15vw}.ciel .c3{display:none}
+}
+@media (max-width:640px){
+  .isles.duo .isle{width:112px}
+  .j1{left:1%;top:9%}.j2{right:1%;top:9%}
+  .ciel .c1{left:30%;top:7%;width:22vw;display:block}.ciel .c2{right:6%;top:auto;bottom:4%;width:26vw;display:block}.ciel .c3{display:none}
+}
+
+/* Carnet plus compact sur ordinateur */
+.carnet{max-width:1000px}
+.spread{min-height:420px}
+.pg{padding:clamp(22px,2.6vw,36px)}
+.pg-title{font-size:clamp(24px,2.3vw,32px)}
+.pg-note{font-size:14.5px}
+.pg-obj{width:min(40%,180px)}
+.pg-r h3{font-size:clamp(30px,3vw,42px)}
+.pg-lead{margin-top:12px;font-size:15.5px}
+.facts{margin-top:18px;gap:8px}
+.facts div{padding:11px 14px}
+.skills{gap:8px}.skills li{padding:13px 15px}.skills h4,.gest h4{font-size:15px}.skills p,.gest p{font-size:13.5px;margin-top:4px}
+.road li{padding:9px 14px}.road b{font-size:16px}.road p{font-size:14px}
+.gest{gap:8px}.gest li{padding:12px 16px}
+.c-tabs{margin-bottom:14px}.c-tabs button{height:40px;font-size:14px}
+.c-nav{margin-top:14px}
+
+/* Téléphone et tablette : les quatre pages en cartes qui défilent horizontalement */
+@media (max-width:860px){
+  html.js .c-book{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;
+    margin-inline:calc(-1 * var(--pad,20px));padding:4px var(--pad,20px) 16px;scroll-padding-inline:var(--pad,20px)}
+  html.js .c-book::-webkit-scrollbar{display:none}
+  html.js .spread,html.js .spread:not(.is-on){display:grid;visibility:visible;opacity:1;pointer-events:auto;flex:0 0 min(86%,440px);scroll-snap-align:start;align-self:flex-start;grid-area:auto;min-height:0;border-radius:24px;box-shadow:0 18px 36px -24px #0000004D}
+  html.js .spread .pg-l,html.js .spread .pg-r{animation:none!important}
+  .pg{padding:18px}
+  .pg-l{min-height:0}
+  .pg-l:not(.pg-photo){padding:18px 18px 16px}
+  .pg-l:not(.pg-photo) .pg-obj,.pg-l:not(.pg-photo) .pg-note{display:none}
+  .pg-l:not(.pg-photo) .pg-title{max-width:none;margin-top:8px;font-size:22px}
+  .pg-photo{min-height:250px}
+  .pg-badge{margin:14px;font-size:12px;padding:7px 11px}
+  .pg-r h3{font-size:28px}
+  .pg-lead{font-size:14.5px}
+  .facts{grid-template-columns:1fr 1fr}
+  .facts dd{font-size:13px}
+  .skills li{padding:11px 13px}
+  .road li{padding:8px 10px}
+  .gest li{grid-template-columns:32px 1fr;gap:10px;padding:11px 12px}
+  .gest .n{width:28px;height:28px;font-size:13px}
+}
+@media (min-width:861px){
+  .road{grid-template-columns:1fr 1fr;gap:6px}
+  .road li{grid-template-columns:1fr;gap:2px;padding:10px 14px;border-radius:14px;background:var(--tint)}
+  .road li.now{grid-column:1/-1}
+  .pg{padding:30px}
+  .spread{min-height:400px}
+}
+
+/* v18 : finitions du challenge final (rapport visuel) */
+h1,h2,.big,.mega{text-wrap:balance}
+.tl-film{background:#0C0C0F url(media/bf-29.webp) center/cover no-repeat}
+.bt h3 em{color:#E2E2E8}
+.t-go{background:#0000004D}
+.p-next::after{background:linear-gradient(0deg,#000000E0 0%,#00000080 55%,#0000004D 100%)}
+.p-next .big{text-shadow:0 2px 18px #00000066}
+.top .mw{background:#F7F7F9F2;backdrop-filter:saturate(1.6) blur(22px);-webkit-backdrop-filter:saturate(1.6) blur(22px)}
+@media (max-width:1024px){.top nav{background:#FAFAFB}}
+.foot{color:#55555C;font-size:14px}
+@media (max-width:900px){
+  #projets .proj-grid{grid-template-columns:1fr}
+  #projets .proj-grid .bt{grid-column:auto}
+  .who-photo{margin-inline:auto}
+}
+@media (max-width:480px){
+  .cta{display:grid;grid-template-columns:1fr;gap:10px}
+  .cta .btn{justify-content:center;width:100%}
+  .ciel-txt .cta{max-width:320px;margin-inline:auto}
+}
+/* Cibles tactiles d'au moins 24 px (rapport technique) */
+@media (min-width:1025px){.top nav a{padding-block:6px}}
+.more-link{padding-block:4px}
+.contact .links a,.nuit .links a{display:inline-block;padding-block:4px}
+video:focus-visible{outline:3px solid #0A84FF;outline-offset:3px}
+@media (max-width:860px){
+  .pg-photo{min-height:200px}
+  .pg-photo img{height:92%}
+  .pg-r h3{font-size:26px;margin-top:6px}
+  .pg-lead{font-size:14px;line-height:1.5}
+  .facts{margin-top:14px;gap:6px}.facts div{padding:9px 11px}.facts dt{font-size:11.5px}.facts dd{font-size:12.5px}
+  .skills{gap:6px}.skills li{padding:9px 12px;border-radius:14px}.skills h4{font-size:14px}.skills p{font-size:12.5px;line-height:1.4;margin-top:2px}
+  .road{gap:2px}.road li{padding:7px 10px}.road .yr{font-size:12px}.road b{font-size:14.5px}.road p{font-size:12.5px;line-height:1.4}
+  .gest{gap:6px}.gest h4{font-size:14px}.gest p{font-size:12.5px;line-height:1.4}
+  .pg-l:not(.pg-photo){padding:14px 16px}
+  .pg-l:not(.pg-photo) .pg-title{font-size:19px}
+}
+/* Portfolio : le parcours en une ligne, avec le portrait (validation finale) */
+.journey{display:flex;align-items:center;gap:clamp(16px,3vw,36px);margin-top:clamp(22px,3vw,34px);padding:14px clamp(14px,2vw,22px) 14px 14px;border-radius:24px;background:#fff;box-shadow:0 1px 0 #0000000A,0 6px 18px #0000000A}
+.j-me{display:flex;align-items:center;gap:12px;margin:0;flex:none}
+.j-me img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:radial-gradient(80% 70% at 50% 35%,#34343C 0%,#18181C 62%,#0E0E11 100%)}
+.j-me b{display:block;font-size:15px;letter-spacing:-.015em}
+.j-me span{display:block;font-size:13px;color:var(--mute)}
+.j-road{list-style:none;display:flex;gap:6px;flex:1;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.j-road::-webkit-scrollbar{display:none}
+.j-road li{flex:1 0 auto;padding:9px 13px;border-radius:14px;background:var(--tint)}
+.j-road li.now{background:var(--ink);color:#fff}
+.j-road span{display:block;font-size:11.5px;font-weight:700;color:var(--mute);font-variant-numeric:tabular-nums}
+.j-road li.now span{color:#9A9AA3}
+.j-road b{display:block;margin-top:2px;font-size:14px;letter-spacing:-.015em;white-space:nowrap}
+@media (max-width:760px){.journey{flex-direction:column;align-items:stretch}.j-road{margin-inline:-14px;padding-inline:14px}}
+/* Nuages : rien de coupé sur téléphone ni sur tablette */
+@media (max-width:640px){.ciel .c1{left:36%;top:16%;width:20vw}}
+@media (min-width:641px) and (max-width:1100px){.ciel .c1{left:4%}}
